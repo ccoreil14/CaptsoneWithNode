@@ -1,0 +1,30 @@
+.homeLogo {
+    width: 280px !important;
+    margin-top: 40px !important;
+}
+
+#title {
+    text-align: center;
+}
+
+#slogan {
+    text-align: center;
+}
+
+.linkSquare {
+    height: 350px;
+    max-width: 600px;
+    width: 40%;
+    border: 1px solid black;
+    display: inline-block;
+    position: absolute;
+    bottom: 80px;
+}
+
+#listBox {
+    right: 55%;
+}
+
+#findClassBox {
+    left: 55%;
+}

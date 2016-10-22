@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <title>ShapesList</title>
+    <link rel="stylesheet" href="../stylesheets/main.css">
+    <link rel="stylesheet" href="../stylesheets/exam.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <div id="menu" class="collapseBox">
+        <div id="menuHead" class="boxHeader">
+            <a href="pages/studentProfilePage.html">Login Student</a>
+            <a href="pages/teacherProfilePage.html">Login Teacher</a>
+            <img id="menuArrow" class="arrow" src="../images/arrow.png" onclick="toggleMenu('menuInsides')" />
+        </div>
+        <ul id="menuInsides" class="boxInsides" style="visibility: collapse;">
+            <a href="/index.html">
+                <li class="insidesItem">Home</li>
+            </a>
+            <a href="pages/shapeListPage.html">
+                <li class="insidesItem">ShapeLists</li>
+            </a>
+            <a href="pages/studentProfilePage">
+                <li class="insidesItem">Profile Page</li>
+            </a>
+        </ul>
+    </div>
+    <div id="chatBox" class="collapseBox">
+        <div id="chatBoxHead" class="boxHeader">ChatBox
+            <img id="menuArrow" class="arrow" src="../images/arrow.png" onclick="toggleMenu('chatBoxInsides')" />
+        </div>
+        <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
+            <li class="insidesItem" onclick="minMax()">Open/Close</li>
+        </ul>
+    </div>
+    <img id="logo" class="examLogo" src="../images/Logo3.png" />
+    <div class="examBox">
+        <ul class="examQuestionList">
+            <li class="examQuestion">
+                <img class="questionImg questionItem" src="../images/square.png" />
+                <div class="questionAndInput questionItem">
+                    <p class="questionDescrip">The square has a side length of 4. What is the perimeter.</p>
+                    <input class="userAnswer" />
+                    <button class="submitAnswerBtn">Submit</button>
+                </div>
+                <div class="answerBox questionItem">
+                    <div class="answerBoxCover">Behind these curtains is the answer!</div>
+                    <div class="answerDescrip">
+                        <h1>16</h1>Since a square has equal sides, that means every side it 4. 4+4+4+4 = 16.</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="boxYo" class='chatBox ui-widget-content'>
+        <ul id='messages'></ul>
+        <form action="" class="clientText" onsubmit="return false;">
+            <div class="input-group">
+                <!-- Autocomplete attribute used for setting if the browser will try to suggest previous text -->
+                <input id='textWindow' class="form-control" autocomplete="off" />
+                <div class="input-group-btn">
+                    <button id='btnSub' type="button" class="btn btn-default">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<footer>Site made and owned by Christian F. Coreil</footer>
+<script src="../scripts/main.js"></script>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="../scripts/client-socket.js"></script>
+</html>

@@ -1,0 +1,13 @@
+.classroomBox{
+    width: 20%;
+    display: block;
+    float: left;
+}
+
+.rightSide{
+    width: 52% !important;
+}
+
+.examItemListBox{
+    width: 27% !important;
+}
