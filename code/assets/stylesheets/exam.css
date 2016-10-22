@@ -1,0 +1,72 @@
+.examLogo {
+    width: 100px !important;
+}
+
+.examBox {
+    width: 80%;
+    height: 650px;
+    max-width: 900px;
+    margin-top: 50px;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: scroll;
+}
+
+.examQuestionList {
+    padding-left: 20px;
+}
+
+.examQuestion {
+    list-style-type: none;
+    border: 1px solid black;
+    height: 40%;
+    width: 99%;
+}
+
+.questionItem {
+    width: 30%;
+    border: 1px solid black;
+    display: block;
+    margin-right: 2%;
+    float: left;
+}
+
+.questionImg {}
+
+
+/*Question descrip and user input*/
+
+.questionAndInput {
+    height: 100%;
+    text-align: center;
+}
+
+.questionDescrip {}
+
+.userAnswer {}
+
+.submitAnswerBtn {}
+
+
+/*Question descrip and user input*/
+
+
+/*Answer section*/
+
+.answerBox {
+    text-align: center;
+    height: 100%;
+}
+
+.answerBoxCover {
+    height: 0px;
+    visibility: hidden;
+}
+
+.answerDescrip {
+    height: 100%;
+}
+
+
+/*Answer Section*/

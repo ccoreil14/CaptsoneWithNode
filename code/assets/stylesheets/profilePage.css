@@ -1,0 +1,165 @@
+.profileBody{
+    border: 1px solid black;
+    height: 75%;
+    margin-top: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*exam list*/
+
+.examItemListBox{
+    border: 1px solid black;
+    display: block;
+    width: 30.7%;
+    float: left;
+    height: 100%;
+}
+
+.examItemList{
+    padding-left: 0px;
+    overflow-y: scroll;
+    height: 100%;
+    margin-top: 0px;
+}
+
+.examItem{
+    list-style-type: none;
+    width: 99%;
+    border: 1px solid black;
+}
+
+/*examList*/
+
+
+/*right side of screen*/
+.rightSide{
+    border: 1px solid black;
+    display: block;
+    width: 68.7%;
+    float: right;
+    height: 100%;
+}
+
+/*Info Box*/
+.infoBox{
+    border: 1px solid black;
+    height: 45%;
+}
+
+
+ /*Info Box Top Row*/
+.infoBoxTopRow{
+    border: 1px solid black;  
+    height: 50%;
+}
+
+
+.profilePic{
+    width: 15%;
+    border-radius: 70%;
+    display: block;
+    float: left;
+    margin-left: 4%;
+    margin-top: 2%;
+}
+
+.nameAndPass{
+    display: block;
+    float: right;
+    padding-right: 20px;
+}
+
+.nameInput{
+    float: right;
+    width: 300px;
+}
+
+.passwordInput{
+    float: right;
+    width: 300px;
+}
+ /*Info Box Top Row*/
+
+
+.profilePicLink{
+    width: 60%
+}
+
+
+/*Info box bottom row*/
+.infoBoxBottomRow{
+    border: 1px solid black;  
+    height: 28%;
+}
+
+.bio{
+    display: block;
+    float: left;
+    height: 99%;
+    width: 70%;
+    resize: none;
+}
+
+.colorAndSave{
+    display: block;
+    float: right;
+    width: 27%;
+}
+
+.profileColor{
+    height: 49%;
+    border: 1px solid black;  
+}
+
+.saveBtn{
+    height: 49%;
+    width: 100%;
+}
+/*Info box bottom row*/
+/*Info Box*/
+
+
+/*Medal List Box*/
+.medalListBox{
+    height: 49%;
+    width: 99.9%;
+    border: 1px dashed red;
+    margin-top: 33px;
+}
+
+.medalListTitle{
+    text-align: center;
+}
+
+.medalAndName{
+    float: left;
+    display: block;
+    margin-left: 20px;
+    margin-top: 20%;
+}
+
+/*for medals only*/
+.medal{
+    width: 120px;
+    border-radius: 70px; 
+}
+
+.locked{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.unlocked{
+    box-shadow: 3px 1px 7px;
+}
+
+.medalName{
+    text-align: center;
+    margin-top: 10px;
+}
+/*for medals only*/
+
+
+/*right side of screen*/
