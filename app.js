@@ -1,10 +1,8 @@
 //Dependencies
 var app = require('express')();
 //var http = require('http').Server(app);
-var path = require('path');
-app.set('port', (process.env.PORT || 3000));
-//var sio = require('socket.io')(app.get('port')); //We pass in the instance of our http server to socket io
-
+//var path = require('path');
+//var sio = require('socket.io')(http); //We pass in the instance of our http server to socket io
 
 //Public folder creation
 app.use(require('express').static(path.join(__dirname, 'assets')));
@@ -27,18 +25,11 @@ app.get('/', function (req, res) {
 //        sio.emit('send-to-client', msg);
 //    });
 //});
+//
 
 
-
-app.listen(app.get('port'), function () {
-    console.log('Node app is running on port', app.get('port'));
+//Listening
+http.listen(3000, function () {
+    console.log('Server listening on 3000...');
 });
 
-
-
-
-//Listening locally
-
-//http.listen(3000, function () {
-//    console.log('Server listening on 3000...');
-//});
