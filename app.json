@@ -1,0 +1,8 @@
+{
+  "name": "geometryworkshop",
+  "description": "A eductaional site for kids to learn geometry ",
+  "repository": "https://github.com/ccoreil14/CaptsoneWithNode",
+  "logo": "assets/images/Logo3.png",
+  "keywords": ["node", "express", "static", "path", "socket.io"],
+  "image": "assets/images/Logo2.png"
+}
