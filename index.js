@@ -1,7 +1,7 @@
 //Dependencies
 var app = require('express')();
 //var http = require('http').Server(app);
-//var path = require('path');
+var path = require('path');
 //var sio = require('socket.io')(http); //We pass in the instance of our http server to socket io
 
 //Public folder creation
