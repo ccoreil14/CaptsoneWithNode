@@ -5,17 +5,14 @@
     "engines": {
         "node": "5.9.1"
     },
-    "main": "app.js",
+    "main": "index.js",
     "scripts": {
-        "start": "node app.js"
+        "start": "node index.js"
     },
     "dependencies": {
         "express": "^4.13.4",
         "path": "^0.12.7",
         "socket.io": "^1.4.5"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
@@ -28,6 +25,5 @@
     "path",
     "socket.io"
   ],
-    "author": "Christian F. Coreil",
     "license": "MIT"
 }
