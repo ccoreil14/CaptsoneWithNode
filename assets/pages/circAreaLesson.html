@@ -3,7 +3,7 @@
 <head>
     <title>ShapesList</title>
     <link rel="stylesheet" href="../stylesheets/main.css">
-    <link rel="stylesheet" href="../stylesheets/shapeList.css">
+    <link rel="stylesheet" href="../stylesheets/videoLesson.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -36,50 +36,18 @@
             <li class="insidesItem" onclick="minMax()">Open/Close</li>
         </ul>
     </div>
-    
     <img id="logo" src="../images/Logo3.png" />
 
-    <div id="twoD" class="List">
-        <h1>2d Shapes</h1>
-        <ul class="shapeList">
-            <li class="shapeItem">
-                <img class="shapeImg" src="../images/square.png" />
-                <div class="shapeWords">
-                    <a href="squareWorkshop.html"><h3 class="shapeName">Rectangle</h3></a>
-                    <p class="shapeFormula">1: <a href="perimeterLesson.html">Perimeter</a></p>
-                    <p class="shapeFormula">2: <a href="rectAreaLesson.html">Area</a></p>
-                </div>
-            </li>
-            <li class="shapeItem">
-                <img class="shapeImg" src="../images/circle.png" />
-                <div class="shapeWords">
-                    <h3 class="shapeName"><a href="circleWorkshop.html">Circle</a></h3>
-                    <p class="shapeFormula">1: <a href="circumfrenceLesson.html">Circumfrence</a></p>
-                    <p class="shapeFormula">2: <a href="circAreaLesson.html">Area</a></p>
-                </div>
-            </li>
-        </ul>
+
+    <iframe class="video" src="https://www.youtube.com/embed/jthbracDu8w" frameborder="0" allowfullscreen></iframe>
+
+    <div class="box prevBtn">
+        <h2>Previous</h2>
+        <h1><a href="circumfrenceLesson.html">Circumfrence</a></h1>
     </div>
-    <div id="threeD" class="List">
-        <h1>3d Objects</h1>
-        <ul class="shapeList">
-            <li class="shapeItem">
-                <img class="shapeImg" src="../images/cube.png" />
-                <div class="shapeWords">
-                    <h3 class="shapeName"><a href="cubeWorkshop.html">Right Rectangular Prism</a></h3>
-                    <p class="shapeFormula">1: <a href="prismSALesson.html">Surface Area</a></p>
-                    <p class="shapeFormula">2: <a href="prismVolLesson.html">Volume</a></p>
-                </div>
-            </li>
-            <li class="shapeItem">
-                <img class="shapeImg" src="../images/sphere.gif" />
-                <div class="shapeWords">
-                    <h3 class="shapeName"><a href="sphereWorkshop.html">Sphere</a></h3>
-                    <p class="shapeFormula">1: <a href="sphereSALesson.html">Surface Area</a></p>
-                    <p class="shapeFormula">2: <a href="sphereVolLesson.html">Volume</a></p>
-                </div>
-            </li>
-        </ul>
+    <div class="box nextBtn">
+        <h2>Next</h2>
+        <h1><a href="circExam.html">Take the Exam</a></h1>
     </div>
     <div id="boxYo" class='chatBox ui-widget-content'>
         <ul id='messages'></ul>
@@ -95,8 +63,8 @@
     </div>
 </body>
 <footer>Site made and owned by Christian F. Coreil</footer>
+<script src="../scripts/main.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="../scripts/client-socket.js"></script>
-<script src="../scripts/main.js"></script>
 
 </html>

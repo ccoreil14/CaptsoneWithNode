@@ -3,6 +3,7 @@
 <head>
     <title>ShapesList</title>
     <link rel="stylesheet" href="../stylesheets/main.css">
+    <link rel="stylesheet" href="../stylesheets/exam.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -35,6 +36,24 @@
             <li class="insidesItem" onclick="minMax()">Open/Close</li>
         </ul>
     </div>
+    <img id="logo" class="examLogo" src="../images/Logo3.png" />
+    <div class="examBox">
+        <ul class="examQuestionList">
+            <li class="examQuestion">
+                <img class="questionImg questionItem" src="../images/cube.png" />
+                <div class="questionAndInput questionItem">
+                    <p class="questionDescrip">The cube has a length of 4. What is the volume of this cube.</p>
+                    <input class="userAnswer" />
+                    <button class="submitAnswerBtn">Submit</button>
+                </div>
+                <div class="answerBox questionItem">
+                    <div class="answerBoxCover">Behind these curtains is the answer!</div>
+                    <div class="answerDescrip">
+                        <h1>64</h1> Since it is a cube, all the measures are 4. Because of this, 4 x 4 x 4 will make the volume to a total of 64.</div>
+                </div>
+            </li>
+        </ul>
+    </div>
     <div id="boxYo" class='chatBox ui-widget-content'>
         <ul id='messages'></ul>
         <form action="" class="clientText" onsubmit="return false;">
@@ -47,11 +66,10 @@
             </div>
         </form>
     </div>
-    <img id="logo" src="../images/Logo3.png" />
 </body>
 <footer>Site made and owned by Christian F. Coreil</footer>
 <script src="../scripts/main.js"></script>
-
 <script src="/socket.io/socket.io.js"></script>
 <script src="../scripts/client-socket.js"></script>
+
 </html>
