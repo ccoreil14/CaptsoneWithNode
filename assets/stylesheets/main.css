@@ -7,6 +7,12 @@ footer {
 
 body {
     min-height: 900px;
+    background: #8092DE;
+    color: white;
+}
+
+a {
+    color: white;
 }
 
 #logo {
@@ -33,6 +39,7 @@ body {
     width: 300px;
     height: 100px;
     border: 2px solid black;
+    z-index: 100;
 }
 
 
@@ -41,21 +48,30 @@ body {
 .boxHeader {
     width: 300px;
     height: 100px;
-    border: 2px solid black;
+    background-color: #283C92;
+    text-align: center;
+    font-size: 40px;
+    padding-top: 15px;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    
 }
 
 .arrow {
     display: block;
     width: 15px;
-    height: 100%;
+    height: 50%;
     transform: rotate(90deg);
     margin-left: auto;
     margin-right: auto;
-    margin-top: 6%;
 }
 
 .arrow:hover {
-    background: black;
+    -webkit-filter: brightness(200%);
+    filter: brightness(200%);
     cursor: pointer;
 }
 
@@ -68,9 +84,15 @@ body {
 .boxInsides {
     min-height: 100px;
     max-height: 900px;
-    border: 2px dashed grey;
     margin: 0;
     padding-left: 20px;
+    border: 1px solid black;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    text-decoration: none !important;
+    background: #283C92;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 
@@ -84,17 +106,23 @@ body {
     height: 50px;
     margin-top: 5px;
     margin-bottom: 5px;
-    border: 1px dotted blue;
     list-style-type: none;
     margin-left: 0;
-    z-index: 100;
     position: relative;
-    background-color: white;
+    background: #A7A9AC;
+    padding-left: 5px;
+    padding-top: 5px;
+    border-radius: 10px;
+    color: black;
 }
 
+.boxinsides a  {
+    text-decoration: none;
+}
+
+
 .insidesItem:hover {
-    color: azure;
-    background: black;
+    background: white;
     cursor: pointer;
 }
 
