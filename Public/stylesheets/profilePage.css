@@ -127,6 +127,7 @@
     width: 99.9%;
     border: 1px dashed red;
     margin-top: 33px;
+    overflow-y: scroll;
 }
 
 .medalListTitle{
@@ -137,7 +138,8 @@
     float: left;
     display: block;
     margin-left: 20px;
-    margin-top: 20%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /*for medals only*/
@@ -152,7 +154,7 @@
 }
 
 .unlocked{
-    box-shadow: 3px 1px 7px;
+    box-shadow: black 3px 3px 4px;
 }
 
 .medalName{

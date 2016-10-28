@@ -8,18 +8,19 @@
      intersection = new THREE.Vector3(),
      INTERSECTED, SELECTED;
 
+    
+ var radius = document.getElementById("radiusInput").value;
 
- var prismX = document.getElementById("widthInput").value;
- var prismY = document.getElementById("lengthInput").value;
- var prismZ = document.getElementById("heightInput").value;
- var arrow1Y, arrow2X, arrow3Z;
- var lineX, lineY, lineZ;
+ var diameter = radius * 2;
+ var arrow2X;
+ var lineX;
+ var radius;
 
  var playbox = document.getElementsByClassName("playBox")[0];
  var threeHeight = 500;
  var threeWidth = 500;
 
- var mainGeometry = new THREE.BoxGeometry(40, 40, 40);
+ var mainGeometry = new THREE.CircleGeometry(20, 64);
 
  var mainMaterial = new THREE.MeshLambertMaterial({
      color: 0x000ff0
@@ -35,7 +36,7 @@
  var arrowMaterial;
  var arrXRotaion;
  var arrYRotaion;
- var arrXRotaion;
+ var arrZRotaion;
 
  function init() {
 
@@ -43,9 +44,7 @@
      playbox.appendChild(container);
 
      camera = new THREE.PerspectiveCamera(10, threeWidth / threeHeight, 1, 10000000);
-     camera.position.z = 1000;
-     camera.position.y = 600;
-     camera.position.x = 800;
+     camera.position.z = 1500;
 
      renderer = new THREE.WebGLRenderer({
          antialias: true
@@ -69,11 +68,11 @@
      renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
 
      controls = new THREE.TrackballControls(camera, renderer.domElement);
-     controls.rotateSpeed = 1.0;
+     controls.rotateSpeed = 0;
      controls.zoomSpeed = 0.2;
      controls.panSpeed = 0.9;
      controls.noZoom = false;
-     controls.noPan = false;
+     controls.noPan = true;
      controls.staticMoving = true;
      controls.dynamicDampingFactor = 0.3;
 
@@ -97,6 +96,25 @@
 
 
 
+
+     radiusLineGeometry = new THREE.CylinderGeometry(1, 1, 20);
+     radiusLineMaterial = new THREE.LineBasicMaterial({
+         color: 0xffffff,
+         transparent: true,
+         opacity: 0.8
+     });
+
+     radiusLine = new THREE.Mesh(radiusLineGeometry, radiusLineMaterial);
+     radiusLine.position.x = 10;
+     radiusLine.rotation.z = 7.85;
+     radiusLine.visible = false;
+     scene.add(radiusLine);
+
+
+
+
+
+
      lineGeometry = new THREE.CylinderGeometry(0.1, 0.1, 100000);
      lineMaterial = new THREE.LineBasicMaterial({
          color: 0xffffff,
@@ -107,9 +125,6 @@
      lineY = new THREE.Mesh(lineGeometry, lineMaterial);
      scene.add(lineY);
 
-     lineZ = new THREE.Mesh(lineGeometry, lineMaterial);
-     lineZ.rotation.x = 1.569;
-     scene.add(lineZ);
 
      lineX = new THREE.Mesh(lineGeometry, lineMaterial);
      lineX.rotation.z = 1.569;
@@ -124,32 +139,16 @@
 
 
 
-     var i;
-     for (i = 0; i < 3; i++) {
+     for (i = 0; i < 1 ;i++) {
          var arrow = new THREE.Mesh(arrowGeometry, arrowMaterial);
 
-         if (i === 0) {
-
-             arrow1Y = arrow.position.y = 60;
-             arrow.position.x = 0;
-             arrow.position.z = 0;
-             arrXRotaion = 0;
-             arrYRotaion = 0;
-             arrZRotaion = 0;
-         } else if (i === 1) {
+         if (i === 0)  {
              arrow.position.y = 0;
              arrow2X = arrow.position.x = 60;
              arrow.position.z = 0;
              arrXRotaion = 0;
              arrYRotaion = 0;
              arrZRotaion = -1.6;
-         } else if (i === 2) {
-             arrow.position.y = 0;
-             arrow.position.x = 0;
-             arrow3Z = arrow.position.z = -60;
-             arrXRotaion = -1.6;
-             arrYRotaion = 0;
-             arrZRotaion = 0;
          }
 
 
@@ -171,7 +170,7 @@
      }
 
 
-
+     updateFormulas();
 
  }
 
@@ -179,10 +178,10 @@
  function onDocumentMouseMove(event) {
      event.preventDefault();
 
-     //     var topSize = document.getElementById("mainBody").clientHeight;
-     //     console.log(topSize);
-     mouse.x = ((event.clientX - 363) / 500) * 2 - 1;
-     mouse.y = -((event.clientY - 405) / 500) * 2 + 1;
+     var scrollLeft = $(window).scrollLeft() ;
+     var scrollTop = $(window).scrollTop() ;
+     mouse.x = ((event.clientX - (363-scrollLeft)) / 500) * 2 - 1;
+     mouse.y = -((event.clientY - (405-scrollTop)) / 500) * 2 + 1;
      //                  ^  affects how it tracks mouse in three js for dragging
 
      raycaster.setFromCamera(mouse, camera);
@@ -191,40 +190,27 @@
 
          if (raycaster.ray.intersectPlane(plane, intersection)) {
              SELECTED.position.copy(intersection.sub(offset));
-             if (SELECTED.rotation.x === -1.6) {
-                 console.log("z");
-
-                 SELECTED.position.x = 0;
-                 SELECTED.position.y = 0;
-                 mainObj.scale.z = ((arrow3Z - SELECTED.position.z) + 20) / (prismZ/2);
-                 //                    console.log(SELECTED.position);
-                 if (SELECTED.position.z >= (arrow3Z)) {
-                     SELECTED.position.z = arrow3Z;
-                     mainObj.scale.z = 1;
-                 }
-             } else if (SELECTED.rotation.z === -1.6) {
+             if (SELECTED.rotation.z === -1.6) {
                  //                        SELECTED.position.copy(intersection.sub(offset));
                  console.log("x");
                  SELECTED.position.y = 0;
                  SELECTED.position.z = 0;
-                 mainObj.scale.x = ((SELECTED.position.x - arrow2X) + 20) / (prismX/2);
+                 var spacing = (SELECTED.position.x - 41)  ;
+                 mainObj.scale.x = spacing/ (diameter / 2);
+                 mainObj.scale.y = spacing/ (diameter / 2);
+                 radiusLine.scale.y = spacing/ (diameter / 2);
+                 radiusLine.position.x = spacing/2;
                  //                    console.log(SELECTED.position);
-                 if (SELECTED.position.x <= (arrow2X)) {
+                 if (SELECTED.position.x <= 41) {
                      SELECTED.position.x = arrow2X;
-                     mainObj.scale.x = 1;
-                 }
-             } else {
-                 //                        SELECTED.position.copy(intersection.sub(offset));
-                 console.log("y");
-                 SELECTED.position.x = 0;
-                 SELECTED.position.z = 0;
-                 mainObj.scale.y = ((SELECTED.position.y - arrow1Y) + 20) / (prismY/2);
-                 //                    console.log(SELECTED.position);
-                 if (SELECTED.position.y <= (arrow1Y)) {
-                     SELECTED.position.y = arrow1Y;
-                     mainObj.scale.y = 1;
+                     mainObj.scale.x = 0.025;
+                     mainObj.scale.y = 0.025;
+                     radiusLine.scale.y = 0.025;
+                     radiusLine.position.x = 0.5;
                  }
              }
+             updateInputs();
+             updateFormulas();
          }
 
          return;
@@ -288,6 +274,7 @@
 
  }
 
+
  function onDocumentMouseUp(event) {
 
      event.preventDefault();
@@ -303,8 +290,6 @@
      container.style.cursor = 'auto';
 
  }
-
- //
 
  function animate() {
 
@@ -327,45 +312,95 @@
      scene.remove(mainObj);
      controls.reset();
 
-     prismX = document.getElementById("widthInput").value = 40;
-     prismY = document.getElementById("lengthInput").value = 40;
-     prismZ = document.getElementById("heightInput").value = 40;
-     mainGeometry = new THREE.BoxGeometry(prismX, prismY, prismZ);
+     radius = document.getElementById("radiusInput").value = 20;
+
+     diameter = radius * 2 ;
+
+     mainGeometry = new THREE.CircleGeometry(radius, 64);
      mainObj = new THREE.Mesh(mainGeometry, mainMaterial);
-     for (i = 0; i < 3; i++) {
+     for (i = 0; i < 1; i++) {
          if (i === 0) {
-             arrows[i].position.y = (prismY)+20;
-         } else if (i === 1) {
-             arrows[i].position.x = (prismX)+20;
-         } else if (i === 2) {
-             arrows[i].position.z = -(prismZ)-20;
+             arrows[i].position.x = (diameter) + 20;
          }
      }
      scene.add(mainObj);
+     resetGlowLines();
+     updateFormulas();
  }
 
  function updateShape() {
      scene.remove(mainObj);
-     prismX = 1*document.getElementById("widthInput").value;
-     prismY = 1*document.getElementById("lengthInput").value;
-     prismZ = 1*document.getElementById("heightInput").value;
-     mainGeometry = new THREE.BoxGeometry(prismX, prismY, prismZ);
+     radius =1 * document.getElementById("radiusInput").value;
+     var circleColor = document.getElementById("colorInput").value;
+     if(radius < 1 ){
+         radius = 1;
+         document.getElementById("radiusInput").value = 1;
+     }
+     diameter = radius * 2;
+     mainGeometry = new THREE.CircleGeometry(radius, 64);
      mainObj = new THREE.Mesh(mainGeometry, mainMaterial);
+     mainObj.material.color.setHex('0x' + circleColor);
+
      scene.add(mainObj);
-     
-     for (i = 0; i < 3; i++) {
+
+     for (i = 0; i < 1; i++) {
          if (i === 0) {
-             arrows[i].position.y = ((prismY)+20);
-//             console.log(arrows[i].position.y+ " : " + (prismY));
-         } else if (i === 1) {
-             arrows[i].position.x = (prismX)+20;
-         } else if (i === 2) {
-             arrows[i].position.z = -(prismZ)-20;
-//              console.log(arrows[i].position.y+ " : " + (prismZ));
+             arrow2X = arrows[i].position.x = (diameter) + 20;
          }
      }
+     updateGLines();
+     updateFormulas();
  }
 
  function updateInputs() {
+     var arrowX = arrows[0].position.x;
+
+     var rInput = document.getElementById("radiusInput");
+
+     rInput.value = (Math.round(arrowX) - 20) / 2;
 
  }
+
+ function updateFormulas() {
+
+     var rInput = document.getElementById("radiusInput");
+
+     document.getElementById("CircumferenceAnsr").innerText = circumfrence(rInput.value);
+     document.getElementById("CircAreaAnsr").innerText = circArea(rInput.value);
+
+ }
+
+
+
+ var isGlowing = false;
+
+
+ function toggleGlow() {
+     if (isGlowing === false) {
+         document.getElementById("toggleGlow").innerText = "Glow Off";
+         isGlowing = true;
+         radiusLine.visible = true;
+
+     } else {
+         document.getElementById("toggleGlow").innerText = "Glow On";
+         isGlowing = false;
+         radiusLine.visible = false;
+     }
+ }
+
+ function resetGlowLines() {
+     radiusLine.position.x = 10;
+     radiusLine.scale.y = 1;
+
+
+ }
+
+ function updateGLines() {
+
+     radiusLine.position.x = radius/2;
+     radiusLine.scale.y = diameter / 40;
+
+ }
+
+
+ //yo

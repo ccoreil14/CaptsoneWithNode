@@ -1,29 +1,33 @@
 {
-    "name": "geometryworkshop",
-    "version": "0.5.1",
-    "description": "A eductaional site for kids to learn geometry ",
-    "engines": {
-        "node": "5.9.1"
-    },
-    "main": "index.js",
-    "scripts": {
-        "start": "node index.js"
-    },
-    "dependencies": {
-        "express": "^4.13.4",
-        "path": "^0.12.7",
-        "socket.io": "^1.4.5"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/ccoreil14/CaptsoneWithNode"
-    },
-    "keywords": [
+  "name": "geometryworkshop",
+  "version": "0.5.1",
+  "description": "A eductaional site for kids to learn geometry ",
+  "engines": {
+    "node": "5.9.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "express": "^4.13.4",
+    "mongoose": "^4.6.5",
+    "passport": "^0.3.2",
+    "path": "^0.12.7",
+    "socket.io": "^1.4.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ccoreil14/CaptsoneWithNode"
+  },
+  "keywords": [
     "node",
     "heroku",
     "express",
     "path",
     "socket.io"
   ],
-    "license": "MIT"
+  "license": "MIT"
 }
