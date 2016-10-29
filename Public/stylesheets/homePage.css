@@ -19,6 +19,9 @@
     display: inline-block;
     position: absolute;
     bottom: 80px;
+    background: #283C92;
+    text-align: center;
+    font-size: 35px;
 }
 
 #listBox {
