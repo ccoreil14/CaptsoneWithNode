@@ -1,0 +1,158 @@
+<html>
+
+<head>
+    <title>ShapesList</title>
+    <link rel="stylesheet" href="../../stylesheets/main.css">
+    <link rel="stylesheet" href="../../stylesheets/profilePage.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <div id="menu" class="collapseBox">
+        <div id="menuHead" class="boxHeader">
+            <a href="studentProfilePage.html">Login Student</a>
+            <!--            <a href="pages/teacherProfilePage.html">Login Teacher</a>-->
+            <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('menuInsides')" />
+        </div>
+        <ul id="menuInsides" class="boxInsides" style="visibility: collapse;">
+            <a href="/">
+                <li class="insidesItem">Home</li>
+            </a>
+            <a href="/Public/pages/shapeListPage.html">
+                <li class="insidesItem">ShapeLists</li>
+            </a>
+
+            <a href="/profile">
+                <li class="insidesItem">Profile Page</li>
+            </a>
+
+        </ul>
+    </div>
+    <div id="chatBox" class="collapseBox">
+        <div id="chatBoxHead" class="boxHeader">ChatBox
+            <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('chatBoxInsides')" />
+        </div>
+        <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
+            <li class="insidesItem" onclick="minMax()">Open/Close</li>
+        </ul>
+    </div>
+    <img id="logo" src="../../images/Logo3.png" />
+    <div class="profileBody">
+        <div class="examItemListBox">
+            <ul class="examItemList">
+                <li class="examItem">
+                    <!--                   Will fill in later-->
+                    <h3>Square Exam       (Green) 90%</h3>
+                </li>
+            </ul>
+        </div>
+        <div class="rightSide">
+            <div class="infoBox">
+                <div class="infoBoxTopRow">
+                    <img class="profilePic" src='<%= user.local.profilePic%>' />
+                    <div class="nameAndPass">
+                        <h4> Email: <%= user.local.email %></h4>
+                    </div>
+                </div>
+                <h4>Profile Picture Link: <%= user.local.profilePic%></h4>
+                <div class="infoBoxBottomRow">
+                    <textarea class="bio">
+                        <%= user.local.profileBio %>
+                    </textarea>
+                    <div class="colorAndSave">
+                        <div class="profileColor">
+                            <%= user.local.profileColor %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="medalListBox">
+                <div class="medalListTitle">Medal List</div>
+                <div class="medalAndName">
+                    <% if (user.local.userMedals.medal1 === true) {%>
+                        <img class="medal unlocked" src="../../images/Logo1.png" />
+                        <% } else { %>
+                            <img class="medal locked" src="../../images/Logo1.png" />
+                            <%}%>
+                                <div class="medalName">Make Account</div>
+                </div>
+                <div class="medalAndName">
+                    <% if (user.local.userMedals.medal2 === true) {%>
+                        <img class="medal unlocked" src="../../images/Medals/CubeMedal.png" />
+                        <% } else { %>
+                            <img class="medal locked" src="../../images/Medals/CubeMedal.png" />
+                            <%}%>
+                                <div class="medalName">3D!</div>
+                </div>
+                <div class="medalAndName">
+                    <% if (user.local.userMedals.medal3 === true) {%>
+                        <img class="medal unlocked" src="../../images/Medals/HexagonMedal.png" />
+                        <% } else { %>
+                            <img class="medal locked" src="../../images/Medals/HexagonMedal.png" />
+                            <%}%>
+                                <div class="medalName">Shapes</div>
+                </div>
+                <div class="medalAndName">
+                    <% if (user.local.userMedals.medal4 === true) {%>
+                        <img class="medal unlocked" src="../../images/Medals/PassMedal.png" />
+                        <% } else { %>
+                            <img class="medal locked" src="../../images/Medals/PassMedal.png" />
+                            <%}%>
+                                <div class="medalName">Your first pass</div>
+                </div>
+                <div class="medalAndName">
+                    <% if (user.local.userMedals.medal5 === true) {%>
+                        <img class="medal unlocked" src="../../images/Medals/PMedal.png" />
+                        <% } else { %>
+                            <img class="medal locked" src="../../images/Medals/PMedal.png" />
+                            <%}%>
+                                <div class="medalName">Styling!</div>
+                </div>
+                <div class="medalAndName">
+                    <% if (user.local.userMedals.medal6 === true) {%>
+                        <img class="medal unlocked" src="../../images/Medals/PerfectMedal.png" />
+                        <% } else { %>
+                            <img class="medal locked" src="../../images/Medals/PerfectMedal.png" />
+                            <%}%>
+                                <div class="medalName">Perfect!</div>
+                </div>
+                <div class="medalAndName">
+                    <% if (user.local.userMedals.medal7 === true) {%>
+                        <img class="medal unlocked" src="../../images/Medals/SmileMedal.png" />
+                        <% } else { %>
+                            <img class="medal locked" src="../../images/Medals/SmileMedal.png" />
+                            <%}%>
+                                <div class="medalName">Talkitive</div>
+                </div>
+                <div class="medalAndName">
+                    <% if (user.local.userMedals.meda8 === true) {%>
+                        <img class="medal unlocked" src="../../images/Medals/StarMedal.png" />
+                        <% } else { %>
+                            <img class="medal locked" src="../../images/Medals/StarMedal.png" />
+                            <%}%>
+                                <div class="medalName">Straight A's</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="boxYo" class='chatBox ui-widget-content'>
+        <ul id='messages'></ul>
+        <form action="" class="clientText" onsubmit="return false;">
+            <div class="input-group">
+                <!-- Autocomplete attribute used for setting if the browser will try to suggest previous text -->
+                <input id='textWindow' class="form-control" autocomplete="off" />
+                <div class="input-group-btn">
+                    <button id='btnSub' type="button" class="btn btn-default">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<footer>Site made and owned by Christian F. Coreil</footer>
+<script src="../../scripts/main.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="../../scripts/client-socket.js"></script>
+
+</html>

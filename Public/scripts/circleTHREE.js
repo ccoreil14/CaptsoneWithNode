@@ -80,7 +80,7 @@
 
      scene.add(new THREE.AmbientLight(0x505050));
 
-     var light = new THREE.SpotLight(0xffffff, 1.5);
+     var light = new THREE.SpotLight(0x505050, 1.5);
      light.position.set(0, 500, 2000);
      light.castShadow = true;
 
