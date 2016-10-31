@@ -14,7 +14,7 @@ var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://user:pass@ds137207.mlab.com:37207/fulltest');
+mongoose.connect('mongodb://user:pass@ds139327.mlab.com:39327/test3');
 
  require('./config/passport')(passport);
 
