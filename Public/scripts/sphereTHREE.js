@@ -217,8 +217,8 @@
                  radiusLine.scale.y = spacing / (diameter / 2);
                  radiusLine.position.x = spacing / 2;
                  //                 console.log(SELECTED.position);
-                 if (SELECTED.position.x <= (arrow2X)) {
-                     SELECTED.position.x = arrow2X;
+                 if (mainObj.scale.x <= 0.025 ) {
+                     SELECTED.position.x = 20;
                      mainObj.scale.x = 0.025;
                      mainObj.scale.y = 0.025;
                      mainObj.scale.z = 0.025;
@@ -352,6 +352,7 @@
      radius = 1 * document.getElementById("radiusInput").value;
      var sphereColor = document.getElementById("colorInput").value;
      if (radius < 1) {
+//         console.log("yo");
          radius = 1;
          document.getElementById("radiusInput").value = 1;
      }
