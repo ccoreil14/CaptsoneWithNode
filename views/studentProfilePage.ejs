@@ -12,26 +12,29 @@
 <body>
     <div id="menu" class="collapseBox">
         <div id="menuHead" class="boxHeader">
-            <a href="studentProfilePage.html">Login Student</a>
+            <a href="/profile">
+                <%= user.local.email %>
+            </a>
             <!--            <a href="pages/teacherProfilePage.html">Login Teacher</a>-->
             <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('menuInsides')" />
         </div>
         <ul id="menuInsides" class="boxInsides" style="visibility: collapse;">
-            <a href="/">
+            <a href="/home">
                 <li class="insidesItem">Home</li>
             </a>
-            <a href="/Public/pages/shapeListPage.html">
+            <a href="/shapelist">
                 <li class="insidesItem">ShapeLists</li>
             </a>
-
             <a href="/profile">
                 <li class="insidesItem">Profile Page</li>
             </a>
-
         </ul>
     </div>
     <div id="chatBox" class="collapseBox">
-        <div id="chatBoxHead" class="boxHeader">ChatBox <a href= "/Logout" ><button>Logout</button></a>
+        <div id="chatBoxHead" class="boxHeader">ChatBox
+            <a href="/Logout">
+                <button>Logout</button>
+            </a>
             <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('chatBoxInsides')" />
         </div>
         <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
@@ -39,6 +42,29 @@
         </ul>
     </div>
     <img id="logo" src="../../images/Logo3.png" />
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">New Information</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="/profile" method="post">
+                        Email: <input type="email" name="newEmail" value='<%= user.local.email  %>'/><br/>
+                        Password: <input type="password" name="newPassword" /><br/>
+                        Profile Pic Link: <input type="text" name="newPic" value='<%= user.local.profilePic  %>'/><br/>
+                        Bio: <textarea name="newBio"><%= user.local.profileBio  %></textarea><br/>
+                        Profile Color: <input type="text" name="newColor" value='<%= user.local.profileColor  %>'/><br/>
+                        <input type="submit" value = "Save Changes"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="profileBody">
         <div class="examItemListBox">
             <ul class="examItemList">
@@ -65,6 +91,9 @@
                         <div class="profileColor">
                             <%= user.local.profileColor %>
                         </div>
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                            Edit Profile
+                        </button>
                     </div>
                 </div>
             </div>

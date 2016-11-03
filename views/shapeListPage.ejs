@@ -12,18 +12,19 @@
 <body>
     <div id="menu" class="collapseBox">
         <div id="menuHead" class="boxHeader">
-            <a href="studentProfilePage.html">Login Student</a>
+            <a href="/profile">
+                <%= user.local.email %>
+            </a>
             <!--            <a href="pages/teacherProfilePage.html">Login Teacher</a>-->
-            <img id="menuArrow" class="arrow" src="../images/arrow.png" onclick="toggleMenu('menuInsides')" />
+            <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('menuInsides')" />
         </div>
         <ul id="menuInsides" class="boxInsides" style="visibility: collapse;">
-            <a href="/">
+            <a href="/home">
                 <li class="insidesItem">Home</li>
             </a>
-            <a href="./shapeListPage.html">
+            <a href="/shapelist">
                 <li class="insidesItem">ShapeLists</li>
             </a>
-
             <a href="/profile">
                 <li class="insidesItem">Profile Page</li>
             </a>
@@ -31,13 +32,16 @@
     </div>
     <div id="chatBox" class="collapseBox">
         <div id="chatBoxHead" class="boxHeader">ChatBox
-            <img id="menuArrow" class="arrow" src="../images/arrow.png" onclick="toggleMenu('chatBoxInsides')" />
+            <a href="/Logout">
+                <button>Logout</button>
+            </a>
+            <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('chatBoxInsides')" />
         </div>
         <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
             <li class="insidesItem" onclick="minMax()">Open/Close</li>
         </ul>
     </div>
-    
+
     <img id="logo" src="../images/Logo3.png" />
 
     <div id="twoD" class="List">
@@ -46,17 +50,17 @@
             <li class="shapeItem">
                 <img class="shapeImg" src="../images/square.png" />
                 <div class="shapeWords">
-                    <a href="squareWorkshop.html"><h3 class="shapeName">Rectangle</h3></a>
-                    <p class="shapeFormula">1: <a href="perimeterLesson.html">Perimeter</a></p>
-                    <p class="shapeFormula">2: <a href="rectAreaLesson.html">Area</a></p>
+                    <a href="/squareWorkshop"><h3 class="shapeName">Rectangle</h3></a>
+                    <p class="shapeFormula">1: <a href="/perimeterLesson">Perimeter</a></p>
+                    <p class="shapeFormula">2: <a href="/rectAreaLesson">Area</a></p>
                 </div>
             </li>
             <li class="shapeItem">
                 <img class="shapeImg" src="../images/circle.png" />
                 <div class="shapeWords">
-                    <h3 class="shapeName"><a href="circleWorkshop.html">Circle</a></h3>
-                    <p class="shapeFormula">1: <a href="circumfrenceLesson.html">Circumfrence</a></p>
-                    <p class="shapeFormula">2: <a href="circAreaLesson.html">Area</a></p>
+                    <h3 class="shapeName"><a href="/circleWorkshop">Circle</a></h3>
+                    <p class="shapeFormula">1: <a href="/circumfrenceLesson">Circumfrence</a></p>
+                    <p class="shapeFormula">2: <a href="/circAreaLesson">Area</a></p>
                 </div>
             </li>
         </ul>
@@ -67,17 +71,17 @@
             <li class="shapeItem">
                 <img class="shapeImg" src="../images/cube.png" />
                 <div class="shapeWords">
-                    <h3 class="shapeName"><a href="cubeWorkshop.html">Right Rectangular Prism</a></h3>
-                    <p class="shapeFormula">1: <a href="prismSALesson.html">Surface Area</a></p>
-                    <p class="shapeFormula">2: <a href="prismVolLesson.html">Volume</a></p>
+                    <h3 class="shapeName"><a href="/cubeWorkshop">Right Rectangular Prism</a></h3>
+                    <p class="shapeFormula">1: <a href="/prismSALesson">Surface Area</a></p>
+                    <p class="shapeFormula">2: <a href="/prismVolLesson">Volume</a></p>
                 </div>
             </li>
             <li class="shapeItem">
                 <img class="shapeImg" src="../images/sphere.gif" />
                 <div class="shapeWords">
-                    <h3 class="shapeName"><a href="sphereWorkshop.html">Sphere</a></h3>
-                    <p class="shapeFormula">1: <a href="sphereSALesson.html">Surface Area</a></p>
-                    <p class="shapeFormula">2: <a href="sphereVolLesson.html">Volume</a></p>
+                    <h3 class="shapeName"><a href="/sphereWorkshop">Sphere</a></h3>
+                    <p class="shapeFormula">1: <a href="/sphereSALesson">Surface Area</a></p>
+                    <p class="shapeFormula">2: <a href="/sphereVolLesson">Volume</a></p>
                 </div>
             </li>
         </ul>

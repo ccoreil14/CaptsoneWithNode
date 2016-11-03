@@ -1,9 +1,9 @@
 <html>
 
 <head>
-    <title>ShapesList</title>
-    <link rel="stylesheet" href="../stylesheets/main.css">
-    <link rel="stylesheet" href="../stylesheets/videoLesson.css">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/homePage.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -12,7 +12,7 @@
 <body>
     <div id="menu" class="collapseBox">
         <div id="menuHead" class="boxHeader">
-            <a href="/profile">
+            <a href="/Profile">
                 <%= user.local.email %>
             </a>
             <!--            <a href="pages/teacherProfilePage.html">Login Teacher</a>-->
@@ -41,24 +41,27 @@
             <li class="insidesItem" onclick="minMax()">Open/Close</li>
         </ul>
     </div>
-    <img id="logo" src="../images/Logo3.png" />
+    <img id="logo" class="homeLogo" src="images/Logo3.png" />
 
 
-    <iframe class="video" src="https://www.youtube.com/embed/Ehks6KBroSA" frameborder="0" allowfullscreen></iframe>
+    <h1 id="title">Geometry Workshop</h1>
+    <h3 id="slogan">"Learn while you play."</h3>
 
-    <div class="box prevBtn">
-        <h2>Previous</h2>
-        <h1><a href="/prismSALesson">Surface Area of a Right Rectangular Prism</a></h1>
-    </div>
-    <div class="box nextBtn">
-        <h2>Next</h2>
-        <h1><a href="/prismExam">Take the Exam</a></h1>
-    </div>
+    <a href="/shapelist">
+        <div id="listBox" class="linkSquare">
+            <h1>Shape List</h1>
+            <img src="images/cube.png" width="180" />
+        </div>
+    </a>
+    <a href="/profile">
+        <div id="findClassBox" class="linkSquare">
+            <h1>Find you Classroom</h1>
+        </div>
+    </a>
     <div id="boxYo" class='chatBox ui-widget-content'>
         <ul id='messages'></ul>
         <form action="" class="clientText" onsubmit="return false;">
             <div class="input-group">
-                <!-- Autocomplete attribute used for setting if the browser will try to suggest previous text -->
                 <input id='textWindow' class="form-control" autocomplete="off" />
                 <div class="input-group-btn">
                     <button id='btnSub' type="button" class="btn btn-default">Send</button>
@@ -66,10 +69,11 @@
             </div>
         </form>
     </div>
+
 </body>
 <footer>Site made and owned by Christian F. Coreil</footer>
-<script src="../scripts/main.js"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script src="../scripts/client-socket.js"></script>
+<script src="scripts/client-socket.js"></script>
+<script src="scripts/main.js"></script>
 
 </html>

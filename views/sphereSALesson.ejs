@@ -12,18 +12,19 @@
 <body>
     <div id="menu" class="collapseBox">
         <div id="menuHead" class="boxHeader">
-            <a href="studentProfilePage.html">Login Student</a>
+            <a href="/profile">
+                <%= user.local.email %>
+            </a>
             <!--            <a href="pages/teacherProfilePage.html">Login Teacher</a>-->
-            <img id="menuArrow" class="arrow" src="../images/arrow.png" onclick="toggleMenu('menuInsides')" />
+            <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('menuInsides')" />
         </div>
         <ul id="menuInsides" class="boxInsides" style="visibility: collapse;">
-            <a href="/">
+            <a href="/home">
                 <li class="insidesItem">Home</li>
             </a>
-            <a href="./shapeListPage.html">
+            <a href="/shapelist">
                 <li class="insidesItem">ShapeLists</li>
             </a>
-
             <a href="/profile">
                 <li class="insidesItem">Profile Page</li>
             </a>
@@ -31,7 +32,10 @@
     </div>
     <div id="chatBox" class="collapseBox">
         <div id="chatBoxHead" class="boxHeader">ChatBox
-            <img id="menuArrow" class="arrow" src="../images/arrow.png" onclick="toggleMenu('chatBoxInsides')" />
+            <a href="/Logout">
+                <button>Logout</button>
+            </a>
+            <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('chatBoxInsides')" />
         </div>
         <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
             <li class="insidesItem" onclick="minMax()">Open/Close</li>
@@ -44,12 +48,12 @@
 
     <div class="box prevBtn">
         <h2>Previous</h2>
-        <h1><a href="shapeListPage.html">Back to Shape List</a></h1>
+        <h1><a href="/shapeListPage">Back to Shape List</a></h1>
 
     </div>
     <div class="box nextBtn">
         <h2>Next</h2>
-        <h1><a href="sphereVolLesson.html">Volume of a Sphere</a></h1>
+        <h1><a href="/sphereVolLesson">Volume of a Sphere</a></h1>
     </div>
     <div id="boxYo" class='chatBox ui-widget-content'>
         <ul id='messages'></ul>

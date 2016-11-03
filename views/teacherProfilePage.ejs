@@ -6,22 +6,33 @@
     <link rel="stylesheet" href="../stylesheets/profilePage.css">
     <link rel="stylesheet" href="../stylesheets/teacherAccount.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- load bootstrap css -->
     <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div id="menu" class="collapseBox">
         <div id="menuHead" class="boxHeader">
-            <a href="studentProfilePage.html">Login Student</a>
+            <a href="/profile">
+                <%= user.local.email %>
+            </a>
             <!--            <a href="pages/teacherProfilePage.html">Login Teacher</a>-->
             <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('menuInsides')" />
         </div>
         <ul id="menuInsides" class="boxInsides" style="visibility: collapse;">
-            <a href="/">
+            <a href="/home">
                 <li class="insidesItem">Home</li>
             </a>
-            <a href="shapeListPage.html">
+            <a href="/shapelist">
                 <li class="insidesItem">ShapeLists</li>
             </a>
             <a href="/profile">
@@ -30,7 +41,10 @@
         </ul>
     </div>
     <div id="chatBox" class="collapseBox">
-        <div id="chatBoxHead" class="boxHeader">ChatBox <a href= "/Logout" ><button>Logout</button></a>
+        <div id="chatBoxHead" class="boxHeader">ChatBox
+            <a href="/Logout">
+                <button>Logout</button>
+            </a>
             <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('chatBoxInsides')" />
         </div>
         <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
@@ -38,6 +52,30 @@
         </ul>
     </div>
     <img id="logo" src="../../images/Logo3.png" />
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">New Information</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="/profile" method="post">
+                        Email: <input type="email" name="newEmail" value='<%= user.local.email  %>'/><br/>
+                        Password: <input type="password" name="newPassword" /><br/>
+                        Profile Pic Link: <input type="text" name="newPic" value='<%= user.local.profilePic  %>'/><br/>
+                        Bio: <textarea name="newBio"><%= user.local.profileBio  %></textarea><br/>
+                        Profile Color: <input type="text" name="newColor" value='<%= user.local.profileColor  %>'/><br/>
+                        <input type="submit" value = "Save Changes"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="profileBody">
         <div class="examItemListBox">
             <ul class="examItemList">
@@ -56,12 +94,12 @@
         <div class="rightSide">
             <div class="infoBox">
                 <div class="infoBoxTopRow">
-                    <img class="profilePic" src='<%= user.local.profilePic%>' />
+                    <img class="profilePic" src='<%= user.local.profilePic %>' />
                     <div class="nameAndPass">
                         <h4> Email: <%= user.local.email %></h4>
                     </div>
                 </div>
-                <h4>Profile Picture Link: <%= user.local.profilePic%></h4>
+                <h4>Profile Picture Link: <%= user.local.profilePic %></h4>
                 <div class="infoBoxBottomRow">
                     <textarea class="bio">
                         <%= user.local.profileBio %>
@@ -70,6 +108,9 @@
                         <div class="profileColor">
                             <%= user.local.profileColor %>
                         </div>
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                            Edit Profile
+                        </button>
                     </div>
                 </div>
             </div>
