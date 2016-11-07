@@ -5,6 +5,8 @@ var LocalStrategy = require('passport-local').Strategy;
 
 // load up the user model
 var User = require('../Public/models/user');
+var ExamQuestion = require('../Public/models/examQuestion');
+
 
 // expose this function to our app using module.exports
 module.exports = function (passport) {
@@ -63,7 +65,7 @@ module.exports = function (passport) {
                         // create the user
                         var newUser = new User();
 
-                        
+
                         // set the user's local credentials
                         newUser.local.email = email;
                         newUser.local.password = newUser.generateHash(password);
@@ -91,12 +93,17 @@ module.exports = function (passport) {
                                 throw err;
                             return done(null, newUser);
                         });
+
+
                     }
 
                 });
 
-            });
 
+
+
+            });
+            
         }));
 
     // =========================================================================
@@ -113,6 +120,18 @@ module.exports = function (passport) {
         },
         function (req, email, password, done) { // callback with email and password from our form
 
+        
+//        var examQuestions = [["circExam", "../images/ExamQuestions/circle1.png", 12.57, "Area 2"],["circExam", "../images/ExamQuestions/circle2.png", 18.85, "Circumfrence 3"],["circExam", "../images/ExamQuestions/circle3.png", 50.27, "Area 4"],["circExam", "../images/ExamQuestions/circle4.png", 31.42, "Circumfrence 5"],["circExam", "../images/ExamQuestions/circle5.png", 314.16, "Area 10"],["circExam", "../images/ExamQuestions/circle6.png", 628.32, "Circumfrence 100"],["circExam", "../images/ExamQuestions/circle7.png", 7853.98, "Area 50"],["circExam", "../images/ExamQuestions/circle8.png", 125.66, "Circumfrence 20"],["circExam", "../images/ExamQuestions/circle9.png", 706.86,"Area 15"],["circExam", "../images/ExamQuestions/circle10.png", 50.27, "Circumfrence 8"],["rectExam", "../images/ExamQuestions/perimeter2.png", 17, "Perimeter"],["rectExam", "../images/ExamQuestions/perimeter5.png", 30, "Perimeter"],["rectExam", "../images/ExamQuestions/perimeter6.png", 16, "Perimeter"],["rectExam", "../images/ExamQuestions/perimeter8.png", 8, "Perimeter"],["rectExam", "../images/ExamQuestions/perimeter10.png", 24, "Perimeter"],["rectExam", "../images/ExamQuestions/rectArea2.png", 32, "Rect Area"],["rectExam", "../images/ExamQuestions/rectArea5.png", 27, "Rect Area"],["rectExam", "../images/ExamQuestions/rectArea8.png", 49, "Rect Area"],["rectExam", "../images/ExamQuestions/rectArea9.png", 2, "Rect Area"],["rectExam", "../images/ExamQuestions/rectArea10.png", 8, "Rect Area"],        ["prismExam", "../images/ExamQuestions/prism1.png", 96, "SA"],        ["prismExam", "../images/ExamQuestions/prism2.png", 125, "Vol"],        ["prismExam", "../images/ExamQuestions/prism3.png", 158, "SA"],        ["prismExam", "../images/ExamQuestions/prism4.png", 120, "Vol"],        ["prismExam", "../images/ExamQuestions/prism5.png", 182, "SA"],        ["prismExam", "../images/ExamQuestions/prism6.png", 48, "Vol"],        ["prismExam", "../images/ExamQuestions/prism7.png", 94, "SA"],        ["prismExam", "../images/ExamQuestions/prism8.png", 24, "Vol"],        ["prismExam", "../images/ExamQuestions/prism9.png", 190, "SA"],        ["prismExam", "../images/ExamQuestions/prism10.png", 84, "Vol"],        ["sphereExam", "../images/ExamQuestions/sphere1.png", 113.1, "SA"],        ["sphereExam", "../images/ExamQuestions/sphere2.png", 523.6, "Vol"],        ["sphereExam", "../images/ExamQuestions/sphere3.png", 50.27, "SA"],        ["sphereExam", "../images/ExamQuestions/sphere4.png", 904.78, "Vol"],        ["sphereExam", "../images/ExamQuestions/sphere5.png", 804.25, "SA"],        ["sphereExam", "../images/ExamQuestions/sphere6.png", 4188.79, "Vol"],        ["sphereExam", "../images/ExamQuestions/sphere8.png", 1256.64, "SA"],        ["sphereExam", "../images/ExamQuestions/sphere7.png", 1436.76, "Vol"],        ["sphereExam", "../images/ExamQuestions/sphere4.png", 452.39, "SA"],        ["sphereExam", "../images/ExamQuestions/sphere10.png", 14137.17, "Vol"]];
+//
+//            for (i = 0; i < examQuestions.length; i++) {
+//            var newQuestion = new ExamQuestion();
+//                newQuestion.examName = examQuestions[i][0];
+//                newQuestion.picRoute = examQuestions[i][1];
+//                newQuestion.answer = examQuestions[i][2];
+//                newQuestion.description = examQuestions[i][3];
+//                newQuestion.save();
+//                console.log(examQuestions[i][0]);
+//            }
             // find a user whose email is the same as the forms email
             // we are checking to see if the user trying to login already exists
             User.findOne({

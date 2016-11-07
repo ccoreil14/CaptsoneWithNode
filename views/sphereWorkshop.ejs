@@ -45,12 +45,15 @@
     <div class="workshopArea">
         <div class="side leftSide">
             <div class="formulaArea">
-                <div class="forumla">
+                <div class="formula">
                     <h3>Surface Area:<h3 id="SphSurfAreaAnsr"></h3></h3>
                 </div>
-                <div class="forumla">
-                    <h3>Volume Area:<h3 id="SphVolAnsr"></h3></h3>
-
+                <div class="formula">
+                    <h3>Volume:<h3 id="SphVolAnsr"></h3></h3>
+                </div>
+                <div class="formula">
+                    <h3>Shape Color:</h3>
+                    <input id="colorInput" class="jscolor" value="000ff0" onchange="updateShape()" readonly />
                 </div>
             </div>
             <div class="playBox"></div>
@@ -62,18 +65,16 @@
                         <h3>Radius</h3>
                         <input id="radiusInput" type="number" value="20" onchange="updateShape()" />
                     </div>
-                    <div class="coreMeasure">
-                        <h3>Shape Color</h3>
-                        <input id="colorInput" class="jscolor" value="000ff0" onchange="updateShape()" readonly />
-                    </div>
                 </div>
                 <div class="btnArea">
                     <div class="resetBtn">
                         <button id="toggleBtn" onclick="toggleDynSizeSphere()">Arrows Off</button>
                         <button onclick="resetCanvas()">reset shape</button>
-                        <button id="toggleGlow" onclick="toggleGlow()">Glow On</button>
+                        <button id="toggleGlow" onclick="toggleGlow()">Highlight radius</button>
+                        <a href="/sphereSALesson">
+                            <button>Take Lesson</button>
+                        </a>
                     </div>
-                    <div class="lessonBtn">learn move/take exam</div>
                 </div>
             </div>
             <div class="descripBox">
@@ -94,7 +95,16 @@
             </div>
         </form>
     </div>
+    
+    <% if (user.local.userMedals.medal2 === false) { %>
+        <%= user.local.userMedals.medal2 = true %>
+            <% user.save(); %>
+                <script>
+                    alert("You got the '3D!' Medal for going to coming to a 3D workshop!");
+                </script>
+                <%}%>
 </body>
+
 <footer>Site made and owned by Christian F. Coreil</footer>
 <script src="../scripts/main.js"></script>
 <script src="../scripts/three.min.js"></script>

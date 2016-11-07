@@ -1,3 +1,6 @@
+var shapeOffsetX = 363;
+var shapeOffsetY = 380;
+
 function toggleMenu(boxInsidesId) {
     var dropdown = document.getElementById(boxInsidesId);
     if (dropdown.style.visibility === 'collapse') {
@@ -24,12 +27,12 @@ function circArea(r) {
 }
 
 function circumfrence(r) {
-     var answer = 3.14 * (r * 2);
+    var answer = 3.14 * (r * 2);
     return answer.toFixed(2);
 }
 
 function prismSurfaceArea(x, y, z) {
-     var answer = 2 * ((x * y) + (y * z) + (z * x));
+    var answer = 2 * ((x * y) + (y * z) + (z * x));
     return answer.toFixed(2);
 }
 
@@ -39,11 +42,16 @@ function prismVolume(x, y, z) {
 }
 
 function sphereSurfaceArea(r) {
-     var answer = (4 * 3.14) * (r * r)
+    var answer = (4 * 3.14) * (r * r)
     return answer.toFixed(2);
 }
 
 function sphereVolume(r) {
-     var answer = ((4 / 3) * 3.14) * (r * r * r);
+    var answer = ((4 / 3) * 3.14) * (r * r * r);
     return answer.toFixed(2);
+}
+
+function medalGot() {
+    alert("You made an Account. Hurray!");
+    user.local.userMedals.medal1 = true;
 }

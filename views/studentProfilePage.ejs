@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -53,25 +58,85 @@
                 </div>
                 <div class="modal-body">
                     <form action="/profile" method="post">
-                        Email: <input type="email" name="newEmail" value='<%= user.local.email  %>'/><br/>
-                        Password: <input type="password" name="newPassword" /><br/>
-                        Profile Pic Link: <input type="text" name="newPic" value='<%= user.local.profilePic  %>'/><br/>
-                        Bio: <textarea name="newBio"><%= user.local.profileBio  %></textarea><br/>
-                        Profile Color: <input type="text" name="newColor" value='<%= user.local.profileColor  %>'/><br/>
-                        <input type="submit" value = "Save Changes"/>
+                        Email:
+                        <input type="email" name="newEmail" value='<%= user.local.email  %>' />
+                        <br/> Password:
+                        <input type="password" name="newPassword" />
+                        <br/> Profile Pic Link:
+                        <input type="text" name="newPic" value='<%= user.local.profilePic  %>' />
+                        <br/> Bio:
+                        <textarea name="newBio">
+                            <%= user.local.profileBio  %>
+                        </textarea>
+                        <br/> Profile Color:
+                        <input type="text" name="newColor" value='<%= user.local.profileColor  %>' />
+                        <br/>
+                        <input type="submit" value="Save Changes" />
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="profileBody">
         <div class="examItemListBox">
             <ul class="examItemList">
                 <li class="examItem">
-                    <!--                   Will fill in later-->
-                    <h3>Square Exam       (Green) 90%</h3>
+                    <h3>Square Exam</h3>
+                    <% if(user.local.userExams.rectExam > 7){ %>
+                        <div class="gradeDiv green"><%=user.local.userExams.rectExam %>/10</div> <h3>Great!</h3>
+                    <%} else if(user.local.userExams.rectExam > 4) {%>
+                        <div class="gradeDiv yellow"><%=user.local.userExams.rectExam %>/10</div> <h3>Alright</h3>
+                    <%} else if(user.local.userExams.rectExam > 0) {%>
+                        <div class="gradeDiv red"><%=user.local.userExams.rectExam %>/10</div> <h3>Failed</h3>
+                   <%} else if(user.local.userExams.rectExam === 0) {%>
+                        <div class="gradeDiv black"><%=user.local.userExams.rectExam %>/10</div> <h3>ZERO</h3>
+                    <%} else if(user.local.userExams.rectExam < 0) {%>
+                        <div class="gradeDiv grey"><%=user.local.userExams.rectExam %>/10</div> <h3>Not Started</h3>
+                    <% }%>
                 </li>
+                <li class="examItem">
+                    <h3>Circle Exam</h3>
+                    <% if(user.local.userExams.circExam > 7){ %>
+                        <div class="gradeDiv green"><%=user.local.userExams.circExam %>/10</div> <h3>Great!</h3>
+                    <%} else if(user.local.userExams.circExam > 4) {%>
+                        <div class="gradeDiv yellow"><%=user.local.userExams.circExam %>/10</div> <h3>Alright</h3>
+                    <%} else if(user.local.userExams.circExam > 0) {%>
+                        <div class="gradeDiv red"><%=user.local.userExams.circExam %>/10</div> <h3>Failed</h3>
+                   <%} else if(user.local.userExams.circExam === 0) {%>
+                        <div class="gradeDiv black"><%=user.local.userExams.circExam %>/10</div> <h3>ZERO</h3>
+                    <%} else if(user.local.userExams.circExam < 0) {%>
+                        <div class="gradeDiv grey"><%=user.local.userExams.circExam %>/10</div> <h3>Not Started</h3>
+                    <% }%>
+                </li>
+                <li class="examItem">
+                    <h3>Prism Exam</h3>
+                    <% if(user.local.userExams.prismExam > 7){ %>
+                        <div class="gradeDiv green"><%=user.local.userExams.prismExam %>/10</div> <h3>Great!</h3>
+                    <%} else if(user.local.userExams.prismExam > 4) {%>
+                        <div class="gradeDiv yellow"><%=user.local.userExams.prismExam %>/10</div> <h3>Alright</h3>
+                    <%} else if(user.local.userExams.prismExam > 0) {%>
+                        <div class="gradeDiv red"><%=user.local.userExams.prismExam %>/10</div> <h3>Failed</h3>
+                   <%} else if(user.local.userExams.prismExam === 0) {%>
+                        <div class="gradeDiv black"><%=user.local.userExams.prismExam %>/10</div> <h3>ZERO</h3>
+                    <%} else if(user.local.userExams.prismExam < 0) {%>
+                        <div class="gradeDiv grey"><%=user.local.userExams.prismExam %>/10</div> <h3>Not Started</h3>
+                    <% }%>
+                </li>
+                <li class="examItem">
+                    <h3>Sphere Exam</h3>
+                    <% if(user.local.userExams.sphereExam > 7){ %>
+                        <div class="gradeDiv green"><%=user.local.userExams.sphereExam %>/10</div> <h3>Great!</h3>
+                    <%} else if(user.local.userExams.sphereExam > 4) {%>
+                        <div class="gradeDiv yellow"><%=user.local.userExams.sphereExam %>/10</div> <h3>Alright</h3>
+                    <%} else if(user.local.userExams.sphereExam > 0) {%>
+                        <div class="gradeDiv red"><%=user.local.userExams.sphereExam %>/10</div> <h3>Failed</h3>
+                   <%} else if(user.local.userExams.sphereExam === 0) {%>
+                        <div class="gradeDiv black"><%=user.local.userExams.sphereExam %>/10</div> <h3>ZERO</h3>
+                    <%} else if(user.local.userExams.sphereExam < 0) {%>
+                        <div class="gradeDiv grey"><%=user.local.userExams.sphereExam %>/10</div> <h3>Not Started</h3>
+                    <% }%>
+                </li>    
             </ul>
         </div>
         <div class="rightSide">
@@ -100,12 +165,16 @@
             <div class="medalListBox">
                 <div class="medalListTitle">Medal List</div>
                 <div class="medalAndName">
-                    <% if (user.local.userMedals.medal1 === true) {%>
-                        <img class="medal unlocked" src="../../images/Logo1.png" />
-                        <% } else { %>
-                            <img class="medal locked" src="../../images/Logo1.png" />
-                            <%}%>
-                                <div class="medalName">Make Account</div>
+                    <% if (user.local.userMedals.medal1 === false) { %>
+                        <%= user.local.userMedals.medal1 = true %>
+                            <% user.save(); %>
+                                <script>
+                                    alert("You got the 'Make Account' Medal");
+                                </script>
+                                <%}%>
+                                    <img class="medal unlocked" src="../../images/Logo1.png" />
+
+                                    <div class="medalName">Make Account</div>
                 </div>
                 <div class="medalAndName">
                     <% if (user.local.userMedals.medal2 === true) {%>
@@ -180,8 +249,8 @@
     </div>
 </body>
 <footer>Site made and owned by Christian F. Coreil</footer>
-<script src="../../scripts/main.js"></script>
+<script src="../scripts/main.js"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script src="../../scripts/client-socket.js"></script>
+<script src="../scripts/client-socket.js"></script>
 
 </html>

@@ -19,20 +19,22 @@
 
 .examQuestion {
     list-style-type: none;
-    border: 1px solid black;
+/*    border: 1px solid black;*/
     height: 40%;
     width: 99%;
 }
 
 .questionItem {
     width: 30%;
-    border: 1px solid black;
     display: block;
     margin-right: 2%;
     float: left;
+    margin-bottom: 20px;
 }
 
-.questionImg {}
+.questionImg {
+    
+}
 
 
 /*Question descrip and user input*/
@@ -60,13 +62,39 @@
 }
 
 .answerBoxCover {
-    height: 0px;
-    visibility: hidden;
+    background: white;
+    color: black;
+    box-sizing: border-box; 
+    height: 100%;
+    
 }
 
 .answerDescrip {
     height: 100%;
+    visibility: hidden;
+    position: relative;
+    bottom: 250px;
 }
 
 
 /*Answer Section*/
+
+.correct{
+    background-color: green;
+}
+
+.incorrect{
+    background-color: red;
+}
+
+#submitScore{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    margin-top: 100px;
+    background: white;
+    margin-left: 25%;
+    visibility: hidden;
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px #888888;   
+}

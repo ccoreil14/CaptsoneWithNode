@@ -41,12 +41,16 @@
     <div class="workshopArea">
         <div class="side leftSide">
             <div class="formulaArea">
-                <div class="forumla">
+                <div class="formula">
                     <h3>Circumference:<h3 id="CircumferenceAnsr"></h3></h3>
                 </div>
-                <div class="forumla">
+                <div class="formula">
                     <h3>Area:<h3 id="CircAreaAnsr"></h3></h3>
 
+                </div>
+                <div class="formula">
+                    <h3>Shape Color</h3>
+                    <input id="colorInput" class="jscolor" value="000ff0" onchange="updateShape()" readonly/>
                 </div>
             </div>
             <div class="playBox"></div>
@@ -58,20 +62,14 @@
                         <h3>Radius</h3>
                         <input id="radiusInput" type="number" value="20" onchange="updateShape()" />
                     </div>
-                    <div class="coreMeasure">
-                        <h3>Shape Color</h3>
-                        <input id="colorInput" class="jscolor" value="000ff0" onchange="updateShape()" readonly/>
-                    </div>
-
-
                 </div>
                 <div class="btnArea">
                     <div class="resetBtn">
                         <button id="toggleBtn" onclick="toggleDynSizeCircle()">Arrows Off</button>
                         <button onclick="resetCanvas()">reset shape</button>
-                        <button id="toggleGlow" onclick="toggleGlow()">Glow On</button>
+                        <button id="toggleGlow" onclick="toggleGlow()">Highlight Radius</button>
+                        <a href="circumfrenceLesson.html"><button>Take Lesson</button></a>
                     </div>
-                    <div class="lessonBtn">learn move/take exam</div>
                 </div>
             </div>
             <div class="descripBox">

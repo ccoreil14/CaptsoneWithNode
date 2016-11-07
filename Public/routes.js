@@ -2,6 +2,7 @@
 //////ROUTING////
 /////////////////
 var User = require('./models/user');
+var ExamQuestion = require('./models/examQuestion');
 
 module.exports = function (app, passport, path, pathYO) {
     var pagePathYO = pathYO + "Public/pages";
@@ -97,9 +98,30 @@ module.exports = function (app, passport, path, pathYO) {
     });
 
     app.get('/circExam', isLoggedIn, function (req, res) {
-        res.render('circExam.ejs', {
-            user: req.user
+        ExamQuestion.find({
+            examName: "circExam"
+        }, function (err, examQuestions) {
+            examQuestionArray = examQuestions;
+            shuffle(examQuestionArray);
+            res.render('circExam.ejs', {
+                user: req.user,
+                examQuestions: examQuestionArray
+            });
         });
+    });
+    
+    app.post('/circExam', isLoggedIn, function (req, res) {
+        User.findOne({
+            local: {
+                email: req.user.local.email
+            }
+        }, function (err, user) {
+            req.user.local.userExams.circExam = req.body.finalScore;
+            req.user.save();
+            res.redirect('/profile');
+            if (err) throw err;
+        });
+
     });
 
     app.get('/circleWorkshop', isLoggedIn, function (req, res) {
@@ -130,10 +152,32 @@ module.exports = function (app, passport, path, pathYO) {
         });
     });
 
+    var examQuestionArray = [];
     app.get('/squareExam', isLoggedIn, function (req, res) {
-        res.render('squareExam.ejs', {
-            user: req.user
+        ExamQuestion.find({
+            examName: "rectExam"
+        }, function (err, examQuestions) {
+            examQuestionArray = examQuestions;
+            shuffle(examQuestionArray);
+            res.render('squareExam.ejs', {
+                user: req.user,
+                examQuestions: examQuestionArray
+            });
         });
+    });
+    
+    app.post('/squareExam', isLoggedIn, function (req, res) {
+        User.findOne({
+            local: {
+                email: req.user.local.email
+            }
+        }, function (err, user) {
+            req.user.local.userExams.rectExam = req.body.finalScore;
+            req.user.save();
+            res.redirect('/profile');
+            if (err) throw err;
+        });
+
     });
 
     app.get('/squareWorkshop', isLoggedIn, function (req, res) {
@@ -154,9 +198,30 @@ module.exports = function (app, passport, path, pathYO) {
     });
 
     app.get('/prismExam', isLoggedIn, function (req, res) {
-        res.render('prismExam.ejs', {
-            user: req.user
+       ExamQuestion.find({
+            examName: "rectExam"
+        }, function (err, examQuestions) {
+            examQuestionArray = examQuestions;
+            shuffle(examQuestionArray);
+            res.render('prismExam.ejs', {
+                user: req.user,
+                examQuestions: examQuestionArray
+            });
         });
+    });
+    
+    app.post('/prismExam', isLoggedIn, function (req, res) {
+        User.findOne({
+            local: {
+                email: req.user.local.email
+            }
+        }, function (err, user) {
+            req.user.local.userExams.prismExam = req.body.finalScore;
+            req.user.save();
+            res.redirect('/profile');
+            if (err) throw err;
+        });
+
     });
 
     app.get('/prismSALesson', isLoggedIn, function (req, res) {
@@ -194,10 +259,33 @@ module.exports = function (app, passport, path, pathYO) {
     });
 
     app.get('/sphereExam', isLoggedIn, function (req, res) {
-        res.render('sphereExam.ejs', {
-            user: req.user
+        ExamQuestion.find({
+            examName: "rectExam"
+        }, function (err, examQuestions) {
+            examQuestionArray = examQuestions;
+            shuffle(examQuestionArray);
+            res.render('sphereExam.ejs', {
+                user: req.user,
+                examQuestions: examQuestionArray
+            });
         });
     });
+ 
+    app.post('/sphereExam', isLoggedIn, function (req, res) {
+        User.findOne({
+            local: {
+                email: req.user.local.email
+            }
+        }, function (err, user) {
+            req.user.local.userExams.sphereExam = req.body.finalScore;
+            req.user.save();
+            res.redirect('/profile');
+            if (err) throw err;
+        });
+
+    });
+
+
 
     //sphere stuff
 
@@ -217,4 +305,24 @@ function isLoggedIn(req, res, next) {
 
     // if they aren't redirect them to the home page
     res.redirect('/login');
+}
+
+function shuffle(array) {
+    var currentIndex = array.length,
+        temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
 }

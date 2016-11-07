@@ -19,7 +19,7 @@
 
 .examItemList{
     padding-left: 0px;
-    overflow-y: scroll;
+/*    overflow-y: scroll;*/
     height: 100%;
     margin-top: 0px;
 }
@@ -28,6 +28,44 @@
     list-style-type: none;
     width: 99%;
     border: 1px solid black;
+    height: 100px;
+}
+
+.examItem h3{
+    float: left;
+    margin: 0;
+    margin-top: 40px;
+    margin-left: 5px;
+}
+
+.gradeDiv{
+    height: 50%;
+    width: 50px;
+    margin-top: 30px;
+    float: left;
+        margin-left: 5px;
+
+}
+
+.green{
+    background: green;
+}
+
+.yellow{
+    background: yellow;
+    color: black;
+}
+
+.red{
+    background: red;
+}
+
+.black{
+    background: black;
+}
+
+.grey{
+    background: grey;
 }
 
 /*examList*/
@@ -100,6 +138,7 @@
     height: 99%;
     width: 70%;
     resize: none;
+    text-align: center;
 }
 
 .colorAndSave{
@@ -161,6 +200,11 @@
     text-align: center;
     margin-top: 10px;
 }
+
+
+
+
+
 /*for medals only*/
 
 

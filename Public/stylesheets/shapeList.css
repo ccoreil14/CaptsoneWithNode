@@ -6,6 +6,7 @@
     display: inline-block;
     position: absolute;
     margin-top: 80px;
+    background: #283C92;
 }
 
 #twoD {
@@ -26,10 +27,17 @@ h1 {
 
 .shapeItem {
     list-style-type: none;
-    border: 1px dashed black;
     width: 90%;
     margin-left: 0px;
     margin-bottom: 20px;
+    background: white;
+    color: black;
+    border-radius: 6px;
+    padding-left: 5px;
+}
+
+.shapeItem a {
+    color: black;
 }
 
 .shapeWords {

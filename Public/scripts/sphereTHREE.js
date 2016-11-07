@@ -195,8 +195,8 @@
 
      var scrollLeft = $(window).scrollLeft() ;
      var scrollTop = $(window).scrollTop() ;
-     mouse.x = ((event.clientX - (363-scrollLeft)) / 500) * 2 - 1;
-     mouse.y = -((event.clientY - (405-scrollTop)) / 500) * 2 + 1;
+     mouse.x = ((event.clientX - (shapeOffsetX-scrollLeft)) / 500) * 2 - 1;
+     mouse.y = -((event.clientY - (shapeOffsetY-scrollTop)) / 500) * 2 + 1;
      //                  ^  affects how it tracks mouse in three js for dragging
 
      raycaster.setFromCamera(mouse, camera);

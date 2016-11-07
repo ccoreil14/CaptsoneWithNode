@@ -1,117 +1,158 @@
-.workshopArea{
+.workshopArea {
     border: 1px solid black;
     margin-top: 37px;
-    height: 72%;
+    height: 673px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;
 }
 
-body{
+body {
     min-width: 1900px;
 }
 
+#menu{
+    position: fixed;
+}
+
+#chatBox{
+    position: fixed;
+}
+
 /*Areas on the left side of the screen*/
-.side{
+
+.side {
     border: 1px solid black;
     width: 49.7%;
     display: block;
     height: 100%;
 }
 
-.leftSide{    
+.leftSide {
     float: left;
+    width: 500px;
 }
+
 
 /*forulmas over play box*/
-.formulaArea{
-    border: 1px solid black;
-    height: 30%;
+
+.formulaArea {
+    height: 172px;
+    background: white;
 }
 
-.forumla{
-    border: 1px solid black;
-    width: 46%;
+.formula {
+    width: 153.6px;
     display: block;
     margin-left: 10px;
     float: left;
+    border-right-style: solid;
+    border-right-color: black;
+    color: black;
+    height: 99.9%;
 }
+
+#colorInput {
+    width: 90%;
+}
+
+
 /*forulmas over play box*/
 
-.playBox{
-    border: 1px solid black;
+.playBox {
     height: 70%;
     width: 100%;
 }
 
+
 /*Areas on the left side of the screen*/
 
 
-
-
 /*Areas on the right side of the screen*/
-.rightSide{
+
+.rightSide {
     float: right;
 }
 
 
 /*Top right box info*/
-.shapeInfoBox{
-    border: 1px solid black;
-    height:60%; 
+
+.shapeInfoBox {
+    height: 48%;
+    width: 99.9%;
 }
 
-/*Area for all shape related customization*/
-.coreMeasuresBox{
-    height: 70%;
-    border: 1px solid black; 
-    overflow-y: scroll;
-}
-
-.coreMeasure{
-    border: 1px solid black;
-}
-
-.gInput{
-    background: #00B700;
-}
-
-.bInput{
-    background: #4C4CFF;
-}
-
-.rInput{
-    background: #FF0000;
-}
 
 /*Area for all shape related customization*/
 
-.btnArea{
-    border: 1px solid black;
-    height: 30%;
-}
-
-.resetBtn{
-    border: 1px solid black;
-    width: 49%;
-    display: block;
-    height: 100%;
+.coreMeasuresBox {
+    height: 99.9%;
+    width: 49.5%;
     float: left;
 }
 
-.lessonBtn{
-    border: 1px solid black;
+.coreMeasure {
+    margin-left: 20px;
+}
+
+.gInput {
+    background: #00B700;
+}
+
+.bInput {
+    background: #4C4CFF;
+}
+
+.rInput {
+    background: #FF0000;
+}
+
+
+/*Area for all shape related customization*/
+
+.btnArea {
+    height: 99.9%;
+    width: 49.5%;
+    float: right;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.btnArea button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 40px;
+}
+
+.resetBtn {
     width: 49%;
     display: block;
-    height: 100%;
-    float: right;
+    float: left;
 }
+
+.lessonBtn {
+    width: 49%;
+    display: block;
+    float: left;
+}
+
+
 /*Top right box info*/
 
-.descripBox{
-      border: 1px solid black;
-    height: 40%;
+.descripBox {
+    border: 1px solid black;
+    height: 49.9%;
+    text-align: center;
+    padding-top: 10px;
 }
+
+#boxYo {
+    position: relative;
+    bottom: 200px;
+    left: 200px;
+}
+
 
 /*Areas on the right side of the screen*/
