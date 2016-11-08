@@ -53,14 +53,40 @@ module.exports = function (app, passport, path, pathYO) {
 
     app.get('/profile', isLoggedIn, function (req, res) {
         if (req.user.local.isTeacher === true) {
-            res.render('teacherProfilePage.ejs', {
-                user: req.user // get the user out of session and pass to template
+            User.find({
+                'local.userConnections': req.user.local.email
+            }, function (err, students) {
+                res.render('teacherProfilePage.ejs', {
+                    user: req.user,
+                    studentArray: students
+                });
             });
         } else {
-            res.render('studentProfilePage.ejs', {
-                user: req.user // get the user out of session and pass to template
+            User.find({
+                'local.isTeacher': true
+            }, function (err, teachers) {
+                var professors = [];
+                for (i = 0; i < teachers.length; i++) {
+                    professors.push(teachers[i].local.email);
+                    //                    console.log(teachers[i].local.email);
+                }
+                res.render('studentProfilePage.ejs', {
+                    user: req.user,
+                    teacherArray: professors
+                });
             });
         }
+    });
+
+    app.post('/changeTeacher', function (req, res) {
+        User.findOne({
+            'local.email': req.user.local.email
+
+        }, function (err, user) {
+            req.user.local.userConnections = [req.body.teacher];
+            req.user.save();
+            res.redirect('/profile');
+        });
     });
 
     app.post('/profile', function (req, res) {
@@ -109,7 +135,7 @@ module.exports = function (app, passport, path, pathYO) {
             });
         });
     });
-    
+
     app.post('/circExam', isLoggedIn, function (req, res) {
         User.findOne({
             local: {
@@ -165,7 +191,7 @@ module.exports = function (app, passport, path, pathYO) {
             });
         });
     });
-    
+
     app.post('/squareExam', isLoggedIn, function (req, res) {
         User.findOne({
             local: {
@@ -198,7 +224,7 @@ module.exports = function (app, passport, path, pathYO) {
     });
 
     app.get('/prismExam', isLoggedIn, function (req, res) {
-       ExamQuestion.find({
+        ExamQuestion.find({
             examName: "rectExam"
         }, function (err, examQuestions) {
             examQuestionArray = examQuestions;
@@ -209,7 +235,7 @@ module.exports = function (app, passport, path, pathYO) {
             });
         });
     });
-    
+
     app.post('/prismExam', isLoggedIn, function (req, res) {
         User.findOne({
             local: {
@@ -270,7 +296,7 @@ module.exports = function (app, passport, path, pathYO) {
             });
         });
     });
- 
+
     app.post('/sphereExam', isLoggedIn, function (req, res) {
         User.findOne({
             local: {

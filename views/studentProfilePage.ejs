@@ -77,6 +77,21 @@
             </div>
         </div>
     </div>
+       
+    <div class="modal fade" id="searchTeacher" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <input id="studentInput" onkeyup="updateTeacherList([
+       <%for(i=0; i<teacherArray.length; i++){%>
+       '<%= teacherArray[i]%>',
+       <%}%>
+       ])" />
+        <ul id="teacherList">
+            <%for(i=0; i<teacherArray.length; i++){%>
+               <form action="/changeTeacher" method="post">
+                <input name="teacher" value='<%=teacherArray[i]%>' readonly/><input type="submit"  value="Choose Teacher"/>
+                </form>
+            <%}%>
+        </ul>
+    </div>
 
     <div class="profileBody">
         <div class="examItemListBox">
@@ -145,6 +160,7 @@
                     <img class="profilePic" src='<%= user.local.profilePic%>' />
                     <div class="nameAndPass">
                         <h4> Email: <%= user.local.email %></h4>
+                        <h4> Teacher: <%= user.local.userConnections[0] %></h4>
                     </div>
                 </div>
                 <h4>Profile Picture Link: <%= user.local.profilePic%></h4>
@@ -158,6 +174,9 @@
                         </div>
                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                             Edit Profile
+                        </button>
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#searchTeacher">
+                            Search Teacher
                         </button>
                     </div>
                 </div>
@@ -250,6 +269,7 @@
 </body>
 <footer>Site made and owned by Christian F. Coreil</footer>
 <script src="../scripts/main.js"></script>
+<script src="../scripts/profile.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="../scripts/client-socket.js"></script>
 

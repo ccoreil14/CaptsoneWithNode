@@ -85,7 +85,7 @@ module.exports = function (passport) {
                         newUser.local.userMedals.medal6 = false;
                         newUser.local.userMedals.medal7 = false;
                         newUser.local.userMedals.medal8 = false;
-                        newUser.local.userConnections = ["Chris"];
+                        newUser.local.userConnections = [];
 
                         // save the user
                         newUser.save(function (err) {

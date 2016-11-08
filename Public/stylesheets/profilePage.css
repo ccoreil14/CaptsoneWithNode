@@ -7,6 +7,15 @@
     margin-right: auto;
 }
 
+.modal{
+/*    height: 0;*/
+}
+
+#teacherList{
+    background: white;
+}
+
+
 /*exam list*/
 
 .examItemListBox{
@@ -28,7 +37,11 @@
     list-style-type: none;
     width: 99%;
     border: 1px solid black;
-    height: 100px;
+    height: 180px;
+}
+
+.examItem h4{
+    margin: 0;
 }
 
 .examItem h3{
@@ -43,7 +56,7 @@
     width: 50px;
     margin-top: 30px;
     float: left;
-        margin-left: 5px;
+    margin-left: 5px;
 
 }
 
