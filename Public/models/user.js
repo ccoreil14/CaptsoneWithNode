@@ -68,13 +68,6 @@ var userSchema = new Schema({
     }
 });
 
-//userSchema.methods.hash = function() {
-//  // add some stuff to the users name
-//  this.password = this.password+""+Math.random(); 
-//
-//  return this.password;
-//};
-
 userSchema.methods.generateHash = function (password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };

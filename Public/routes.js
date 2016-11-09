@@ -97,7 +97,7 @@ module.exports = function (app, passport, path, pathYO) {
         }, function (err, user) {
             req.user.local.email = req.body.newEmail;
             if (req.body.newPassword.length > 0) {
-                req.user.local.password = req.body.newPassword;
+                req.user.local.password = req.user.generateHash(req.body.newPassword);
             }
             req.user.local.profilePic = req.body.newPic;
             req.user.local.profileBio = req.body.newBio;
@@ -225,7 +225,7 @@ module.exports = function (app, passport, path, pathYO) {
 
     app.get('/prismExam', isLoggedIn, function (req, res) {
         ExamQuestion.find({
-            examName: "rectExam"
+            examName: "prismExam"
         }, function (err, examQuestions) {
             examQuestionArray = examQuestions;
             shuffle(examQuestionArray);
@@ -286,7 +286,7 @@ module.exports = function (app, passport, path, pathYO) {
 
     app.get('/sphereExam', isLoggedIn, function (req, res) {
         ExamQuestion.find({
-            examName: "rectExam"
+            examName: "sphereExam"
         }, function (err, examQuestions) {
             examQuestionArray = examQuestions;
             shuffle(examQuestionArray);
