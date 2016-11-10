@@ -1,91 +1,139 @@
-.profileBody{
-    border: 1px solid black;
-    height: 75%;
-    margin-top: 20px;
-    max-width: 1200px;
+.modal {
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    background: white;
+    border-radius: 10px;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    box-shadow: black 3px 3px 4px;
+}
+
+.modal-content {
+    margin-top: 30px;
+    margin-left: 30px;
+    padding-right: 30px;
+}
+
+.modal-body input {
+    margin-top: 10px;
+}
+
+.modal-body textarea {
+    margin-top: 10px;
+    resize: none;
+    width: 95%;
+    height: 120px;
+    display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.modal{
-/*    height: 0;*/
+#newPic {
+    width: 400px;
 }
 
-#teacherList{
+.searchBar {
+    margin-left: 30px;
+    margin-top: 100px;
+}
+
+#teacherList {
     background: white;
+    border: 1px solid black;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.profileBody {
+    border: 1px solid black;
+    height: 75%;
+    margin-top: 20px;
+    max-width: 1200px;
+    min-width: 890px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
 /*exam list*/
 
-.examItemListBox{
-    border: 1px solid black;
+.examItemListBox {
     display: block;
     width: 30.7%;
     float: left;
     height: 100%;
 }
 
-.examItemList{
+.examItemList {
     padding-left: 0px;
-/*    overflow-y: scroll;*/
+    /*    overflow-y: scroll;*/
     height: 100%;
     margin-top: 0px;
 }
 
-.examItem{
+.examItem {
     list-style-type: none;
     width: 99%;
     border: 1px solid black;
-    height: 180px;
+    height: 170px;
 }
 
-.examItem h4{
+.examItem h4 {
     margin: 0;
 }
 
-.examItem h3{
+.examItem h3 {
     float: left;
     margin: 0;
     margin-top: 40px;
     margin-left: 5px;
 }
 
-.gradeDiv{
+.gradeDiv {
     height: 50%;
     width: 50px;
     margin-top: 30px;
     float: left;
     margin-left: 5px;
-
 }
 
-.green{
+.green {
     background: green;
 }
 
-.yellow{
+.yellow {
     background: yellow;
     color: black;
 }
 
-.red{
+.red {
     background: red;
 }
 
-.black{
+.black {
     background: black;
 }
 
-.grey{
+.grey {
     background: grey;
 }
+
 
 /*examList*/
 
 
 /*right side of screen*/
-.rightSide{
+
+.rightSide {
     border: 1px solid black;
     display: block;
     width: 68.7%;
@@ -93,22 +141,23 @@
     height: 100%;
 }
 
+
 /*Info Box*/
-.infoBox{
-    border: 1px solid black;
+
+.infoBox {
     height: 45%;
 }
 
 
- /*Info Box Top Row*/
-.infoBoxTopRow{
-    border: 1px solid black;  
+/*Info Box Top Row*/
+
+.infoBoxTopRow {
     height: 50%;
 }
 
-
-.profilePic{
-    width: 15%;
+.profilePic {
+    width: 130px;
+    height: 130px;
     border-radius: 70%;
     display: block;
     float: left;
@@ -116,77 +165,86 @@
     margin-top: 2%;
 }
 
-.nameAndPass{
+.nameAndPass {
     display: block;
     float: right;
     padding-right: 20px;
 }
 
-.nameInput{
+.nameInput {
     float: right;
     width: 300px;
 }
 
-.passwordInput{
+.passwordInput {
     float: right;
     width: 300px;
 }
- /*Info Box Top Row*/
 
 
-.profilePicLink{
+/*Info Box Top Row*/
+
+.profilePicLink {
     width: 60%
 }
 
 
 /*Info box bottom row*/
-.infoBoxBottomRow{
-    border: 1px solid black;  
-    height: 28%;
+
+.infoBoxBottomRow {
+    height: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.bio{
+.bio {
     display: block;
     float: left;
     height: 99%;
     width: 70%;
     resize: none;
-    text-align: center;
+    text-align: left;
 }
 
-.colorAndSave{
+.colorAndSave {
     display: block;
     float: right;
     width: 27%;
 }
 
-.profileColor{
-    height: 49%;
-    border: 1px solid black;  
+.colorAndSave button {
+    width: 99%;
+    height: 49.5%;
+    font-size: 22px;
 }
 
-.saveBtn{
+.profileColor {
+    height: 49%;
+    border: 1px solid black;
+}
+
+.saveBtn {
     height: 49%;
     width: 100%;
 }
+
+
 /*Info box bottom row*/
+
+
 /*Info Box*/
 
 
 /*Medal List Box*/
-.medalListBox{
-    height: 49%;
+
+.medalListBox {
+    margin-left: auto;
+    height: 54%;
     width: 99.9%;
-    border: 1px dashed red;
-    margin-top: 33px;
     overflow-y: scroll;
 }
 
-.medalListTitle{
-    text-align: center;
-}
-
-.medalAndName{
+.medalAndName {
     float: left;
     display: block;
     margin-left: 20px;
@@ -194,28 +252,27 @@
     margin-bottom: 20px;
 }
 
+
 /*for medals only*/
-.medal{
+
+.medal {
     width: 120px;
-    border-radius: 70px; 
+    border-radius: 70px;
 }
 
-.locked{
+.locked {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
 
-.unlocked{
+.unlocked {
     box-shadow: black 3px 3px 4px;
 }
 
-.medalName{
+.medalName {
     text-align: center;
     margin-top: 10px;
 }
-
-
-
 
 
 /*for medals only*/

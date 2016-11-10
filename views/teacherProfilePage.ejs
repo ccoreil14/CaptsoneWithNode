@@ -9,11 +9,6 @@
     <!-- load bootstrap css -->
     <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -48,25 +43,25 @@
             <li class="insidesItem" onclick="minMax()">Open/Close</li>
         </ul>
     </div>
-    <img id="logo" src="../../images/Logo3.png" />
+    <img  id="logo" src="../../images/Logo3.png" />
 
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button onclick="toggleModal('myModal')">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title" id="myModalLabel">New Information</h4>
                 </div>
                 <div class="modal-body">
                     <form action="/profile" method="post">
-                        Email: <input type="email" name="newEmail" value='<%= user.local.email  %>'/><br/>
-                        Password: <input type="password" name="newPassword" /><br/>
-                        Profile Pic Link: <input type="text" name="newPic" value='<%= user.local.profilePic  %>'/><br/>
-                        Bio: <textarea name="newBio"><%= user.local.profileBio  %></textarea><br/>
-                        Profile Color: <input type="text" name="newColor" value='<%= user.local.profileColor  %>'/><br/>
+                        New Email: <input type="email" name="newEmail" value='<%= user.local.email  %>'/><br/>
+                        New Password: <input type="password" name="newPassword" /><br/>
+                        New Profile Pic Link: <input type="text"  id="newPic" name="newPic" value='<%= user.local.profilePic  %>'/><br/>
+                        New Bio: <textarea name="newBio" maxlength="250"><%= user.local.profileBio  %></textarea><br/>
+                        New Profile Color: <input id="newColor" onchange="backgroundCurrentColor()" type="text" class="jscolor" name="newColor" value='<%= user.local.profileColor  %>' readonly /><br/>
                         <input type="submit" value = "Save Changes"/>
                     </form>
                 </div>
@@ -136,14 +131,33 @@
             </ul>
         </div>
         <div class="classroomBox">
-            <ul class="examItemList">
+            <ul class="studentsItemList">
                <%for (i = 0; i< studentArray.length; i++) { %>
-                <li class="examItem">
+                <li class="studentsItem">
                     <h4><%= studentArray[i].local.email %></h4>
-                    <h5>RectTest: <%= studentArray[i].local.userExams.rectExam %>% </h5>
-                    <h5>CircTest: <%= studentArray[i].local.userExams.circExam %>%  </h5>
-                    <h5>PrismTest: <%= studentArray[i].local.userExams.prismExam %>%  </h5>
-                    <h5>SphereTest: <%= studentArray[i].local.userExams.sphereExam %>%  </h5>
+                    <%if(studentArray[i].local.userExams.rectExam = -1) {%>
+                    <h5>RectTest: Not Started</h5>
+                    <% } else { %>
+                    <h5>RectTest: <%= studentArray[i].local.userExams.rectExam %>/10 </h5>
+                    <% } %>
+                    
+                    <%if(studentArray[i].local.userExams.circExam = -1) {%>
+                    <h5>CircTest: Not Started</h5>
+                    <% } else { %>
+                    <h5>CircTest: <%= studentArray[i].local.userExams.circExam %>/10 </h5>
+                    <% } %>
+                    
+                    <%if(studentArray[i].local.userExams.prismExam = -1) {%>
+                    <h5>PrismTest: Not Started</h5>
+                    <% } else { %>
+                    <h5>PrismTest: <%= studentArray[i].local.userExams.prismExam %>/10 </h5>
+                    <% } %>
+                    
+                    <%if(studentArray[i].local.userExams.sphereExam = -1) {%>
+                    <h5>SphereTest: Not Started</h5>
+                    <% } else { %>
+                    <h5>SphereTest: <%= studentArray[i].local.userExams.sphereExam %>/10 </h5>
+                    <% } %>
                 </li>
                 <% } %>
             </ul>
@@ -156,23 +170,16 @@
                         <h4> Email: <%= user.local.email %></h4>
                     </div>
                 </div>
-                <h4>Profile Picture Link: <%= user.local.profilePic %></h4>
                 <div class="infoBoxBottomRow">
-                    <textarea class="bio">
-                        <%= user.local.profileBio %>
-                    </textarea>
+                    <textarea class="bio" maxlength="250" readonly><%= user.local.profileBio %></textarea>
                     <div class="colorAndSave">
-                        <div class="profileColor">
-                            <%= user.local.profileColor %>
-                        </div>
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        <button onclick="toggleModal('myModal')">
                             Edit Profile
                         </button>
                     </div>
                 </div>
             </div>
             <div class="medalListBox">
-                <div class="medalListTitle">Medal List</div>
                 <div class="medalAndName">
                     <% if (user.local.userMedals.medal1 === false) { %>
                         <%= user.local.userMedals.medal1 = true %> 
@@ -258,7 +265,9 @@
 </body>
 <footer>Site made and owned by Christian F. Coreil</footer>
 <script src="../scripts/main.js"></script>
+<script src="../scripts/profile.js"></script>
 <script src="/socket.io/socket.io.js"></script>
+<script  onload="backgroundColor('<%= user.local.profileColor %>')" src="../scripts/jscolor.js"></script>
 <script src="../scripts/client-socket.js"></script>
 
 </html>

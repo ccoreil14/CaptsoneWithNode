@@ -1,13 +1,27 @@
-.classroomBox{
+.classroomBox {
     width: 20%;
     display: block;
     float: left;
 }
 
-.rightSide{
+.rightSide {
     width: 52% !important;
 }
 
-.examItemListBox{
+.examItemListBox {
     width: 27% !important;
+}
+
+.studentsItemList {
+    padding-left: 0px;
+    height: 100%;
+    margin-top: 0px;
+    overflow-y: scroll;
+}
+
+.studentsItem {
+    list-style-type: none;
+    width: 93%;
+    border: 1px solid black;
+    padding-left: 10px;
 }

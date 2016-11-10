@@ -72,7 +72,7 @@ module.exports = function (passport) {
                         newUser.local.isTeacher = req.param('isTeacher');
                         newUser.local.profilePic = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png";
                         newUser.local.profileBio = "Default Bio";
-                        newUser.local.profileColor = "#000000";
+                        newUser.local.profileColor = "8092DE";
                         newUser.local.userExams.circExam = -1;
                         newUser.local.userExams.rectExam = -1;
                         newUser.local.userExams.prismExam = -1;
@@ -113,12 +113,11 @@ module.exports = function (passport) {
     // by default, if there was no name, it would just be called 'local'
 
     passport.use('local-login', new LocalStrategy({
-            // by default, local strategy uses username and password, we will override with email
             usernameField: 'email',
             passwordField: 'password',
-            passReqToCallback: true // allows us to pass back the entire request to the callback
+            passReqToCallback: true
         },
-        function (req, email, password, done) { // callback with email and password from our form
+        function (req, email, password, done) {
 
         
 //        var examQuestions = [["circExam", "../images/ExamQuestions/circle1.png", 12.57, "Area 2"],["circExam", "../images/ExamQuestions/circle2.png", 18.85, "Circumfrence 3"],["circExam", "../images/ExamQuestions/circle3.png", 50.27, "Area 4"],["circExam", "../images/ExamQuestions/circle4.png", 31.42, "Circumfrence 5"],["circExam", "../images/ExamQuestions/circle5.png", 314.16, "Area 10"],["circExam", "../images/ExamQuestions/circle6.png", 628.32, "Circumfrence 100"],["circExam", "../images/ExamQuestions/circle7.png", 7853.98, "Area 50"],["circExam", "../images/ExamQuestions/circle8.png", 125.66, "Circumfrence 20"],["circExam", "../images/ExamQuestions/circle9.png", 706.86,"Area 15"],["circExam", "../images/ExamQuestions/circle10.png", 50.27, "Circumfrence 8"],["rectExam", "../images/ExamQuestions/perimeter2.png", 17, "Perimeter"],["rectExam", "../images/ExamQuestions/perimeter5.png", 30, "Perimeter"],["rectExam", "../images/ExamQuestions/perimeter6.png", 16, "Perimeter"],["rectExam", "../images/ExamQuestions/perimeter8.png", 8, "Perimeter"],["rectExam", "../images/ExamQuestions/perimeter10.png", 24, "Perimeter"],["rectExam", "../images/ExamQuestions/rectArea2.png", 32, "Rect Area"],["rectExam", "../images/ExamQuestions/rectArea5.png", 27, "Rect Area"],["rectExam", "../images/ExamQuestions/rectArea8.png", 49, "Rect Area"],["rectExam", "../images/ExamQuestions/rectArea9.png", 2, "Rect Area"],["rectExam", "../images/ExamQuestions/rectArea10.png", 8, "Rect Area"],        ["prismExam", "../images/ExamQuestions/prism1.png", 96, "SA"],        ["prismExam", "../images/ExamQuestions/prism2.png", 125, "Vol"],        ["prismExam", "../images/ExamQuestions/prism3.png", 158, "SA"],        ["prismExam", "../images/ExamQuestions/prism4.png", 120, "Vol"],        ["prismExam", "../images/ExamQuestions/prism5.png", 182, "SA"],        ["prismExam", "../images/ExamQuestions/prism6.png", 48, "Vol"],        ["prismExam", "../images/ExamQuestions/prism7.png", 94, "SA"],        ["prismExam", "../images/ExamQuestions/prism8.png", 24, "Vol"],        ["prismExam", "../images/ExamQuestions/prism9.png", 190, "SA"],        ["prismExam", "../images/ExamQuestions/prism10.png", 84, "Vol"],        ["sphereExam", "../images/ExamQuestions/sphere1.png", 113.1, "SA"],        ["sphereExam", "../images/ExamQuestions/sphere2.png", 523.6, "Vol"],        ["sphereExam", "../images/ExamQuestions/sphere3.png", 50.27, "SA"],        ["sphereExam", "../images/ExamQuestions/sphere4.png", 904.78, "Vol"],        ["sphereExam", "../images/ExamQuestions/sphere5.png", 804.25, "SA"],        ["sphereExam", "../images/ExamQuestions/sphere6.png", 4188.79, "Vol"],        ["sphereExam", "../images/ExamQuestions/sphere8.png", 1256.64, "SA"],        ["sphereExam", "../images/ExamQuestions/sphere7.png", 1436.76, "Vol"],        ["sphereExam", "../images/ExamQuestions/sphere4.png", 452.39, "SA"],        ["sphereExam", "../images/ExamQuestions/sphere10.png", 14137.17, "Vol"]];
@@ -147,7 +146,7 @@ module.exports = function (passport) {
 
                 // if the user is found but the password is wrong
                 if (!user.validPassword(password))
-                    return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
+                    return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); 
 
                 // all is well, return successful user
                 return done(null, user);
