@@ -12,7 +12,7 @@
 <body>
     <div id="menu" class="collapseBox">
         <div id="menuHead" class="boxHeader">
-            <a href="/login">Login</a>    <a href="/signup">Sign Up</a>
+            <a href="/login">Login</a> <a href="/signup">Sign Up</a>
             <!--            <a href="pages/teacherProfilePage.html">Login Teacher</a>-->
             <img id="menuArrow" class="arrow" src="../images/arrow.png" onclick="toggleMenu('menuInsides')" />
         </div>
@@ -43,10 +43,15 @@
             <div class="formulaArea">
                 <div class="formula">
                     <h3>Circumference:<h3 id="CircumferenceAnsr"></h3></h3>
+                    <button onclick="changeDescrip('circumfrence', 0)">How To Calculate</button>
+                    <button onclick="changeDescrip('circumfrence', 1)">Intresting Fact</button>
+                    <button onclick="changeDescrip('circumfrence', 2)">What's it used for</button>
                 </div>
                 <div class="formula">
                     <h3>Area:<h3 id="CircAreaAnsr"></h3></h3>
-
+                    <button onclick="changeDescrip('circArea', 0)">How To Calculate</button>
+                    <button onclick="changeDescrip('circArea', 1)">Intresting Fact</button>
+                    <button onclick="changeDescrip('circArea', 2)">What's it used for</button>
                 </div>
                 <div class="formula">
                     <h3>Shape Color</h3>
@@ -68,12 +73,14 @@
                         <button id="toggleBtn" onclick="toggleDynSizeCircle()">Arrows Off</button>
                         <button onclick="resetCanvas()">reset shape</button>
                         <button id="toggleGlow" onclick="toggleGlow()">Highlight Radius</button>
-                        <a href="circumfrenceLesson.html"><button>Take Lesson</button></a>
+                        <a href="circumfrenceLesson.html">
+                            <button>Take Lesson</button>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="descripBox">
-                Description
+                This is the description block. Click on one of the formula buttons to learn different aspects about the math formula.
             </div>
         </div>
 
@@ -98,6 +105,7 @@
 <script src="../scripts/circleTHREE.js"></script>
 <script src="../scripts/ButtonActions.js"></script>
 <script src="../scripts/jscolor.js"></script>
+<script src="../scripts/workshop.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="../scripts/client-socket.js"></script>
 

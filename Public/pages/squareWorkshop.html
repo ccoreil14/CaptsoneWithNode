@@ -42,10 +42,16 @@
         <div class="side leftSide">
             <div class="formulaArea">
                 <div class="formula">
-                    <h3>Area:<h3 id="RectAreaAnsr"></h3></h3>
+                    <h3>Perimeter:<h3 id="PerimeterAnsr"></h3></h3>
+                    <button onclick="changeDescrip('perimeter', 0)">How To Calculate</button>
+                    <button onclick="changeDescrip('perimeter', 1)">Intresting Fact</button>
+                    <button onclick="changeDescrip('perimeter', 2)">What's it used for</button>
                 </div>
                 <div class="formula">
-                    <h3>Perimeter:<h3 id="PerimeterAnsr"></h3></h3>
+                    <h3>Area:<h3 id="RectAreaAnsr"></h3></h3>
+                    <button onclick="changeDescrip('rectArea', 0)">How To Calculate</button>
+                    <button onclick="changeDescrip('rectArea', 1)">Intresting Fact</button>
+                    <button onclick="changeDescrip('rectArea', 2)">What's it used for</button>
                 </div>
                 <div class="formula">
                     <h3>Shape Color</h3>
@@ -77,7 +83,7 @@
                 </div>
             </div>
             <div class="descripBox">
-                Description
+               This is the description block. Click on one of the formula buttons to learn different aspects about the math formula.
             </div>
         </div>
 
@@ -102,6 +108,7 @@
 <script src="../scripts/squareTHREE.js"></script>
 <script src="../scripts/ButtonActions.js"></script>
 <script src="../scripts/jscolor.js"></script>
+<script src="../scripts/workshop.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="../scripts/client-socket.js"></script>
 
