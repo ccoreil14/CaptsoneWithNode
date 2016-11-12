@@ -19,7 +19,7 @@
 
 .examQuestion {
     list-style-type: none;
-/*    border: 1px solid black;*/
+    /*    border: 1px solid black;*/
     height: 40%;
     width: 99%;
 }
@@ -32,9 +32,7 @@
     margin-bottom: 20px;
 }
 
-.questionImg {
-    
-}
+.questionImg {}
 
 
 /*Question descrip and user input*/
@@ -64,9 +62,8 @@
 .answerBoxCover {
     background: white;
     color: black;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     height: 100%;
-    
 }
 
 .answerDescrip {
@@ -79,22 +76,51 @@
 
 /*Answer Section*/
 
-.correct{
+.correct {
     background-color: green;
 }
 
-.incorrect{
+.incorrect {
     background-color: red;
 }
 
-#submitScore{
+#submitScore {
     position: absolute;
-    width: 50%;
-    height: 50%;
-    margin-top: 100px;
+    width: 500px;
+    height: 120px;
+    padding-top: 20px;
+    margin-top: 280px;
     background: white;
-    margin-left: 25%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     visibility: hidden;
     border: 1px solid black;
-    box-shadow: 5px 5px 5px #888888;   
+    box-shadow: 5px 5px 5px #333333;
+    z-index: 2;
+    color: black;
+    font-size: 80px;
+}
+
+#submitScore form {
+    height: 100%;
+}
+
+#submitScore input[type='number'] {
+    width: 60px;
+    height: 100px;
+    font-size: 30px;
+    float: left;
+    margin-left: 20px;
+    font-size: 80px;
+    border-width: 0px;
+    border: none;
+}
+
+#submitScore input[type='submit'] {
+    width: 200px;
+    height: 100px;
+    font-size: 30px;
+    float: right;
 }

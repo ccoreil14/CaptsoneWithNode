@@ -99,6 +99,7 @@ module.exports = function (app, passport, path, pathYO) {
             if (req.body.newPassword.length > 0) {
                 req.user.local.password = req.user.generateHash(req.body.newPassword);
             }
+            req.user.local.username = req.body.newUsername;
             req.user.local.profilePic = req.body.newPic;
             req.user.local.profileBio = req.body.newBio;
             req.user.local.profileColor = req.body.newColor;

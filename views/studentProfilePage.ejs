@@ -15,7 +15,7 @@
     <div id="menu" class="collapseBox">
         <div id="menuHead" class="boxHeader">
             <a href="/profile">
-                <%= user.local.email %>
+                <%= user.local.username %>
             </a>
             <!--            <a href="pages/teacherProfilePage.html">Login Teacher</a>-->
             <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('menuInsides')" />
@@ -58,6 +58,8 @@
                     <input type="email" name="newEmail" value='<%= user.local.email  %>' />
                     <br/>New Password:
                     <input type="password" name="newPassword" />
+                    New Username:
+                    <input type="text" name="newUsername" value='<%= user.local.username  %>' />
                     <br/>New Profile Pic Link:
                     <input type="text" id="newPic" name="newPic" value='<%= user.local.profilePic  %>' />
                     <br/><br/>New Bio:
@@ -193,6 +195,7 @@
                 <div class="infoBoxTopRow">
                     <img class="profilePic" src='<%= user.local.profilePic%>' />
                     <div class="nameAndPass">
+                        <h4> Username: <%= user.local.username %></h4>
                         <h4> Email: <%= user.local.email %></h4>
                         <h4> Teacher: <%= user.local.userConnections[0] %></h4>
                     </div>

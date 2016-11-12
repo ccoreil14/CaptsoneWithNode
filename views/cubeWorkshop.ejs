@@ -13,7 +13,7 @@
     <div id="menu" class="collapseBox">
         <div id="menuHead" class="boxHeader">
             <a href="/profile">
-                <%= user.local.email %>
+                <%= user.local.username %>
             </a>
             <!--            <a href="pages/teacherProfilePage.html">Login Teacher</a>-->
             <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('menuInsides')" />
@@ -109,7 +109,7 @@
             </div>
         </form>
     </div>
-    
+
     <% if (user.local.userMedals.medal2 === false) { %>
         <%= user.local.userMedals.medal2 = true %>
             <% user.save(); %>

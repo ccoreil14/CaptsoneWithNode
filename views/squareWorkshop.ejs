@@ -13,7 +13,7 @@
     <div id="menu" class="collapseBox">
         <div id="menuHead" class="boxHeader">
             <a href="/profile">
-                <%= user.local.email %>
+                <%= user.local.username %>
             </a>
             <!--            <a href="pages/teacherProfilePage.html">Login Teacher</a>-->
             <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('menuInsides')" />
@@ -45,7 +45,7 @@
     <div class="workshopArea">
         <div class="side leftSide">
             <div class="formulaArea">
-               <div class="formula">
+                <div class="formula">
                     <h3>Perimeter:<h3 id="PerimeterAnsr"></h3></h3>
                     <button onclick="changeDescrip('perimeter', 0)">How To Calculate</button>
                     <button onclick="changeDescrip('perimeter', 1)">Intresting Fact</button>
@@ -81,9 +81,11 @@
                         <button id="toggleBtn" onclick="toggleDynSizeRect()">Arrows Off</button>
                         <button onclick="resetCanvas()">reset shape</button>
                         <button id="toggleGlow" onclick="toggleGlow()">Highlight Measurements2</button>
-                        <a href="/perimeterLesson"><button>Take Lesson</button></a>
+                        <a href="/perimeterLesson">
+                            <button>Take Lesson</button>
+                        </a>
                     </div>
-         
+
                 </div>
             </div>
             <div class="descripBox">
@@ -104,7 +106,7 @@
             </div>
         </form>
     </div>
-    
+
     <% if (user.local.userMedals.medal3 === false) { %>
         <%= user.local.userMedals.medal3 = true %>
             <% user.save(); %>

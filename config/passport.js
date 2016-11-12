@@ -69,6 +69,7 @@ module.exports = function (passport) {
                         // set the user's local credentials
                         newUser.local.email = email;
                         newUser.local.password = newUser.generateHash(password);
+                        newUser.local.username = req.param('username');
                         newUser.local.isTeacher = req.param('isTeacher');
                         newUser.local.profilePic = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png";
                         newUser.local.profileBio = "Default Bio";

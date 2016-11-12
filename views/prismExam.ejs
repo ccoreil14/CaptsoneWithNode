@@ -13,7 +13,7 @@
     <div id="menu" class="collapseBox">
         <div id="menuHead" class="boxHeader">
             <a href="/profile">
-                <%= user.local.email %>
+                <%= user.local.username %>
             </a>
             <!--            <a href="pages/teacherProfilePage.html">Login Teacher</a>-->
             <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('menuInsides')" />
@@ -44,7 +44,7 @@
     <img id="logo" class="examLogo" src="../images/Logo3.png" />
     <div id="submitScore">
         <form action="/prismExam" method="post">
-            <input id="finalScore" type="number" name="finalScore" readonly />
+            <input id="finalScore" type="number" name="finalScore" readonly />/10
             <input type="submit" value="Submit Grade" />
         </form>
     </div>
@@ -63,9 +63,11 @@
     <div class="examBox">
         <ul class="examQuestionList">
             <li class="examQuestion">
-                <img class="questionImg questionItem"  src="<%= examQuestions[0].picRoute %>" />
+                <img class="questionImg questionItem" src="<%= examQuestions[0].picRoute %>" />
                 <div class="questionAndInput questionItem">
-                    <p class="questionDescrip"> <%= examQuestions[0].description %></p>
+                    <p class="questionDescrip">
+                        <%= examQuestions[0].description %>
+                    </p>
                     <input type="number" class="userAnswer" />
                     <button class="submitAnswerBtn" onclick="checkAnswer(0, '<%= examQuestions[0].answer %>')">Submit</button>
                 </div>
@@ -76,9 +78,11 @@
                 </div>
             </li>
             <li class="examQuestion">
-                <img class="questionImg questionItem"  src="<%= examQuestions[1].picRoute %>" />
+                <img class="questionImg questionItem" src="<%= examQuestions[1].picRoute %>" />
                 <div class="questionAndInput questionItem">
-                    <p class="questionDescrip"> <%= examQuestions[1].description %></p>
+                    <p class="questionDescrip">
+                        <%= examQuestions[1].description %>
+                    </p>
                     <input type="number" class="userAnswer" />
                     <button class="submitAnswerBtn" onclick="checkAnswer(1, '<%= examQuestions[1].answer %>')">Submit</button>
                 </div>
@@ -91,7 +95,9 @@
             <li class="examQuestion">
                 <img class="questionImg questionItem" src="<%= examQuestions[2].picRoute %>" />
                 <div class="questionAndInput questionItem">
-                    <p class="questionDescrip"> <%= examQuestions[2].description %></p>
+                    <p class="questionDescrip">
+                        <%= examQuestions[2].description %>
+                    </p>
                     <input type="number" class="userAnswer" />
                     <button class="submitAnswerBtn" onclick="checkAnswer(2, '<%= examQuestions[2].answer %>')">Submit</button>
                 </div>
@@ -104,7 +110,9 @@
             <li class="examQuestion">
                 <img class="questionImg questionItem" src="<%= examQuestions[3].picRoute %>" />
                 <div class="questionAndInput questionItem">
-                    <p class="questionDescrip"> <%= examQuestions[3].description %></p>
+                    <p class="questionDescrip">
+                        <%= examQuestions[3].description %>
+                    </p>
                     <input type="number" class="userAnswer" />
                     <button class="submitAnswerBtn" onclick="checkAnswer(3, '<%= examQuestions[3].answer %>')">Submit</button>
                 </div>
@@ -117,7 +125,9 @@
             <li class="examQuestion">
                 <img class="questionImg questionItem" src="<%= examQuestions[4].picRoute %>" />
                 <div class="questionAndInput questionItem">
-                    <p class="questionDescrip"> <%= examQuestions[4].description %></p>
+                    <p class="questionDescrip">
+                        <%= examQuestions[4].description %>
+                    </p>
                     <input type="number" class="userAnswer" />
                     <button class="submitAnswerBtn" onclick="checkAnswer(4, '<%= examQuestions[4].answer %>')">Submit</button>
                 </div>
@@ -130,7 +140,9 @@
             <li class="examQuestion">
                 <img class="questionImg questionItem" src="<%= examQuestions[5].picRoute %>" />
                 <div class="questionAndInput questionItem">
-                    <p class="questionDescrip"> <%= examQuestions[5].description %></p>
+                    <p class="questionDescrip">
+                        <%= examQuestions[5].description %>
+                    </p>
                     <input type="number" class="userAnswer" />
                     <button class="submitAnswerBtn" onclick="checkAnswer(5, '<%= examQuestions[5].answer %>')">Submit</button>
                 </div>
@@ -143,7 +155,9 @@
             <li class="examQuestion">
                 <img class="questionImg questionItem" src="<%= examQuestions[6].picRoute %>" />
                 <div class="questionAndInput questionItem">
-                    <p class="questionDescrip"> <%= examQuestions[6].description %></p>
+                    <p class="questionDescrip">
+                        <%= examQuestions[6].description %>
+                    </p>
                     <input type="number" class="userAnswer" />
                     <button class="submitAnswerBtn" onclick="checkAnswer(6, '<%= examQuestions[6].answer %>')">Submit</button>
                 </div>
@@ -156,7 +170,9 @@
             <li class="examQuestion">
                 <img class="questionImg questionItem" src="<%= examQuestions[7].picRoute %>" />
                 <div class="questionAndInput questionItem">
-                    <p class="questionDescrip"> <%= examQuestions[7].description %></p>
+                    <p class="questionDescrip">
+                        <%= examQuestions[7].description %>
+                    </p>
                     <input type="number" class="userAnswer" />
                     <button class="submitAnswerBtn" onclick="checkAnswer(7, '<%= examQuestions[7].answer %>')">Submit</button>
                 </div>
@@ -169,7 +185,9 @@
             <li class="examQuestion">
                 <img class="questionImg questionItem" src="<%= examQuestions[8].picRoute %>" />
                 <div class="questionAndInput questionItem">
-                    <p class="questionDescrip"> <%= examQuestions[8].description %></p>
+                    <p class="questionDescrip">
+                        <%= examQuestions[8].description %>
+                    </p>
                     <input type="number" class="userAnswer" />
                     <button class="submitAnswerBtn" onclick="checkAnswer(8, '<%= examQuestions[8].answer %>')">Submit</button>
                 </div>
@@ -182,7 +200,9 @@
             <li class="examQuestion">
                 <img class="questionImg questionItem" src="<%= examQuestions[9].picRoute %>" />
                 <div class="questionAndInput questionItem">
-                    <p class="questionDescrip"> <%= examQuestions[9].description %></p>
+                    <p class="questionDescrip">
+                        <%= examQuestions[9].description %>
+                    </p>
                     <input type="number" class="userAnswer" />
                     <button class="submitAnswerBtn" onclick="checkAnswer(9, '<%= examQuestions[9].answer %>')">Submit</button>
                 </div>
@@ -192,7 +212,7 @@
                         <h1><%= examQuestions[9].answer %></h1></div>
                 </div>
             </li>
-            
+
         </ul>
     </div>
 </body>

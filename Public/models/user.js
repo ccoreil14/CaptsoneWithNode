@@ -11,6 +11,10 @@ var userSchema = new Schema({
             type: String,
             required: true
         },
+        username: {
+            type: String,
+            required: true
+        },
         isTeacher: {
             type: Boolean,
             required: true
