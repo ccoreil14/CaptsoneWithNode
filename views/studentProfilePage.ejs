@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../../stylesheets/main.css">
     <link rel="stylesheet" href="../../stylesheets/profilePage.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel='shortcut icon' href="images/Logo2.png" />
     <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -57,15 +58,17 @@
                     New Email:
                     <input type="email" name="newEmail" value='<%= user.local.email  %>' />
                     <br/>New Password:
-                    <input type="password" name="newPassword" />
-                    New Username:
+                    <input type="password" name="newPassword" /> New Username:
                     <input type="text" name="newUsername" value='<%= user.local.username  %>' />
                     <br/>New Profile Pic Link:
                     <input type="text" id="newPic" name="newPic" value='<%= user.local.profilePic  %>' />
-                    <br/><br/>New Bio:
-                    <textarea name="newBio" maxlength="250"><%= user.local.profileBio  %></textarea>
+                    <br/>
+                    <br/>New Bio:
+                    <textarea name="newBio" maxlength="250">
+                        <%= user.local.profileBio  %>
+                    </textarea>
                     <br/>New Profile Color:
-                    <input  id="newColor" onchange="backgroundCurrentColor()" type="text" name="newColor" class="jscolor" value='<%= user.local.profileColor  %>' readonly/>
+                    <input id="newColor" onchange="backgroundCurrentColor()" type="text" name="newColor" class="jscolor" value='<%= user.local.profileColor  %>' readonly/>
                     <br/>
                     <input type="submit" value="Save Changes" />
                 </form>
@@ -74,11 +77,13 @@
     </div>
 
     <div class="modal fade" id="searchTeacher" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="searchBar">Search For Teacher: <input id="studentInput" onkeyup="updateTeacherList([
+        <div class="searchBar">Search For Teacher:
+            <input id="studentInput" onkeyup="updateTeacherList([
        <%for(i=0; i<teacherArray.length; i++){%>
        '<%= teacherArray[i]%>',
        <%}%>
-       ])" /></div>
+       ])" />
+        </div>
         <ul id="teacherList">
             <%for(i=0; i<teacherArray.length; i++){%>
                 <form action="/changeTeacher" method="post">
@@ -201,7 +206,9 @@
                     </div>
                 </div>
                 <div class="infoBoxBottomRow">
-                    <textarea class="bio" maxlength="250" readonly ><%= user.local.profileBio %></textarea>
+                    <textarea class="bio" maxlength="250" readonly>
+                        <%= user.local.profileBio %>
+                    </textarea>
                     <div class="colorAndSave">
                         <button onclick="toggleModal('myModal')">
                             Edit Profile
