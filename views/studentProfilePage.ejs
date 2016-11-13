@@ -58,7 +58,8 @@
                     New Email:
                     <input type="email" name="newEmail" value='<%= user.local.email  %>' />
                     <br/>New Password:
-                    <input type="password" name="newPassword" /> New Username:
+                    <input type="password" name="newPassword" /> <br/>
+                    New Username:
                     <input type="text" name="newUsername" value='<%= user.local.username  %>' />
                     <br/>New Profile Pic Link:
                     <input type="text" id="newPic" name="newPic" value='<%= user.local.profilePic  %>' />
@@ -256,6 +257,7 @@
                             <%}%>
                                 <div class="medalName">Your first pass</div>
                 </div>
+<!--
                 <div class="medalAndName">
                     <% if (user.local.userMedals.medal5 === true) {%>
                         <img class="medal unlocked" src="../../images/Medals/PMedal.png" />
@@ -264,6 +266,7 @@
                             <%}%>
                                 <div class="medalName">Styling!</div>
                 </div>
+-->
                 <div class="medalAndName">
                     <% if (user.local.userMedals.medal6 === true) {%>
                         <img class="medal unlocked" src="../../images/Medals/PerfectMedal.png" />
@@ -272,6 +275,7 @@
                             <%}%>
                                 <div class="medalName">Perfect!</div>
                 </div>
+<!--
                 <div class="medalAndName">
                     <% if (user.local.userMedals.medal7 === true) {%>
                         <img class="medal unlocked" src="../../images/Medals/SmileMedal.png" />
@@ -280,6 +284,7 @@
                             <%}%>
                                 <div class="medalName">Talkitive</div>
                 </div>
+-->
                 <div class="medalAndName">
                     <% if (user.local.userMedals.meda8 === true) {%>
                         <img class="medal unlocked" src="../../images/Medals/StarMedal.png" />
@@ -303,6 +308,37 @@
             </div>
         </form>
     </div>
+    
+<% if (user.local.userMedals.medal4 === false) { %>
+       <%if (user.local.userExams.rectExam > 6 || user.local.userExams.circExam > 6 || user.local.userExams.prismExam > 6 || user.local.userExams.sphereExam > 6  ){%>
+        <%= user.local.userMedals.medal4 = true %>
+            <% user.save(); %> 
+                <script>
+                    alert("Congrats on your first passing grade! You got the passing medal! Next time you refresh, you wil see the medal.");
+                </script>
+                <%}%>
+                <%}%>
+                
+    <% if (user.local.userMedals.medal6 === false) { %>
+       <%if (user.local.userExams.rectExam === 100 || user.local.userExams.circExam === 100 || user.local.userExams.prismExam === 100 || user.local.userExams.sphereExam === 100  ){%>
+        <%= user.local.userMedals.medal6 = true %>
+            <% user.save(); %>
+                <script>
+                    alert("Congrats on your first Perfect grade! You got the perfect medal! Next time you refresh, you wil see the medal.");
+                </script>
+                <%}%>
+                <%}%>
+                
+    <% if (user.local.userMedals.medal8 === false) { %>
+       <%if (user.local.userExams.rectExam > 9 && user.local.userExams.circExam > 9 || user.local.userExams.prismExam > 9 || user.local.userExams.sphereExam > 9  ){%>
+        <%= user.local.userMedals.medal8 = true %>
+            <% user.save(); %>
+                <script>
+                    alert("Congrats on All A's! You got the Straight A's medal! Next time you refresh, you wil see the medal.");
+                </script>
+                <%}%>
+                <%}%>
+                
 </body>
 <footer>Site made and owned by Christian F. Coreil</footer>
 <script src="../scripts/main.js"></script>

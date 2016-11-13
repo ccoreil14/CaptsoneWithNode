@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../stylesheets/main.css">
     <link rel="stylesheet" href="../stylesheets/videoLesson.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel='shortcut icon' href="images/Logo2.png"/ >
+    <link rel='shortcut icon' href="../images/Logo2.png" />
     <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
@@ -43,14 +43,18 @@
 
     <iframe class="video" src="https://www.youtube.com/embed/jthbracDu8w" frameborder="0" allowfullscreen></iframe>
 
-    <div class="box prevBtn">
-        <h2>Previous</h2>
-        <h1><a href="circumfrenceLesson.html">Circumfrence</a></h1>
-    </div>
-    <div class="box nextBtn">
-        <h2>Next</h2>
-        <h1><a href="/login">Take the Exam</a></h1>
-    </div>
+    <a href="circumfrenceLesson.html">
+        <div class="box prevBtn">
+            <h2>Previous</h2>
+            <h1>Circumfrence</h1>
+        </div>
+    </a>
+    <a href="/login">
+        <div class="box nextBtn">
+            <h2>Next</h2>
+            <h1>Take the Exam</h1>
+        </div>
+    </a>
     <div id="boxYo" class='chatBox ui-widget-content'>
         <ul id='messages'></ul>
         <form action="" class="clientText" onsubmit="return false;">

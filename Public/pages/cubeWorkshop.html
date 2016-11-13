@@ -4,7 +4,8 @@
     <title>ShapesList</title>
     <link rel="stylesheet" href="../stylesheets/main.css">
     <link rel="stylesheet" href="../stylesheets/workshop.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">    <link rel='shortcut icon' href="images/Logo2.png"/ >
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel='shortcut icon' href="../images/Logo2.png" />
     <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
@@ -12,7 +13,7 @@
 <body>
     <div id="menu" class="collapseBox">
         <div id="menuHead" class="boxHeader">
-            <a href="/login">Login</a>    <a href="/signup">Sign Up</a>
+            <a href="/login">Login</a> <a href="/signup">Sign Up</a>
             <!--            <a href="pages/teacherProfilePage.html">Login Teacher</a>-->
             <img id="menuArrow" class="arrow" src="../images/arrow.png" onclick="toggleMenu('menuInsides')" />
         </div>
@@ -53,7 +54,7 @@
                     <button onclick="changeDescrip('prismVol', 1)">Intresting Fact</button>
                     <button onclick="changeDescrip('prismVol', 2)">What's it used for</button>
                 </div>
-                <div class="forumla">
+                <div class="formula">
                     <h3>Shape Color</h3>
                     <input id="colorInput" class="jscolor" value="000ff0" onchange="updateShape()" readonly/>
                 </div>
@@ -81,7 +82,9 @@
                         <button id="toggleBtn" onclick="toggleDynSizePrism()">Arrows Off</button>
                         <button onclick="resetCanvas()">reset shape</button>
                         <button id="toggleGlow" onclick="toggleGlow()">Highlight Measurements</button>
-                        <a href="prismSALesson.html"><button>Take Lesson</button></a>
+                        <a href="/prismSALesson">
+                            <button>Take Lesson</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -91,6 +94,7 @@
         </div>
 
     </div>
+
     <div id="boxYo" class='chatBox ui-widget-content'>
         <ul id='messages'></ul>
         <form action="" class="clientText" onsubmit="return false;">

@@ -14,7 +14,7 @@
     border: 1px solid black;
     display: inline-block;
     position: absolute;
-    bottom: 80px;
+    bottom: 80px; 
 }
 
 .prevBtn{
@@ -35,4 +35,5 @@ h1{
     margin-top: 5px;
     margin-left: 5px;
     margin-bottom: 0px;
+    font-size: 24px;
 }

@@ -4,7 +4,8 @@
     <title>ShapesList</title>
     <link rel="stylesheet" href="../stylesheets/main.css">
     <link rel="stylesheet" href="../stylesheets/videoLesson.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">    <link rel='shortcut icon' href="images/Logo2.png"/ >
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel='shortcut icon' href="../images/Logo2.png" />
     <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
@@ -12,7 +13,7 @@
 <body>
     <div id="menu" class="collapseBox">
         <div id="menuHead" class="boxHeader">
-            <a href="/login">Login</a>    <a href="/signup">Sign Up</a>
+            <a href="/login">Login</a> <a href="/signup">Sign Up</a>
             <!--            <a href="pages/teacherProfilePage.html">Login Teacher</a>-->
             <img id="menuArrow" class="arrow" src="../images/arrow.png" onclick="toggleMenu('menuInsides')" />
         </div>
@@ -42,14 +43,18 @@
 
     <iframe class="video" src="https://www.youtube.com/embed/T66idnQ1Wx8" frameborder="0" allowfullscreen></iframe>
 
-    <div class="box prevBtn">
-        <h2>Previous</h2>
-        <h1><a href="shapeListPage.html">Back to Shape List</a></h1>
-    </div>
-    <div class="box nextBtn">
-        <h2>Next</h2>
-        <h1><a href="prismVolLesson.html">Volume of a Right Rectangular Prism</a></h1>
-    </div>
+    <a href="shapeListPage.html">
+        <div class="box prevBtn">
+            <h2>Previous</h2>
+            <h1>Back to Shape List</h1>
+        </div>
+    </a>
+    <a href="prismVolLesson.html">
+        <div class="box nextBtn">
+            <h2>Next</h2>
+            <h1>Volume of a Right Rectangular Prism</h1>
+        </div>
+    </a>
     <div id="boxYo" class='chatBox ui-widget-content'>
         <ul id='messages'></ul>
         <form action="" class="clientText" onsubmit="return false;">
