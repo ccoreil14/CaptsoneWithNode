@@ -63,8 +63,8 @@
                         <br/> New Password:
                         <input type="password" name="newPassword" />
                         <br/> New Username:
-                        <input type="text" name="newUsername" value='<%= user.local.username  %>' /> <br/>
-                        New Profile Pic Link:
+                        <input type="text" name="newUsername" value='<%= user.local.username  %>' />
+                        <br/> New Profile Pic Link:
                         <input type="text" id="newPic" name="newPic" value='<%= user.local.profilePic  %>' />
                         <br/> New Bio:
                         <textarea name="newBio" maxlength="250">
@@ -186,25 +186,26 @@
                 <%for (i = 0; i< studentArray.length; i++) { %>
                     <li class="studentsItem">
                         <h4><%= studentArray[i].local.email %></h4>
-                        <%if(studentArray[i].local.userExams.rectExam = -1) {%>
+                        <%if(studentArray[i].local.userExams.rectExam === -1) {%>
+                            <%= studentArray[i].local.userExams.rectExam %>
                             <h5>RectTest: Not Started</h5>
                             <% } else { %>
                                 <h5>RectTest: <%= studentArray[i].local.userExams.rectExam %>/10 </h5>
                                 <% } %>
 
-                                    <%if(studentArray[i].local.userExams.circExam = -1) {%>
+                                    <%if(studentArray[i].local.userExams.circExam === -1) {%>
                                         <h5>CircTest: Not Started</h5>
                                         <% } else { %>
                                             <h5>CircTest: <%= studentArray[i].local.userExams.circExam %>/10 </h5>
                                             <% } %>
 
-                                                <%if(studentArray[i].local.userExams.prismExam = -1) {%>
+                                                <%if(studentArray[i].local.userExams.prismExam === -1) {%>
                                                     <h5>PrismTest: Not Started</h5>
                                                     <% } else { %>
                                                         <h5>PrismTest: <%= studentArray[i].local.userExams.prismExam %>/10 </h5>
                                                         <% } %>
 
-                                                            <%if(studentArray[i].local.userExams.sphereExam = -1) {%>
+                                                            <%if(studentArray[i].local.userExams.sphereExam === -1) {%>
                                                                 <h5>SphereTest: Not Started</h5>
                                                                 <% } else { %>
                                                                     <h5>SphereTest: <%= studentArray[i].local.userExams.sphereExam %>/10 </h5>
@@ -269,7 +270,7 @@
                             <%}%>
                                 <div class="medalName">Your first pass</div>
                 </div>
-<!--
+                <!--
                 <div class="medalAndName">
                     <% if (user.local.userMedals.medal5 === true) {%>
                         <img class="medal unlocked" src="../../images/Medals/PMedal.png" />
@@ -287,7 +288,7 @@
                             <%}%>
                                 <div class="medalName">Perfect!</div>
                 </div>
-<!--
+                <!--
                 <div class="medalAndName">
                     <% if (user.local.userMedals.medal7 === true) {%>
                         <img class="medal unlocked" src="../../images/Medals/SmileMedal.png" />
@@ -320,37 +321,37 @@
             </div>
         </form>
     </div>
-        
+
     <% if (user.local.userMedals.medal4 === false) { %>
-       <%if (user.local.userExams.rectExam > 6 || user.local.userExams.circExam > 6 || user.local.userExams.prismExam > 6 || user.local.userExams.sphereExam > 6  ){%>
-        <%= user.local.userMedals.medal4 = true %>
-            <% user.save(); %> 
-                <script>
-                    alert("Congrats on your first passing grade! You got the passing medal! Next time you refresh, you wil see the medal.");
-                </script>
-                <%}%>
-                <%}%>
-                
-    <% if (user.local.userMedals.medal6 === false) { %>
-       <%if (user.local.userExams.rectExam === 100 || user.local.userExams.circExam === 100 || user.local.userExams.prismExam === 100 || user.local.userExams.sphereExam === 100  ){%>
-        <%= user.local.userMedals.medal6 = true %>
-            <% user.save(); %>
-                <script>
-                    alert("Congrats on your first Perfect grade! You got the perfect medal! Next time you refresh, you wil see the medal.");
-                </script>
-                <%}%>
-                <%}%>
-                
-    <% if (user.local.userMedals.medal8 === false) { %>
-       <%if (user.local.userExams.rectExam > 9 && user.local.userExams.circExam > 9 || user.local.userExams.prismExam > 9 || user.local.userExams.sphereExam > 9  ){%>
-        <%= user.local.userMedals.medal8 = true %>
-            <% user.save(); %>
-                <script>
-                    alert("Congrats on All A's! You got the Straight A's medal! Next time you refresh, you wil see the medal.");
-                </script>
-                <%}%>
-                <%}%>
-      
+        <%if (user.local.userExams.rectExam > 6 || user.local.userExams.circExam > 6 || user.local.userExams.prismExam > 6 || user.local.userExams.sphereExam > 6  ){%>
+            <%= user.local.userMedals.medal4 = true %>
+                <% user.save(); %>
+                    <script>
+                        alert("Congrats on your first passing grade! You got the passing medal! Next time you refresh, you wil see the medal.");
+                    </script>
+                    <%}%>
+                        <%}%>
+
+                            <% if (user.local.userMedals.medal6 === false) { %>
+                                <%if (user.local.userExams.rectExam === 10 || user.local.userExams.circExam === 10 || user.local.userExams.prismExam === 10 || user.local.userExams.sphereExam === 10  ){%>
+                                    <%= user.local.userMedals.medal6 = true %>
+                                        <% user.save(); %>
+                                            <script>
+                                                alert("Congrats on your first Perfect grade! You got the perfect medal! Next time you refresh, you wil see the medal.");
+                                            </script>
+                                            <%}%>
+                                                <%}%>
+
+                                                    <% if (user.local.userMedals.medal8 === false) { %>
+                                                        <%if (user.local.userExams.rectExam > 9 && user.local.userExams.circExam > 9 || user.local.userExams.prismExam > 9 || user.local.userExams.sphereExam > 9  ){%>
+                                                            <%= user.local.userMedals.medal8 = true %>
+                                                                <% user.save(); %>
+                                                                    <script>
+                                                                        alert("Congrats on All A's! You got the Straight A's medal! Next time you refresh, you wil see the medal.");
+                                                                    </script>
+                                                                    <%}%>
+                                                                        <%}%>
+
 </body>
 <footer>Site made and owned by Christian F. Coreil</footer>
 <script src="../scripts/main.js"></script>

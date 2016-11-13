@@ -320,7 +320,7 @@
                 <%}%>
                 
     <% if (user.local.userMedals.medal6 === false) { %>
-       <%if (user.local.userExams.rectExam === 100 || user.local.userExams.circExam === 100 || user.local.userExams.prismExam === 100 || user.local.userExams.sphereExam === 100  ){%>
+       <%if (user.local.userExams.rectExam === 10 || user.local.userExams.circExam === 10 || user.local.userExams.prismExam === 10 || user.local.userExams.sphereExam === 10  ){%>
         <%= user.local.userMedals.medal6 = true %>
             <% user.save(); %>
                 <script>
