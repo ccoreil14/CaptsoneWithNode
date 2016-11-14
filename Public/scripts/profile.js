@@ -29,5 +29,5 @@ function backgroundColor(color){
 })();
 
 function restoreDefaults(){
-    //implment late
+    //implment later
 }

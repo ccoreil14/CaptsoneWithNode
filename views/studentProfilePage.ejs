@@ -43,7 +43,7 @@
         <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
             <li class="insidesItem" onclick="minMax('boxYo')">Public</li>
             <%for (i = 0; i< teacherArray.length; i++) { %>
-                <li class="insidesItem" onclick="minMax('<%= teacherArray[i].local.username %>')">
+                <li class="insidesItem" onclick="minMax('<%= teacherArray[i].local.username %>','<%= user.local.email %>')">
                     <%= teacherArray[i].local.username %>
                 </li>
                 <% } %>
@@ -83,9 +83,7 @@
                     <input type="text" id="newPic" name="newPic" value='<%= user.local.profilePic  %>' />
                     <br/>
                     <br/>New Bio:
-                    <textarea name="newBio" maxlength="250">
-                        <%= user.local.profileBio  %>
-                    </textarea>
+                    <textarea name="newBio" maxlength="250"><%= user.local.profileBio  %></textarea>
                     <br/>New Profile Color:
                     <input id="newColor" onchange="backgroundCurrentColor()" type="text" name="newColor" class="jscolor" value='<%= user.local.profileColor  %>' readonly/>
                     <br/>
@@ -225,9 +223,7 @@
                     </div>
                 </div>
                 <div class="infoBoxBottomRow">
-                    <textarea class="bio" maxlength="250" readonly>
-                        <%= user.local.profileBio %>
-                    </textarea>
+                    <textarea class="bio" maxlength="250" readonly><%= user.local.profileBio %></textarea>
                     <div class="colorAndSave">
                         <button onclick="toggleModal('myModal')">
                             Edit Profile
@@ -352,6 +348,6 @@
 <script src="../scripts/profile.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="../scripts/client-socket.js"></script>
-<script onload="backgroundColor('<%= user.local.profileColor %>');setNickname('<%=user.local.username%>');" src="../scripts/jscolor.js"></script>
+<script onload="backgroundColor('<%= user.local.profileColor %>');setNickname('<%=user.local.username%>');setUpRoom('<%= user.local.email%>');" src="../scripts/jscolor.js"></script>
 
 </html>
