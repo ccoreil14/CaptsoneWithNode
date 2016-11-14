@@ -39,9 +39,9 @@
         </div>
         <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
             <li class="insidesItem" onclick="minMax('boxYo')">Public</li>
-            <%for (i = 0; i< studentArray.length; i++) { %>
-                <li class="insidesItem" onclick="minMax('<%= studentArray[i].local.username%>')">
-                    <%= studentArray[i].local.username %>
+            <%for (i = 0; i< peopleArray.length; i++) { %>
+                <li class="insidesItem" onclick="minMax('<%= peopleArray[i].local.username%>')">
+                    <%= peopleArray[i].local.username %>
                 </li>
                 <% } %>
         </ul>

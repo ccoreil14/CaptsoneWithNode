@@ -38,7 +38,12 @@
             <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('chatBoxInsides')" />
         </div>
         <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
-            <li class="insidesItem" onclick="minMax()">Open/Close</li>
+            <li class="insidesItem" onclick="minMax('boxYo')">Public</li>
+            <%for (i = 0; i< peopleArray.length; i++) { %>
+                <li class="insidesItem" onclick="minMax('<%= peopleArray[i].local.username%>')">
+                    <%= peopleArray[i].local.username %>
+                </li>
+                <% } %>
         </ul>
     </div>
     <img id="logo" class="homeLogo" src="images/Logo3.png" />
