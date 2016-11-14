@@ -46,9 +46,30 @@ module.exports = function (app, passport, path, pathYO) {
 
 
     app.get('/home', function (req, res) {
-        res.render('index.ejs', {
-            user: req.user
-        });
+        if (req.user.local.isTeacher === true) {
+            User.find({
+                'local.userConnections': req.user.local.email
+            }, function (err, students) {
+                res.render('index.ejs', {
+                    user: req.user,
+                    peopleArray: students
+                });
+            });
+        } else {
+            User.find({
+                'local.isTeacher': true
+            }, function (err, teachers) {
+                var professors = [];
+                for (i = 0; i < teachers.length; i++) {
+                    professors.push(teachers[i].local.email);
+                    //                    console.log(teachers[i].local.email);
+                }
+                res.render('index.ejs', {
+                    user: req.user,
+                    peopleArray: professors
+                });
+            });
+        }
     });
 
     app.get('/profile', isLoggedIn, function (req, res) {
@@ -111,17 +132,59 @@ module.exports = function (app, passport, path, pathYO) {
     });
 
     app.get('/shapelist', isLoggedIn, function (req, res) {
-        res.render('shapeListPage.ejs', {
-            user: req.user
-        });
+        if (req.user.local.isTeacher === true) {
+            User.find({
+                'local.userConnections': req.user.local.email
+            }, function (err, students) {
+                res.render('shapeListPage.ejs', {
+                    user: req.user,
+                    peopleArray: students
+                });
+            });
+        } else {
+            User.find({
+                'local.isTeacher': true
+            }, function (err, teachers) {
+                var professors = [];
+                for (i = 0; i < teachers.length; i++) {
+                    professors.push(teachers[i].local.email);
+                    //                    console.log(teachers[i].local.email);
+                }
+                res.render('shapeListPage.ejs', {
+                    user: req.user,
+                    peopleArray: professors
+                });
+            });
+        }
     });
 
     //circle stuff
 
     app.get('/circAreaLesson', isLoggedIn, function (req, res) {
-        res.render('circAreaLesson.ejs', {
-            user: req.user
-        });
+        if (req.user.local.isTeacher === true) {
+            User.find({
+                'local.userConnections': req.user.local.email
+            }, function (err, students) {
+                res.render('circAreaLesson.ejs', {
+                    user: req.user,
+                    peopleArray: students
+                });
+            });
+        } else {
+            User.find({
+                'local.isTeacher': true
+            }, function (err, teachers) {
+                var professors = [];
+                for (i = 0; i < teachers.length; i++) {
+                    professors.push(teachers[i].local.email);
+                    //                    console.log(teachers[i].local.email);
+                }
+                res.render('circAreaLesson.ejs', {
+                    user: req.user,
+                    peopleArray: professors
+                });
+            });
+        }
     });
 
     app.get('/circExam', isLoggedIn, function (req, res) {
@@ -152,15 +215,58 @@ module.exports = function (app, passport, path, pathYO) {
     });
 
     app.get('/circleWorkshop', isLoggedIn, function (req, res) {
-        res.render('circleWorkshop.ejs', {
-            user: req.user
-        });
+        if (req.user.local.isTeacher === true) {
+            User.find({
+                'local.userConnections': req.user.local.email
+            }, function (err, students) {
+                res.render('circleWorkshop.ejs', {
+                    user: req.user,
+                    peopleArray: students
+                });
+            });
+        } else {
+            User.find({
+                'local.isTeacher': true
+            }, function (err, teachers) {
+                var professors = [];
+                for (i = 0; i < teachers.length; i++) {
+                    professors.push(teachers[i].local.email);
+                    //                    console.log(teachers[i].local.email);
+                }
+                res.render('circleWorkshop.ejs', {
+                    user: req.user,
+                    peopleArray: professors
+                });
+            });
+        }
+
     });
 
     app.get('/circumfrenceLesson', isLoggedIn, function (req, res) {
-        res.render('circumfrenceLesson.ejs', {
-            user: req.user
-        });
+        if (req.user.local.isTeacher === true) {
+            User.find({
+                'local.userConnections': req.user.local.email
+            }, function (err, students) {
+                res.render('circumfrenceLesson.ejs', {
+                    user: req.user,
+                    peopleArray: students
+                });
+            });
+        } else {
+            User.find({
+                'local.isTeacher': true
+            }, function (err, teachers) {
+                var professors = [];
+                for (i = 0; i < teachers.length; i++) {
+                    professors.push(teachers[i].local.email);
+                    //                    console.log(teachers[i].local.email);
+                }
+                res.render('circumfrenceLesson.ejs', {
+                    user: req.user,
+                    peopleArray: professors
+                });
+            });
+        }
     });
     //circle stuff
 
@@ -168,15 +274,57 @@ module.exports = function (app, passport, path, pathYO) {
     //square stuff
 
     app.get('/perimeterLesson', isLoggedIn, function (req, res) {
-        res.render('perimeterLesson.ejs', {
-            user: req.user
-        });
+        if (req.user.local.isTeacher === true) {
+            User.find({
+                'local.userConnections': req.user.local.email
+            }, function (err, students) {
+                res.render('perimeterLesson.ejs', {
+                    user: req.user,
+                    peopleArray: students
+                });
+            });
+        } else {
+            User.find({
+                'local.isTeacher': true
+            }, function (err, teachers) {
+                var professors = [];
+                for (i = 0; i < teachers.length; i++) {
+                    professors.push(teachers[i].local.email);
+                    //                    console.log(teachers[i].local.email);
+                }
+                res.render('perimeterLesson.ejs', {
+                    user: req.user,
+                    peopleArray: professors
+                });
+            });
+        }
     });
 
     app.get('/rectAreaLesson', isLoggedIn, function (req, res) {
-        res.render('rectAreaLesson.ejs', {
-            user: req.user
-        });
+        if (req.user.local.isTeacher === true) {
+            User.find({
+                'local.userConnections': req.user.local.email
+            }, function (err, students) {
+                res.render('rectAreaLesson.ejs', {
+                    user: req.user,
+                    peopleArray: students
+                });
+            });
+        } else {
+            User.find({
+                'local.isTeacher': true
+            }, function (err, teachers) {
+                var professors = [];
+                for (i = 0; i < teachers.length; i++) {
+                    professors.push(teachers[i].local.email);
+                    //                    console.log(teachers[i].local.email);
+                }
+                res.render('rectAreaLesson.ejs', {
+                    user: req.user,
+                    peopleArray: professors
+                });
+            });
+        }
     });
 
     var examQuestionArray = [];
@@ -208,9 +356,30 @@ module.exports = function (app, passport, path, pathYO) {
     });
 
     app.get('/squareWorkshop', isLoggedIn, function (req, res) {
-        res.render('squareWorkshop.ejs', {
-            user: req.user
-        });
+        if (req.user.local.isTeacher === true) {
+            User.find({
+                'local.userConnections': req.user.local.email
+            }, function (err, students) {
+                res.render('squareWorkshop.ejs', {
+                    user: req.user,
+                    peopleArray: students
+                });
+            });
+        } else {
+            User.find({
+                'local.isTeacher': true
+            }, function (err, teachers) {
+                var professors = [];
+                for (i = 0; i < teachers.length; i++) {
+                    professors.push(teachers[i].local.email);
+                    //                    console.log(teachers[i].local.email);
+                }
+                res.render('squareWorkshop.ejs', {
+                    user: req.user,
+                    peopleArray: professors
+                });
+            });
+        }
     });
 
     //square stuff
@@ -219,9 +388,30 @@ module.exports = function (app, passport, path, pathYO) {
     //prism stuff
 
     app.get('/cubeWorkshop', isLoggedIn, function (req, res) {
-        res.render('cubeWorkshop.ejs', {
-            user: req.user
-        });
+        if (req.user.local.isTeacher === true) {
+            User.find({
+                'local.userConnections': req.user.local.email
+            }, function (err, students) {
+                res.render('cubeWorkshop.ejs', {
+                    user: req.user,
+                    peopleArray: students
+                });
+            });
+        } else {
+            User.find({
+                'local.isTeacher': true
+            }, function (err, teachers) {
+                var professors = [];
+                for (i = 0; i < teachers.length; i++) {
+                    professors.push(teachers[i].local.email);
+                    //                    console.log(teachers[i].local.email);
+                }
+                res.render('cubeWorkshop.ejs', {
+                    user: req.user,
+                    peopleArray: professors
+                });
+            });
+        }
     });
 
     app.get('/prismExam', isLoggedIn, function (req, res) {
@@ -252,15 +442,57 @@ module.exports = function (app, passport, path, pathYO) {
     });
 
     app.get('/prismSALesson', isLoggedIn, function (req, res) {
-        res.render('prismSALesson.ejs', {
-            user: req.user
-        });
+        if (req.user.local.isTeacher === true) {
+            User.find({
+                'local.userConnections': req.user.local.email
+            }, function (err, students) {
+                res.render('prismSALesson.ejs', {
+                    user: req.user,
+                    peopleArray: students
+                });
+            });
+        } else {
+            User.find({
+                'local.isTeacher': true
+            }, function (err, teachers) {
+                var professors = [];
+                for (i = 0; i < teachers.length; i++) {
+                    professors.push(teachers[i].local.email);
+                    //                    console.log(teachers[i].local.email);
+                }
+                res.render('prismSALesson.ejs', {
+                    user: req.user,
+                    peopleArray: professors
+                });
+            });
+        }
     });
 
     app.get('/prismVolLesson', isLoggedIn, function (req, res) {
-        res.render('prismVolLesson.ejs', {
-            user: req.user
-        });
+        if (req.user.local.isTeacher === true) {
+            User.find({
+                'local.userConnections': req.user.local.email
+            }, function (err, students) {
+                res.render('prismVolLesson.ejs', {
+                    user: req.user,
+                    peopleArray: students
+                });
+            });
+        } else {
+            User.find({
+                'local.isTeacher': true
+            }, function (err, teachers) {
+                var professors = [];
+                for (i = 0; i < teachers.length; i++) {
+                    professors.push(teachers[i].local.email);
+                    //                    console.log(teachers[i].local.email);
+                }
+                res.render('prismVolLesson.ejs', {
+                    user: req.user,
+                    peopleArray: professors
+                });
+            });
+        }
     });
 
     //prism stuff
@@ -268,21 +500,85 @@ module.exports = function (app, passport, path, pathYO) {
     //sphere stuff 
 
     app.get('/sphereVolLesson', isLoggedIn, function (req, res) {
-        res.render('sphereVolLesson.ejs', {
-            user: req.user
-        });
+        if (req.user.local.isTeacher === true) {
+            User.find({
+                'local.userConnections': req.user.local.email
+            }, function (err, students) {
+                res.render('sphereVolLesson.ejs', {
+                    user: req.user,
+                    peopleArray: students
+                });
+            });
+        } else {
+            User.find({
+                'local.isTeacher': true
+            }, function (err, teachers) {
+                var professors = [];
+                for (i = 0; i < teachers.length; i++) {
+                    professors.push(teachers[i].local.email);
+                    //                    console.log(teachers[i].local.email);
+                }
+                res.render('sphereVolLesson.ejs', {
+                    user: req.user,
+                    peopleArray: professors
+                });
+            });
+        }
+
     });
 
     app.get('/sphereSALesson', isLoggedIn, function (req, res) {
-        res.render('sphereSALesson.ejs', {
-            user: req.user
-        });
+        if (req.user.local.isTeacher === true) {
+            User.find({
+                'local.userConnections': req.user.local.email
+            }, function (err, students) {
+                res.render('sphereSALesson.ejs', {
+                    user: req.user,
+                    peopleArray: students
+                });
+            });
+        } else {
+            User.find({
+                'local.isTeacher': true
+            }, function (err, teachers) {
+                var professors = [];
+                for (i = 0; i < teachers.length; i++) {
+                    professors.push(teachers[i].local.email);
+                    //                    console.log(teachers[i].local.email);
+                }
+                res.render('sphereSALesson.ejs', {
+                    user: req.user,
+                    peopleArray: professors
+                });
+            });
+        }
     });
 
     app.get('/sphereWorkshop', isLoggedIn, function (req, res) {
-        res.render('sphereWorkshop.ejs', {
-            user: req.user
-        });
+        if (req.user.local.isTeacher === true) {
+            User.find({
+                'local.userConnections': req.user.local.email
+            }, function (err, students) {
+                res.render('sphereWorkshop.ejs', {
+                    user: req.user,
+                    peopleArray: students
+                });
+            });
+        } else {
+            User.find({
+                'local.isTeacher': true
+            }, function (err, teachers) {
+                var professors = [];
+                for (i = 0; i < teachers.length; i++) {
+                    professors.push(teachers[i].local.email);
+                    //                    console.log(teachers[i].local.email);
+                }
+                res.render('sphereWorkshop.ejs', {
+                    user: req.user,
+                    peopleArray: professors
+                });
+            });
+        }
     });
 
     app.get('/sphereExam', isLoggedIn, function (req, res) {

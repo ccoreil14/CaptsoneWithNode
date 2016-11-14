@@ -41,10 +41,28 @@
             <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('chatBoxInsides')" />
         </div>
         <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
-            <li class="insidesItem" onclick="minMax()">Open/Close</li>
+            <li class="insidesItem" onclick="minMax('boxYo')">Public</li>
+            <%for (i = 0; i< teacherArray.length; i++) { %>
+                <li class="insidesItem" onclick="minMax('<%= teacherArray[i].local.username%>')">
+                    <%= teacherArray[i].local.username %>
+                </li>
+                <% } %>
         </ul>
     </div>
     <img id="logo" src="../../images/Logo3.png" />
+    <div id="chatBoxArea">
+        <div id="boxYo" class='chatBox ui-widget-content'>
+            <ul id='messages'></ul>
+            <form action="" class="clientText" onsubmit="return false;">
+                <div class="input-group">
+                    <input id='textWindow' class="form-control" autocomplete="off" />
+                    <div class="input-group-btn">
+                        <button id='btnSub' type="button" class="btn btn-default">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="modal" id="myModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -58,8 +76,8 @@
                     New Email:
                     <input type="email" name="newEmail" value='<%= user.local.email  %>' />
                     <br/>New Password:
-                    <input type="password" name="newPassword" /> <br/>
-                    New Username:
+                    <input type="password" name="newPassword" />
+                    <br/> New Username:
                     <input type="text" name="newUsername" value='<%= user.local.username  %>' />
                     <br/>New Profile Pic Link:
                     <input type="text" id="newPic" name="newPic" value='<%= user.local.profilePic  %>' />
@@ -257,7 +275,7 @@
                             <%}%>
                                 <div class="medalName">Your first pass</div>
                 </div>
-<!--
+                <!--
                 <div class="medalAndName">
                     <% if (user.local.userMedals.medal5 === true) {%>
                         <img class="medal unlocked" src="../../images/Medals/PMedal.png" />
@@ -275,7 +293,7 @@
                             <%}%>
                                 <div class="medalName">Perfect!</div>
                 </div>
-<!--
+                <!--
                 <div class="medalAndName">
                     <% if (user.local.userMedals.medal7 === true) {%>
                         <img class="medal unlocked" src="../../images/Medals/SmileMedal.png" />
@@ -295,56 +313,45 @@
                 </div>
             </div>
         </div>
+
     </div>
-    <div id="boxYo" class='chatBox ui-widget-content'>
-        <ul id='messages'></ul>
-        <form action="" class="clientText" onsubmit="return false;">
-            <div class="input-group">
-                <!-- Autocomplete attribute used for setting if the browser will try to suggest previous text -->
-                <input id='textWindow' class="form-control" autocomplete="off" />
-                <div class="input-group-btn">
-                    <button id='btnSub' type="button" class="btn btn-default">Send</button>
-                </div>
-            </div>
-        </form>
-    </div>
-    
-<% if (user.local.userMedals.medal4 === false) { %>
-       <%if (user.local.userExams.rectExam > 6 || user.local.userExams.circExam > 6 || user.local.userExams.prismExam > 6 || user.local.userExams.sphereExam > 6  ){%>
-        <%= user.local.userMedals.medal4 = true %>
-            <% user.save(); %> 
-                <script>
-                    alert("Congrats on your first passing grade! You got the passing medal! Next time you refresh, you wil see the medal.");
-                </script>
-                <%}%>
-                <%}%>
-                
-    <% if (user.local.userMedals.medal6 === false) { %>
-       <%if (user.local.userExams.rectExam === 10 || user.local.userExams.circExam === 10 || user.local.userExams.prismExam === 10 || user.local.userExams.sphereExam === 10  ){%>
-        <%= user.local.userMedals.medal6 = true %>
-            <% user.save(); %>
-                <script>
-                    alert("Congrats on your first Perfect grade! You got the perfect medal! Next time you refresh, you wil see the medal.");
-                </script>
-                <%}%>
-                <%}%>
-                
-    <% if (user.local.userMedals.medal8 === false) { %>
-       <%if (user.local.userExams.rectExam > 9 && user.local.userExams.circExam > 9 || user.local.userExams.prismExam > 9 || user.local.userExams.sphereExam > 9  ){%>
-        <%= user.local.userMedals.medal8 = true %>
-            <% user.save(); %>
-                <script>
-                    alert("Congrats on All A's! You got the Straight A's medal! Next time you refresh, you wil see the medal.");
-                </script>
-                <%}%>
-                <%}%>
-                
+
+    <% if (user.local.userMedals.medal4 === false) { %>
+        <%if (user.local.userExams.rectExam > 6 || user.local.userExams.circExam > 6 || user.local.userExams.prismExam > 6 || user.local.userExams.sphereExam > 6  ){%>
+            <%= user.local.userMedals.medal4 = true %>
+                <% user.save(); %>
+                    <script>
+                        alert("Congrats on your first passing grade! You got the passing medal! Next time you refresh, you wil see the medal.");
+                    </script>
+                    <%}%>
+                        <%}%>
+
+                            <% if (user.local.userMedals.medal6 === false) { %>
+                                <%if (user.local.userExams.rectExam === 10 || user.local.userExams.circExam === 10 || user.local.userExams.prismExam === 10 || user.local.userExams.sphereExam === 10  ){%>
+                                    <%= user.local.userMedals.medal6 = true %>
+                                        <% user.save(); %>
+                                            <script>
+                                                alert("Congrats on your first Perfect grade! You got the perfect medal! Next time you refresh, you wil see the medal.");
+                                            </script>
+                                            <%}%>
+                                                <%}%>
+
+                                                    <% if (user.local.userMedals.medal8 === false) { %>
+                                                        <%if (user.local.userExams.rectExam > 9 && user.local.userExams.circExam > 9 || user.local.userExams.prismExam > 9 || user.local.userExams.sphereExam > 9  ){%>
+                                                            <%= user.local.userMedals.medal8 = true %>
+                                                                <% user.save(); %>
+                                                                    <script>
+                                                                        alert("Congrats on All A's! You got the Straight A's medal! Next time you refresh, you wil see the medal.");
+                                                                    </script>
+                                                                    <%}%>
+                                                                        <%}%>
+
 </body>
 <footer>Site made and owned by Christian F. Coreil</footer>
 <script src="../scripts/main.js"></script>
 <script src="../scripts/profile.js"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script onload="backgroundColor('<%= user.local.profileColor %>')" src="../scripts/jscolor.js"></script>
 <script src="../scripts/client-socket.js"></script>
+<script onload="backgroundColor('<%= user.local.profileColor %>');setNickname('<%=user.local.username%>');" src="../scripts/jscolor.js"></script>
 
 </html>

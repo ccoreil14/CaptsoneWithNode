@@ -41,11 +41,29 @@
             <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('chatBoxInsides')" />
         </div>
         <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
-            <li class="insidesItem" onclick="minMax()">Open/Close</li>
+            <li class="insidesItem" onclick="minMax('boxYo')">Public</li>
+            <%for (i = 0; i< studentArray.length; i++) { %>
+                <li class="insidesItem" onclick="minMax('<%= studentArray[i].local.username%>')">
+                    <%= studentArray[i].local.username %>
+                </li>
+                <% } %>
         </ul>
     </div>
     <img id="logo" src="../../images/Logo3.png" />
 
+    <div id="chatBoxArea">
+        <div id="boxYo" class='chatBox ui-widget-content'>
+            <ul id='messages'></ul>
+            <form action="" class="clientText" onsubmit="return false;">
+                <div class="input-group">
+                    <input id='textWindow' class="form-control" autocomplete="off" />
+                    <div class="input-group-btn">
+                        <button id='btnSub' type="button" class="btn btn-default">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -67,9 +85,7 @@
                         <br/> New Profile Pic Link:
                         <input type="text" id="newPic" name="newPic" value='<%= user.local.profilePic  %>' />
                         <br/> New Bio:
-                        <textarea name="newBio" maxlength="250">
-                            <%= user.local.profileBio  %>
-                        </textarea>
+                        <textarea name="newBio" maxlength="250"><%= user.local.profileBio  %></textarea>
                         <br/> New Profile Color:
                         <input id="newColor" onchange="backgroundCurrentColor()" type="text" class="jscolor" name="newColor" value='<%= user.local.profileColor  %>' readonly />
                         <br/>
@@ -187,29 +203,28 @@
                     <li class="studentsItem">
                         <h4><%= studentArray[i].local.email %></h4>
                         <%if(studentArray[i].local.userExams.rectExam === -1) {%>
-                            <%= studentArray[i].local.userExams.rectExam %>
-                            <h5>RectTest: Not Started</h5>
-                            <% } else { %>
-                                <h5>RectTest: <%= studentArray[i].local.userExams.rectExam %>/10 </h5>
-                                <% } %>
+                                <h5>RectTest: Not Started</h5>
+                                <% } else { %>
+                                    <h5>RectTest: <%= studentArray[i].local.userExams.rectExam %>/10 </h5>
+                                    <% } %>
 
-                                    <%if(studentArray[i].local.userExams.circExam === -1) {%>
-                                        <h5>CircTest: Not Started</h5>
-                                        <% } else { %>
-                                            <h5>CircTest: <%= studentArray[i].local.userExams.circExam %>/10 </h5>
-                                            <% } %>
+                                        <%if(studentArray[i].local.userExams.circExam === -1) {%>
+                                            <h5>CircTest: Not Started</h5>
+                                            <% } else { %>
+                                                <h5>CircTest: <%= studentArray[i].local.userExams.circExam %>/10 </h5>
+                                                <% } %>
 
-                                                <%if(studentArray[i].local.userExams.prismExam === -1) {%>
-                                                    <h5>PrismTest: Not Started</h5>
-                                                    <% } else { %>
-                                                        <h5>PrismTest: <%= studentArray[i].local.userExams.prismExam %>/10 </h5>
-                                                        <% } %>
+                                                    <%if(studentArray[i].local.userExams.prismExam === -1) {%>
+                                                        <h5>PrismTest: Not Started</h5>
+                                                        <% } else { %>
+                                                            <h5>PrismTest: <%= studentArray[i].local.userExams.prismExam %>/10 </h5>
+                                                            <% } %>
 
-                                                            <%if(studentArray[i].local.userExams.sphereExam === -1) {%>
-                                                                <h5>SphereTest: Not Started</h5>
-                                                                <% } else { %>
-                                                                    <h5>SphereTest: <%= studentArray[i].local.userExams.sphereExam %>/10 </h5>
-                                                                    <% } %>
+                                                                <%if(studentArray[i].local.userExams.sphereExam === -1) {%>
+                                                                    <h5>SphereTest: Not Started</h5>
+                                                                    <% } else { %>
+                                                                        <h5>SphereTest: <%= studentArray[i].local.userExams.sphereExam %>/10 </h5>
+                                                                        <% } %>
                     </li>
                     <% } %>
             </ul>
@@ -224,9 +239,7 @@
                     </div>
                 </div>
                 <div class="infoBoxBottomRow">
-                    <textarea class="bio" maxlength="250" readonly>
-                        <%= user.local.profileBio %>
-                    </textarea>
+                    <textarea class="bio" maxlength="250" readonly><%= user.local.profileBio %></textarea>
                     <div class="colorAndSave">
                         <button onclick="toggleModal('myModal')">
                             Edit Profile
@@ -309,18 +322,6 @@
             </div>
         </div>
     </div>
-    <div id="boxYo" class='chatBox ui-widget-content'>
-        <ul id='messages'></ul>
-        <form action="" class="clientText" onsubmit="return false;">
-            <div class="input-group">
-                <!-- Autocomplete attribute used for setting if the browser will try to suggest previous text -->
-                <input id='textWindow' class="form-control" autocomplete="off" />
-                <div class="input-group-btn">
-                    <button id='btnSub' type="button" class="btn btn-default">Send</button>
-                </div>
-            </div>
-        </form>
-    </div>
 
     <% if (user.local.userMedals.medal4 === false) { %>
         <%if (user.local.userExams.rectExam > 6 || user.local.userExams.circExam > 6 || user.local.userExams.prismExam > 6 || user.local.userExams.sphereExam > 6  ){%>
@@ -357,7 +358,7 @@
 <script src="../scripts/main.js"></script>
 <script src="../scripts/profile.js"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script onload="backgroundColor('<%= user.local.profileColor %>')" src="../scripts/jscolor.js"></script>
 <script src="../scripts/client-socket.js"></script>
+<script onload="backgroundColor('<%= user.local.profileColor %>');setNickname('<%=user.local.username%>');" src="../scripts/jscolor.js"></script>
 
 </html>

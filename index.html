@@ -29,14 +29,6 @@
             </a>
         </ul>
     </div>
-    <div id="chatBox" class="collapseBox">
-        <div id="chatBoxHead" class="boxHeader">ChatBox
-            <img id="menuArrow" class="arrow" src="images/arrow.png" onclick="toggleMenu('chatBoxInsides')" />
-        </div>
-        <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
-            <li class="insidesItem" onclick="minMax()">Open/Close</li>
-        </ul>
-    </div>
     <img id="logo" class="homeLogo" src="images/Logo3.png" />
 
 
@@ -54,22 +46,9 @@
             <h1>Make a profile </h1>
         </div>
     </a>
-    <div id="boxYo" class='chatBox ui-widget-content'>
-        <ul id='messages'></ul>
-        <form action="" class="clientText" onsubmit="return false;">
-            <div class="input-group">
-                <input id='textWindow' class="form-control" autocomplete="off" />
-                <div class="input-group-btn">
-                    <button id='btnSub' type="button" class="btn btn-default">Send</button>
-                </div>
-            </div>
-        </form>
-    </div>
 
 </body>
 <footer>Site made and owned by Christian F. Coreil</footer>
-<script src="/socket.io/socket.io.js"></script>
-<script src="scripts/client-socket.js"></script>
 <script src="scripts/main.js"></script>
 
 </html>

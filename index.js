@@ -50,9 +50,24 @@ require('./Public/routes.js')(app, passport, path, pathYO);
 //////Socket Code goes here////
 ///////////////////////////////
 
+
+//replacing all of one and switching out for another
+String.prototype.replaceAll = function(str1, str2, ignore) 
+{
+    return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);
+} 
+
 sio.on('connect', function (socket) {
+    socket.nickname = "Guest";
+    
+    socket.on('loggedIn', function(username){
+        socket.nickname = username;
+    });
+    
     socket.on('message-sent', function (msg) {
-        sio.emit('send-to-client', msg);
+        if(msg.replaceAll(' ','') != ''){
+            sio.emit('send-to-client', socket.nickname+": "+msg);
+        }
     });
 });
 

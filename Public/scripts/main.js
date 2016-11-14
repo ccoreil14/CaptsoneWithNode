@@ -2,14 +2,17 @@ var shapeOffsetX = 363;
 var shapeOffsetY = 380;
 
 function toggleMenu(boxInsidesId) {
-    var dropdown = document.getElementById(boxInsidesId);
-    if (dropdown.style.visibility === 'collapse') {
-        console.log("visible " + boxInsidesId);
-        dropdown.style.visibility = 'visible';
-    } else {
-        dropdown.style.visibility = 'collapse';
-    }
+        var dropdown = document.getElementById(boxInsidesId);
+        if (dropdown.style.visibility === 'collapse') {
+            console.log("visible " + boxInsidesId);
+            dropdown.style.visibility = 'visible';
+        } else {
+            dropdown.style.visibility = 'collapse';
+        }
+   
 }
+
+
 
 function rectArea(x, y) {
     var answer = x * y;
@@ -54,4 +57,9 @@ function sphereVolume(r) {
 function medalGot() {
     alert("You made an Account. Hurray!");
     user.local.userMedals.medal1 = true;
+}
+
+function scrollDown(id) {
+    var objDiv = document.getElementById(id);
+    objDiv.scrollTop = objDiv.scrollHeight;
 }
