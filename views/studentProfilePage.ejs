@@ -43,7 +43,7 @@
         <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
             <li class="insidesItem" onclick="minMax('boxYo')">Public</li>
             <%for (i = 0; i< teacherArray.length; i++) { %>
-                <li class="insidesItem" onclick="minMax('<%= teacherArray[i].local.username%>')">
+                <li class="insidesItem" onclick="minMax('<%= teacherArray[i].local.username %>')">
                     <%= teacherArray[i].local.username %>
                 </li>
                 <% } %>
@@ -221,7 +221,7 @@
                     <div class="nameAndPass">
                         <h4> Username: <%= user.local.username %></h4>
                         <h4> Email: <%= user.local.email %></h4>
-                        <h4> Teacher: <%= user.local.userConnections[0] %></h4>
+                        <h4> Teacher Email: <%= user.local.userConnections[0] %></h4>
                     </div>
                 </div>
                 <div class="infoBoxBottomRow">

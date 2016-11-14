@@ -57,16 +57,11 @@ module.exports = function (app, passport, path, pathYO) {
             });
         } else {
             User.find({
-                'local.isTeacher': true
+                'local.email': req.user.local.userConnections[0]
             }, function (err, teachers) {
-                var professors = [];
-                for (i = 0; i < teachers.length; i++) {
-                    professors.push(teachers[i].local.email);
-                    //                    console.log(teachers[i].local.email);
-                }
                 res.render('index.ejs', {
                     user: req.user,
-                    peopleArray: professors
+                    peopleArray: teachers
                 });
             });
         }
@@ -84,16 +79,11 @@ module.exports = function (app, passport, path, pathYO) {
             });
         } else {
             User.find({
-                'local.isTeacher': true
+                'local.email': req.user.local.userConnections[0]
             }, function (err, teachers) {
-                var professors = [];
-                for (i = 0; i < teachers.length; i++) {
-                    professors.push(teachers[i].local.email);
-                    //                    console.log(teachers[i].local.email);
-                }
                 res.render('studentProfilePage.ejs', {
                     user: req.user,
-                    teacherArray: professors
+                    teacherArray: teachers
                 });
             });
         }
@@ -143,16 +133,11 @@ module.exports = function (app, passport, path, pathYO) {
             });
         } else {
             User.find({
-                'local.isTeacher': true
+                'local.email': req.user.local.userConnections[0]
             }, function (err, teachers) {
-                var professors = [];
-                for (i = 0; i < teachers.length; i++) {
-                    professors.push(teachers[i].local.email);
-                    //                    console.log(teachers[i].local.email);
-                }
                 res.render('shapeListPage.ejs', {
                     user: req.user,
-                    peopleArray: professors
+                    peopleArray: teachers
                 });
             });
         }
@@ -172,16 +157,11 @@ module.exports = function (app, passport, path, pathYO) {
             });
         } else {
             User.find({
-                'local.isTeacher': true
+                'local.email': req.user.local.userConnections[0]
             }, function (err, teachers) {
-                var professors = [];
-                for (i = 0; i < teachers.length; i++) {
-                    professors.push(teachers[i].local.email);
-                    //                    console.log(teachers[i].local.email);
-                }
                 res.render('circAreaLesson.ejs', {
                     user: req.user,
-                    peopleArray: professors
+                    peopleArray: teachers
                 });
             });
         }
@@ -226,16 +206,11 @@ module.exports = function (app, passport, path, pathYO) {
             });
         } else {
             User.find({
-                'local.isTeacher': true
+                'local.email': req.user.local.userConnections[0]
             }, function (err, teachers) {
-                var professors = [];
-                for (i = 0; i < teachers.length; i++) {
-                    professors.push(teachers[i].local.email);
-                    //                    console.log(teachers[i].local.email);
-                }
                 res.render('circleWorkshop.ejs', {
                     user: req.user,
-                    peopleArray: professors
+                    peopleArray: teachers
                 });
             });
         }
@@ -254,16 +229,11 @@ module.exports = function (app, passport, path, pathYO) {
             });
         } else {
             User.find({
-                'local.isTeacher': true
+                'local.email': req.user.local.userConnections[0]
             }, function (err, teachers) {
-                var professors = [];
-                for (i = 0; i < teachers.length; i++) {
-                    professors.push(teachers[i].local.email);
-                    //                    console.log(teachers[i].local.email);
-                }
                 res.render('circumfrenceLesson.ejs', {
                     user: req.user,
-                    peopleArray: professors
+                    peopleArray: teachers
                 });
             });
         }
@@ -285,16 +255,11 @@ module.exports = function (app, passport, path, pathYO) {
             });
         } else {
             User.find({
-                'local.isTeacher': true
+                'local.email': req.user.local.userConnections[0]
             }, function (err, teachers) {
-                var professors = [];
-                for (i = 0; i < teachers.length; i++) {
-                    professors.push(teachers[i].local.email);
-                    //                    console.log(teachers[i].local.email);
-                }
                 res.render('perimeterLesson.ejs', {
                     user: req.user,
-                    peopleArray: professors
+                    peopleArray: teachers
                 });
             });
         }
@@ -312,16 +277,11 @@ module.exports = function (app, passport, path, pathYO) {
             });
         } else {
             User.find({
-                'local.isTeacher': true
+                'local.email': req.user.local.userConnections[0]
             }, function (err, teachers) {
-                var professors = [];
-                for (i = 0; i < teachers.length; i++) {
-                    professors.push(teachers[i].local.email);
-                    //                    console.log(teachers[i].local.email);
-                }
                 res.render('rectAreaLesson.ejs', {
                     user: req.user,
-                    peopleArray: professors
+                    peopleArray: teachers
                 });
             });
         }
@@ -367,16 +327,11 @@ module.exports = function (app, passport, path, pathYO) {
             });
         } else {
             User.find({
-                'local.isTeacher': true
+                'local.email': req.user.local.userConnections[0]
             }, function (err, teachers) {
-                var professors = [];
-                for (i = 0; i < teachers.length; i++) {
-                    professors.push(teachers[i].local.email);
-                    //                    console.log(teachers[i].local.email);
-                }
                 res.render('squareWorkshop.ejs', {
                     user: req.user,
-                    peopleArray: professors
+                    peopleArray: teachers
                 });
             });
         }
@@ -399,16 +354,11 @@ module.exports = function (app, passport, path, pathYO) {
             });
         } else {
             User.find({
-                'local.isTeacher': true
+                'local.email': req.user.local.userConnections[0]
             }, function (err, teachers) {
-                var professors = [];
-                for (i = 0; i < teachers.length; i++) {
-                    professors.push(teachers[i].local.email);
-                    //                    console.log(teachers[i].local.email);
-                }
                 res.render('cubeWorkshop.ejs', {
                     user: req.user,
-                    peopleArray: professors
+                    peopleArray: teachers
                 });
             });
         }
@@ -453,16 +403,11 @@ module.exports = function (app, passport, path, pathYO) {
             });
         } else {
             User.find({
-                'local.isTeacher': true
+                'local.email': req.user.local.userConnections[0]
             }, function (err, teachers) {
-                var professors = [];
-                for (i = 0; i < teachers.length; i++) {
-                    professors.push(teachers[i].local.email);
-                    //                    console.log(teachers[i].local.email);
-                }
                 res.render('prismSALesson.ejs', {
                     user: req.user,
-                    peopleArray: professors
+                    peopleArray: teachers
                 });
             });
         }
@@ -480,16 +425,11 @@ module.exports = function (app, passport, path, pathYO) {
             });
         } else {
             User.find({
-                'local.isTeacher': true
+                'local.email': req.user.local.userConnections[0]
             }, function (err, teachers) {
-                var professors = [];
-                for (i = 0; i < teachers.length; i++) {
-                    professors.push(teachers[i].local.email);
-                    //                    console.log(teachers[i].local.email);
-                }
                 res.render('prismVolLesson.ejs', {
                     user: req.user,
-                    peopleArray: professors
+                    peopleArray: teachers
                 });
             });
         }
@@ -511,16 +451,11 @@ module.exports = function (app, passport, path, pathYO) {
             });
         } else {
             User.find({
-                'local.isTeacher': true
+                'local.email': req.user.local.userConnections[0]
             }, function (err, teachers) {
-                var professors = [];
-                for (i = 0; i < teachers.length; i++) {
-                    professors.push(teachers[i].local.email);
-                    //                    console.log(teachers[i].local.email);
-                }
                 res.render('sphereVolLesson.ejs', {
                     user: req.user,
-                    peopleArray: professors
+                    peopleArray: teachers
                 });
             });
         }
@@ -539,16 +474,11 @@ module.exports = function (app, passport, path, pathYO) {
             });
         } else {
             User.find({
-                'local.isTeacher': true
+                'local.email': req.user.local.userConnections[0]
             }, function (err, teachers) {
-                var professors = [];
-                for (i = 0; i < teachers.length; i++) {
-                    professors.push(teachers[i].local.email);
-                    //                    console.log(teachers[i].local.email);
-                }
                 res.render('sphereSALesson.ejs', {
                     user: req.user,
-                    peopleArray: professors
+                    peopleArray: teachers
                 });
             });
         }
@@ -566,16 +496,11 @@ module.exports = function (app, passport, path, pathYO) {
             });
         } else {
             User.find({
-                'local.isTeacher': true
+                'local.email': req.user.local.userConnections[0]
             }, function (err, teachers) {
-                var professors = [];
-                for (i = 0; i < teachers.length; i++) {
-                    professors.push(teachers[i].local.email);
-                    //                    console.log(teachers[i].local.email);
-                }
                 res.render('sphereWorkshop.ejs', {
                     user: req.user,
-                    peopleArray: professors
+                    peopleArray: teachers
                 });
             });
         }
