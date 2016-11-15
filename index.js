@@ -77,7 +77,7 @@ sio.on('connect', function (socket) {
     
     socket.on('sendRoomMsg', function(data){
             console.log(data);
-        sio.sockets.in(data.email).emit('new_room_msg', {msg: data.msg});
+        sio.sockets.in(data.email).emit('new_room_msg', {msg: data.msg, roomId: data.email});
     });
 });
 

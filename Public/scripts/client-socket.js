@@ -36,7 +36,7 @@ String.prototype.replaceAll = function (str1, str2, ignore) {
     return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof (str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2);
 }
 
-function minMax(theId, studentEmail) {
+function minMax(theId, studentEmail, username) {
     var id = theId.replaceAll(' ', '_');
     try {
         console.log("toggle: " + id);
@@ -45,29 +45,33 @@ function minMax(theId, studentEmail) {
     } catch (err) {
         var emailId = studentEmail.replace('@', '');
         emailId = emailId.replace('.', '');
-        $("#chatBoxArea").append("<div id='" + id + "' class='chatBox ui-widget-content '> <ul id='messages'></ul> <form action='' class='clientText' onsubmit='return false;'><div class='input-group'> <input id='textWindow" + emailId + "' class='form-control' autocomplete='off' /> <div class='input-group-btn'><button id='btnSub' type='button' onclick=\"sendRoomMessage('" + studentEmail + "' , ' " + id + " ' )\" class='btn btn-default'>Send</button> </div> </div> </form> </div>");
+        $("#chatBoxArea").append("<div id='" + id + "' class='chatBox ui-widget-content '> <ul id='messages" + emailId + "'></ul> <form action='' class='clientText' onsubmit='return false;'><div class='input-group'> <input id='textWindow" + emailId + "' class='form-control' autocomplete='off' /> <div class='input-group-btn'><button id='btnSub' type='button' onclick=\"sendRoomMessage('" + studentEmail + "' , ' " + id + " ', '"+username+"' )\" class='btn btn-default'>Send</button> </div> </div> </form> </div>");
         $("#" + id).draggable();
     }
 }
 
-function setUpRoom(studentEmail) {
+function joinRoom(studentEmail) {
     socket.emit('join', {
         email: studentEmail
     });
 }
 
-function sendRoomMessage(studentEmail, chatBoxId) {
+function sendRoomMessage(studentEmail, chatBoxId, username) {
     var emailId = studentEmail.replace('@', '');
     emailId = emailId.replace('.', '');
     var roomMsg = document.getElementById('textWindow' + emailId).value;
     socket.emit('sendRoomMsg', {
         email: studentEmail,
-        msg: roomMsg
+        msg: username+": "+roomMsg
     });
 }
 
 socket.on("new_room_msg", function (data) {
-    alert(data.msg);
+    var emailId = data.roomId.replace('@', '');
+    emailId = emailId.replace('.', '');
+    $("#messages" + emailId).append("<li class='list-group-item'>" + data.msg + "</li>");
+    document.getElementById("textWindow" + emailId).value = '';
+
 });
 
 $(function () {

@@ -42,7 +42,10 @@
         <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
             <li class="insidesItem" onclick="minMax('boxYo')">Public</li>
             <%for (i = 0; i< userTeachers.length; i++) { %>
-                <li class="insidesItem" onclick="minMax('<%= userTeachers[i].local.username %>','<%= user.local.email %>')">
+                <li class="insidesItem" onclick="minMax('<%= userTeachers[i].local.username %>'
+                <%if(user.local.isTeacher === false){%>
+                  ,'<%= user.local.email %>', '<%= user.local.username%>');">
+                <%}%>
                     <%= userTeachers[i].local.username %>
                 </li>
                 <% } %>
@@ -347,6 +350,6 @@
 <script src="../scripts/profile.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="../scripts/client-socket.js"></script>
-<script onload="backgroundColor('<%= user.local.profileColor %>');setNickname('<%=user.local.username%>');setUpRoom('<%= user.local.email%>');" src="../scripts/jscolor.js"></script>
+<script onload="backgroundColor('<%= user.local.profileColor %>');setNickname('<%=user.local.username%>');joinRoom('<%= user.local.email%>');" src="../scripts/jscolor.js"></script>
 
 </html>

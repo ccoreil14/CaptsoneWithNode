@@ -40,8 +40,14 @@
         </div>
         <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
             <li class="insidesItem" onclick="minMax('boxYo')">Public</li>
-            <%for (i = 0; i< peopleArray.length; i++) { %>
-                <li class="insidesItem" onclick="minMax('<%= peopleArray[i].local.username%>')">
+           <%for (i = 0; i< peopleArray.length; i++) { %>
+                 <li class="insidesItem" onclick="minMax('<%= peopleArray[i].local.username%>'
+                  <%if(user.local.isTeacher === true){%>
+                      ,'<%=peopleArray[i].local.email%>', '<%= user.local.username%>'); joinRoom('<%=peopleArray[i].local.email%>');
+                  <%}else{%>
+                       ,'<%= user.local.email %>', '<%= user.local.username%>');joinRoom('<%= user.local.email%>');
+                   <%}%>
+                   ">
                     <%= peopleArray[i].local.username %>
                 </li>
                 <% } %>
