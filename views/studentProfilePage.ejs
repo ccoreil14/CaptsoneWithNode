@@ -18,7 +18,6 @@
             <a href="/profile">
                 <%= user.local.username %>
             </a>
-            <!--            <a href="pages/teacherProfilePage.html">Login Teacher</a>-->
             <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('menuInsides')" />
         </div>
         <ul id="menuInsides" class="boxInsides" style="visibility: collapse;">
@@ -42,9 +41,9 @@
         </div>
         <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
             <li class="insidesItem" onclick="minMax('boxYo')">Public</li>
-            <%for (i = 0; i< teacherArray.length; i++) { %>
-                <li class="insidesItem" onclick="minMax('<%= teacherArray[i].local.username %>','<%= user.local.email %>')">
-                    <%= teacherArray[i].local.username %>
+            <%for (i = 0; i< userTeachers.length; i++) { %>
+                <li class="insidesItem" onclick="minMax('<%= userTeachers[i].local.username %>','<%= user.local.email %>')">
+                    <%= userTeachers[i].local.username %>
                 </li>
                 <% } %>
         </ul>
@@ -97,14 +96,14 @@
         <div class="searchBar">Search For Teacher:
             <input id="studentInput" onkeyup="updateTeacherList([
        <%for(i=0; i<teacherArray.length; i++){%>
-       '<%= teacherArray[i]%>',
+       '<%= teacherArray[i].local.email%>',
        <%}%>
        ])" />
         </div>
         <ul id="teacherList">
             <%for(i=0; i<teacherArray.length; i++){%>
                 <form action="/changeTeacher" method="post">
-                    <input name="teacher" value='<%=teacherArray[i]%>' readonly/>
+                    <input name="teacher" value='<%=teacherArray[i].local.email%>' readonly/>
                     <input type="submit" value="Choose Teacher" />
                 </form>
                 <%}%>

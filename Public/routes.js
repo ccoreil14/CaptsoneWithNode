@@ -45,7 +45,7 @@ module.exports = function (app, passport, path, pathYO) {
     }));
 
 
-    app.get('/home', function (req, res) {
+    app.get('/home', isLoggedIn, function (req, res) {
         if (req.user.local.isTeacher === true) {
             User.find({
                 'local.userConnections': req.user.local.email
@@ -80,12 +80,21 @@ module.exports = function (app, passport, path, pathYO) {
         } else {
             User.find({
                 'local.email': req.user.local.userConnections[0]
-            }, function (err, teachers) {
-                res.render('studentProfilePage.ejs', {
-                    user: req.user,
-                    teacherArray: teachers
+            }, function (err, mainTeachers) {
+                User.find({
+                    'local.isTeacher': true
+                }, function (err, teachers) {
+                    res.render('studentProfilePage.ejs', {
+                        user: req.user,
+                        userTeachers: mainTeachers,
+                        teacherArray: teachers
+                    });
                 });
             });
+
+
+
+
         }
     });
 
