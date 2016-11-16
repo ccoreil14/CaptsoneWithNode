@@ -16,9 +16,7 @@ body {
     position: fixed;
 }
 
-#chatBox{
-    position: fixed;
-}
+
 
 /*Areas on the left side of the screen*/
 
@@ -148,11 +146,6 @@ body {
     padding-top: 10px;
 }
 
-#boxYo {
-    position: relative;
-    bottom: 200px;
-    left: 200px;
-}
 
 
 /*Areas on the right side of the screen*/
