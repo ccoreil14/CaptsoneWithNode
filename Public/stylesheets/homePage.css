@@ -31,3 +31,8 @@
 #findClassBox {
     left: 55%;
 }
+
+body{
+    overflow-y: hidden;
+}
+

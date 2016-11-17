@@ -397,12 +397,12 @@
 
  function toggleGlow() {
      if (isGlowing === false) {
-         document.getElementById("toggleGlow").innerText = "Glow Off";
+         document.getElementById("toggleGlow").innerText = "Unhighlight Measurements";
          isGlowing = true;
          radiusLine.visible = true;
 
      } else {
-         document.getElementById("toggleGlow").innerText = "Glow On";
+         document.getElementById("toggleGlow").innerText = "Highlight Measurements";
          isGlowing = false;
          radiusLine.visible = false;
      }
