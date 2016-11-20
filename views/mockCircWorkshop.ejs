@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <title>ShapesList</title>
+    <link rel="stylesheet" href="../stylesheets/main.css">
+    <link rel="stylesheet" href="../stylesheets/workshop.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel='shortcut icon' href="../images/Logo2.png" />
+    <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <img id="logo" src="../images/Logo3.png" />
+    <div class="workshopArea">
+        <div class="side leftSide">
+            <div class="formulaArea">
+                <div class="formula">
+                    <h3>Circumference:<h3 id="CircumferenceAnsr"></h3></h3>
+                    <button onclick="changeDescrip('circumfrence', 0)">How To Calculate</button>
+                    <button onclick="changeDescrip('circumfrence', 1)">Intresting Fact</button>
+                    <button onclick="changeDescrip('circumfrence', 2)">What's it used for</button>
+                </div>
+                <div class="formula">
+                    <h3>Area:<h3 id="CircAreaAnsr"></h3></h3>
+                    <button onclick="changeDescrip('circArea', 0)">How To Calculate</button>
+                    <button onclick="changeDescrip('circArea', 1)">Intresting Fact</button>
+                    <button onclick="changeDescrip('circArea', 2)">What's it used for</button>
+                </div>
+                <div class="formula">
+                    <h3>Shape Color</h3>
+                    <input id="colorInput" class="jscolor" value="000ff0" onchange="updateShape()" readonly/>
+                </div>
+            </div>
+            <div class="playBox"></div>
+        </div>
+        <div class="side rightSide">
+            <div class="shapeInfoBox">
+                <div class="coreMeasuresBox">
+                    <div class="coreMeasure">
+                        <h3>Radius</h3>
+                        <input id="radiusInput" type="number" value="20" onchange="updateShape()" />
+                    </div>
+                </div>
+                <div class="btnArea">
+                    <div class="resetBtn">
+                        <button id="toggleBtn" onclick="toggleDynSizeCircle()">Arrows Off</button>
+                        <button onclick="resetCanvas()">reset shape</button>
+                        <button id="toggleGlow" onclick="toggleGlow()">Highlight Radius</button>
+                        <a href="circumfrenceLesson.html">
+                            <button>Take Lesson</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="descripBox">
+                This is the description block. Click on one of the formula buttons to learn different aspects about the math formula.
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<footer>Site made and owned by Christian F. Coreil</footer>
+<script src="../scripts/main.js"></script>
+<script src="../scripts/three.min.js"></script>
+<script src="../scripts/TrackballControls.js"></script>
+<script src="../scripts/circleTHREE.js"></script>
+<script src="../scripts/workshop.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="../scripts/client-socket.js"></script>
+<script src="../scripts/ButtonActions.js"></script>
+<script src="../scripts/jscolor.js" onload="joinRoom('circWork')"></script>
+
+</html>
