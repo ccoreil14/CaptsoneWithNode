@@ -74,10 +74,21 @@ sio.on('connect', function (socket) {
     socket.on('join', function (data) {
         socket.join(data.email); // We are using room of socket io
     });
-    
-    socket.on('sendRoomMsg', function(data){
-            console.log(data);
-        sio.sockets.in(data.email).emit('new_room_msg', {msg: data.msg, roomId: data.email});
+
+    socket.on('sendRoomMsg', function (data) {
+        //            console.log(data);
+        sio.sockets.in(data.email).emit('new_room_msg', {
+            msg: data.msg,
+            roomId: data.email
+        });
+    });
+
+    socket.on('sendHtml', function (data) {
+        console.log("yo send html");
+         sio.sockets.in(data.email).emit('fillPage', {
+            html: data.html,
+            roomId: data.email
+        });
     });
 });
 

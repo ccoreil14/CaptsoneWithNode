@@ -69,7 +69,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal" id="myModal" >
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -95,6 +95,25 @@
                         <br/>
                         <input type="submit" value="Save Changes" />
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="modal fade" id="studentModal" >
+        <div class="modal-dialog" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button onclick="toggleModal('studentModal')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Other Screen</h4>
+                </div>
+                <div class="modal-body">
+                    <iframe src="/profile" id="siteHtml">
+                        
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -355,7 +374,7 @@
                                                                         alert("Congrats on All A's! You got the Straight A's medal! Next time you refresh, you wil see the medal.");
                                                                     </script>
                                                                     <%}%>
-                                                                        <%}%>
+    <%}%>
 
 </body>
 <footer>Site made and owned by Christian F. Coreil</footer>

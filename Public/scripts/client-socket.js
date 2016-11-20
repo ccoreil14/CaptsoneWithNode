@@ -74,6 +74,21 @@ socket.on("new_room_msg", function (data) {
 
 });
 
+function sharePage(studentEmail){
+    var htmlPage = "<html><h1>Howdy my friend</h1></html>";
+    socket.emit('sendHtml', {
+        email: studentEmail,
+        html: htmlPage
+    });
+}
+
+socket.on("fillPage", function (data){
+    console.log(data);
+    toggleModal('studentModal');
+    $('#siteHtml').append(data.html);
+});
+
+
 $(function () {
     $('#boxYo').hide();
     $("#boxYo").draggable();
