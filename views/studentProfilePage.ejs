@@ -37,7 +37,6 @@
             <a href="/Logout">
                 <button>Logout</button>
             </a>
-            <button onclick="sharePage('<%= user.local.email%>');">SHowpage</button>
             <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('chatBoxInsides')" />
         </div>
         <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
@@ -114,23 +113,7 @@
         </ul>
     </div>
 
-    <div class="modal fade" id="studentModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button onclick="toggleModal('studentModal')">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title">Other Screen</h4>
-                </div>
-                <div class="modal-body">
-                    <iframe id="siteHtml">
 
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="profileBody">
         <div class="examItemListBox">

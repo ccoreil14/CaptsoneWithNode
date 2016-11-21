@@ -72,6 +72,7 @@ sio.on('connect', function (socket) {
     });
 
     socket.on('join', function (data) {
+        //        console.log("joining room: "+data.email);
         socket.join(data.email); // We are using room of socket io
     });
 
@@ -84,12 +85,24 @@ sio.on('connect', function (socket) {
     });
 
     socket.on('sendHtml', function (data) {
-        console.log("yo send html");
-         sio.sockets.in(data.email).emit('fillPage', {
-            html: data.html,
+        socket.join(data.email);
+        //        console.log(data);
+        sio.sockets.in(data.email).emit('fillPage', {
+            dataArray: data.dataArray,
             roomId: data.email
         });
     });
+
+    socket.on('draw', function (params) {
+        sio.emit('draw', params);
+    });
+    
+    //    socket.on('changeData', function (data) {
+    //        console.log("room: " + data.dataArray[3]);
+    //        sio.sockets.in(data.email).emit('changeData', {
+    //            dataArray: data.dataArray
+    //        });
+    //    });
 });
 
 server.listen(port);

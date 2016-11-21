@@ -23,10 +23,7 @@ function backgroundColor(color){
     document.body.style.backgroundColor = "#"+color;
 }
 
-(function go() {
-    $(".modal").hide();
-    
-})();
+
 
 function restoreDefaults(){
     //implment later

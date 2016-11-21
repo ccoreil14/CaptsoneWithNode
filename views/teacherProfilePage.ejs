@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
-<body>
+<body onload="initCanvas()">
     <div id="menu" class="collapseBox">
         <div id="menuHead" class="boxHeader">
             <a href="/profile">
@@ -105,15 +105,15 @@
         <div class="modal-dialog" >
             <div class="modal-content">
                 <div class="modal-header">
-                    <button onclick="toggleModal('studentModal')">
+                    <button onclick="hideModal()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title">Other Screen</h4>
                 </div>
-                <div class="modal-body">
-                    <iframe src="/profile" id="siteHtml">
-                        
-                    </iframe>
+                <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:55%;left:15%;">
+                <canvas class="whiteboard"id="can" width="400" height="400"></canvas>
+                <div id="siteHtml" class="modal-body">
+                   
                 </div>
             </div>
         </div>

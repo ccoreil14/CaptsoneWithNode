@@ -543,8 +543,29 @@ module.exports = function (app, passport, path, pathYO) {
     });
 
 
-
     //sphere stuff
+
+    //mock pages
+
+    app.get('/mockCirc', function (req, res) {
+        res.render('mockCircWorkshop.ejs');
+    });
+
+    app.get('/mockCube', function (req, res) {
+        res.render('mockCubeWorkshop.ejs');
+    });
+
+    app.get('/mockRect', function (req, res) {
+        res.render('mockRectWorkshop.ejs');
+    });
+
+    app.get('/mockSphere', function (req, res) {
+        res.render('mockSphereWorkshop.ejs');
+    });
+
+
+    //mock pages
+
 
     app.get('/logout', function (req, res) {
         req.logout();

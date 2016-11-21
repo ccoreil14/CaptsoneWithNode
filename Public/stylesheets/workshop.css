@@ -12,10 +12,9 @@ body {
     min-width: 1900px;
 }
 
-#menu{
+#menu {
     position: fixed;
 }
-
 
 
 /*Areas on the left side of the screen*/
@@ -145,7 +144,6 @@ body {
     text-align: center;
     padding-top: 10px;
 }
-
 
 
 /*Areas on the right side of the screen*/

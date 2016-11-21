@@ -4,12 +4,13 @@
     <title>ShapesList</title>
     <link rel="stylesheet" href="../stylesheets/main.css">
     <link rel="stylesheet" href="../stylesheets/workshop.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">    <link rel='shortcut icon' href="images/Logo2.png"/ >
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel='shortcut icon' href="images/Logo2.png" />
     <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
-<body>
+<body onload="initCanvas()">
     <div id="menu" class="collapseBox">
         <div id="menuHead" class="boxHeader">
             <a href="/profile">
@@ -35,12 +36,15 @@
             <a href="/Logout">
                 <button>Logout</button>
             </a>
-            <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('chatBoxInsides')" />
+            <% if(user.local.isTeacher === false){%>
+                <button onclick="sharePage('<%= user.local.email%>','cubeWork');">Showpage</button>
+                <%}%>
+                    <img id="menuArrow" class="arrow" src="../../images/arrow.png" onclick="toggleMenu('chatBoxInsides')" />
         </div>
         <ul id="chatBoxInsides" class="boxInsides" style="visibility: collapse;">
             <li class="insidesItem" onclick="minMax('boxYo')">Public</li>
             <%for (i = 0; i< peopleArray.length; i++) { %>
-                 <li class="insidesItem" onclick="minMax('<%= peopleArray[i].local.username%>'
+                <li class="insidesItem" onclick="minMax('<%= peopleArray[i].local.username%>'
                   <%if(user.local.isTeacher === true){%>
                       ,'<%=peopleArray[i].local.email%>', '<%= user.local.username%>'); joinRoom('<%=peopleArray[i].local.email%>');
                   <%}else{%>
@@ -66,6 +70,24 @@
             </form>
         </div>
     </div>
+    <div class="modal fade" id="studentModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button onclick="hideModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Other Screen</h4>
+                </div>
+                <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:55%;left:15%;">
+                <canvas class="whiteboard"id="can" width="400" height="400"></canvas>
+                <div id="siteHtml" class="modal-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="workshopArea">
         <div class="side leftSide">
             <div class="formulaArea">
@@ -121,7 +143,7 @@
         </div>
 
     </div>
-    
+
 
     <% if (user.local.userMedals.medal2 === false) { %>
         <%= user.local.userMedals.medal2 = true %>
