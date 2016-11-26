@@ -226,6 +226,7 @@
                      radiusLine.position.x = 0.5;
                  }
              }
+             console.log(mainObj.scale.x);
              updateInputs();
              updateFormulas();
          }
@@ -363,11 +364,23 @@
      mainObj.material.color.setHex('0x' + sphereColor);
      scene.add(mainObj);
 
+
+
+
      for (i = 0; i < 1; i++) {
+
          if (i === 0) {
              arrow2X = arrows[i].position.x = (diameter) + 20;
          }
      }
+
+     console.log(radius);
+     mainObj.scale.x = (diameter)/ (spacing);
+     mainObj.scale.y = (diameter)/ (spacing);
+     mainObj.scale.z = (diameter)/ (spacing);
+
+
+
      updateGLines()
      updateFormulas();
  }

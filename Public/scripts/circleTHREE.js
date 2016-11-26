@@ -75,6 +75,8 @@
      controls.noPan = true;
      controls.staticMoving = true;
      controls.dynamicDampingFactor = 0.3;
+     controls.minDistance = 10;
+     controls.maxDistance = 10000;
 
      scene = new THREE.Scene();
 
