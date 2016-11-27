@@ -16,6 +16,10 @@ body {
     position: fixed;
 }
 
+#chatbox{
+    position: fixed;
+}
+
 
 /*Areas on the left side of the screen*/
 
@@ -94,15 +98,18 @@ body {
 }
 
 .gInput {
-    background: #00B700;
+    border-color: #00B700;
+    border-width: 4px;
 }
 
 .bInput {
-    background: #4C4CFF;
+    border-color: #4C4CFF;
+    border-width: 4px;
 }
 
 .rInput {
-    background: #FF0000;
+    border-color: #FF0000;
+    border-width: 4px;
 }
 
 

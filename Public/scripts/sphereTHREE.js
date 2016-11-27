@@ -130,7 +130,7 @@
 
 
 
-     lineGeometry = new THREE.CylinderGeometry(0.1, 0.1, 100000);
+     lineGeometry = new THREE.CylinderGeometry(0.5, 0.5, 100000);
      lineMaterial = new THREE.LineBasicMaterial({
          color: 0xffffff,
          transparent: true,
@@ -210,7 +210,7 @@
                  console.log("x");
                  SELECTED.position.y = 0;
                  SELECTED.position.z = 0;
-                 var spacing = (SELECTED.position.x - 41);
+                 var spacing = (SELECTED.position.x - 40);
                  mainObj.scale.x = spacing / (diameter / 2);
                  mainObj.scale.y = spacing / (diameter / 2);
                  mainObj.scale.z = spacing / (diameter / 2);
@@ -226,7 +226,7 @@
                      radiusLine.position.x = 0.5;
                  }
              }
-             console.log(mainObj.scale.x);
+//             console.log(mainObj.scale.x);
              updateInputs();
              updateFormulas();
          }
@@ -374,10 +374,8 @@
          }
      }
 
-     console.log(radius);
-     mainObj.scale.x = (diameter)/ (spacing);
-     mainObj.scale.y = (diameter)/ (spacing);
-     mainObj.scale.z = (diameter)/ (spacing);
+//     console.log(radius);
+    
 
 
 
