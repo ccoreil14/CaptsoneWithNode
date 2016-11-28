@@ -120,7 +120,6 @@ a {
 }
 
 
-
 /*dropdown header*/
 
 .boxHeader {
@@ -239,13 +238,23 @@ a {
 .chatBox {
     width: 400px;
     top: 30px;
-    box-shadow: 5px 5px 5px #888888;
+    box-shadow: 5px 5px 5px black;
     position: absolute;
+    z-index: 2000;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
 }
 
-#messages {
-    max-height: 200px;
+.chatBox h4 {
+    font-size: 30px;
+    margin: 10px;
+}
+
+.chatbox ul {
+    max-height: 150px;
     overflow-y: scroll;
+    background-color: lightgray;
 }
 
 .list-group-item {
@@ -265,9 +274,8 @@ a {
     opacity: 0.5;
 }
 
-#clr{
-    position:relative !important;
+#clr {
+    position: relative !important;
     top: 0px !important;
     left: 0px !important;
-    
 }

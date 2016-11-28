@@ -69,7 +69,7 @@
         </div>
     </div>
 
-    <div class="modal" id="myModal" >
+    <div class="modal" id="myModal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -89,18 +89,20 @@
                         <br/> New Profile Pic Link:
                         <input type="text" id="newPic" name="newPic" value='<%= user.local.profilePic  %>' />
                         <br/> New Bio:
-                        <textarea name="newBio" maxlength="250"><%= user.local.profileBio  %></textarea>
-                        <br/> 
+                        <textarea name="newBio" maxlength="250">
+                            <%= user.local.profileBio  %>
+                        </textarea>
+                        <br/>
                         <input type="submit" value="Save Changes" />
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    
-    
-    <div class="modal fade" id="studentModal" >
-        <div class="modal-dialog" >
+
+
+    <div class="modal fade" id="studentModal">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button onclick="hideModal()">
@@ -109,9 +111,9 @@
                     <h4 class="modal-title">Other Screen</h4>
                 </div>
                 <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:55%;left:15%;">
-                <canvas class="whiteboard"id="can" width="400" height="400"></canvas>
+                <canvas class="whiteboard" id="can" width="400" height="400"></canvas>
                 <div id="siteHtml" class="modal-body">
-                   
+
                 </div>
             </div>
         </div>
@@ -125,23 +127,23 @@
                     <% if(user.local.userExams.rectExam > 7){ %>
                         <div class="gradeDiv green">
                             <%=user.local.userExams.rectExam %>/10</div>
-                         
+
                         <%} else if(user.local.userExams.rectExam > 4) {%>
                             <div class="gradeDiv yellow">
                                 <%=user.local.userExams.rectExam %>/10</div>
-                             
+
                             <%} else if(user.local.userExams.rectExam > 0) {%>
                                 <div class="gradeDiv red">
                                     <%=user.local.userExams.rectExam %>/10</div>
-                                 
+
                                 <%} else if(user.local.userExams.rectExam === 0) {%>
                                     <div class="gradeDiv black">
                                         <%=user.local.userExams.rectExam %>/10</div>
-                                     
+
                                     <%} else if(user.local.userExams.rectExam < 0) {%>
                                         <div class="gradeDiv grey">
                                             <%=user.local.userExams.rectExam %>/10</div>
-                                         
+
                                         <% }%>
                 </li>
                 <li class="examItem">
@@ -149,23 +151,23 @@
                     <% if(user.local.userExams.circExam > 7){ %>
                         <div class="gradeDiv green">
                             <%=user.local.userExams.circExam %>/10</div>
-                         
+
                         <%} else if(user.local.userExams.circExam > 4) {%>
                             <div class="gradeDiv yellow">
                                 <%=user.local.userExams.circExam %>/10</div>
-                             
+
                             <%} else if(user.local.userExams.circExam > 0) {%>
                                 <div class="gradeDiv red">
                                     <%=user.local.userExams.circExam %>/10</div>
-                                 
+
                                 <%} else if(user.local.userExams.circExam === 0) {%>
                                     <div class="gradeDiv black">
                                         <%=user.local.userExams.circExam %>/10</div>
-                                     
+
                                     <%} else if(user.local.userExams.circExam < 0) {%>
                                         <div class="gradeDiv grey">
                                             <%=user.local.userExams.circExam %>/10</div>
-                                         
+
                                         <% }%>
                 </li>
                 <li class="examItem">
@@ -173,23 +175,23 @@
                     <% if(user.local.userExams.prismExam > 7){ %>
                         <div class="gradeDiv green">
                             <%=user.local.userExams.prismExam %>/10</div>
-                         
+
                         <%} else if(user.local.userExams.prismExam > 4) {%>
                             <div class="gradeDiv yellow">
                                 <%=user.local.userExams.prismExam %>/10</div>
-                             
+
                             <%} else if(user.local.userExams.prismExam > 0) {%>
                                 <div class="gradeDiv red">
                                     <%=user.local.userExams.prismExam %>/10</div>
-                                 
+
                                 <%} else if(user.local.userExams.prismExam === 0) {%>
                                     <div class="gradeDiv black">
                                         <%=user.local.userExams.prismExam %>/10</div>
-                                     
+
                                     <%} else if(user.local.userExams.prismExam < 0) {%>
                                         <div class="gradeDiv grey">
                                             <%=user.local.userExams.prismExam %>/10</div>
-                                         
+
                                         <% }%>
                 </li>
                 <li class="examItem">
@@ -197,23 +199,23 @@
                     <% if(user.local.userExams.sphereExam > 7){ %>
                         <div class="gradeDiv green">
                             <%=user.local.userExams.sphereExam %>/10</div>
-                         
+
                         <%} else if(user.local.userExams.sphereExam > 4) {%>
                             <div class="gradeDiv yellow">
                                 <%=user.local.userExams.sphereExam %>/10</div>
-                             
+
                             <%} else if(user.local.userExams.sphereExam > 0) {%>
                                 <div class="gradeDiv red">
                                     <%=user.local.userExams.sphereExam %>/10</div>
-                                 
+
                                 <%} else if(user.local.userExams.sphereExam === 0) {%>
                                     <div class="gradeDiv black">
                                         <%=user.local.userExams.sphereExam %>/10</div>
-                                     
+
                                     <%} else if(user.local.userExams.sphereExam < 0) {%>
                                         <div class="gradeDiv grey">
                                             <%=user.local.userExams.sphereExam %>/10</div>
-                                         
+
                                         <% }%>
                 </li>
             </ul>
@@ -224,28 +226,28 @@
                     <li class="studentsItem">
                         <h4><%= studentArray[i].local.username %></h4>
                         <%if(studentArray[i].local.userExams.rectExam === -1) {%>
-                                <h5>RectTest: Not Started</h5>
-                                <% } else { %>
-                                    <h5>RectTest: <%= studentArray[i].local.userExams.rectExam %>/10 </h5>
-                                    <% } %>
+                            <h5>RectTest: Not Started</h5>
+                            <% } else { %>
+                                <h5>RectTest: <%= studentArray[i].local.userExams.rectExam %>/10 </h5>
+                                <% } %>
 
-                                        <%if(studentArray[i].local.userExams.circExam === -1) {%>
-                                            <h5>CircTest: Not Started</h5>
-                                            <% } else { %>
-                                                <h5>CircTest: <%= studentArray[i].local.userExams.circExam %>/10 </h5>
-                                                <% } %>
+                                    <%if(studentArray[i].local.userExams.circExam === -1) {%>
+                                        <h5>CircTest: Not Started</h5>
+                                        <% } else { %>
+                                            <h5>CircTest: <%= studentArray[i].local.userExams.circExam %>/10 </h5>
+                                            <% } %>
 
-                                                    <%if(studentArray[i].local.userExams.prismExam === -1) {%>
-                                                        <h5>PrismTest: Not Started</h5>
-                                                        <% } else { %>
-                                                            <h5>PrismTest: <%= studentArray[i].local.userExams.prismExam %>/10 </h5>
-                                                            <% } %>
+                                                <%if(studentArray[i].local.userExams.prismExam === -1) {%>
+                                                    <h5>PrismTest: Not Started</h5>
+                                                    <% } else { %>
+                                                        <h5>PrismTest: <%= studentArray[i].local.userExams.prismExam %>/10 </h5>
+                                                        <% } %>
 
-                                                                <%if(studentArray[i].local.userExams.sphereExam === -1) {%>
-                                                                    <h5>SphereTest: Not Started</h5>
-                                                                    <% } else { %>
-                                                                        <h5>SphereTest: <%= studentArray[i].local.userExams.sphereExam %>/10 </h5>
-                                                                        <% } %>
+                                                            <%if(studentArray[i].local.userExams.sphereExam === -1) {%>
+                                                                <h5>SphereTest: Not Started</h5>
+                                                                <% } else { %>
+                                                                    <h5>SphereTest: <%= studentArray[i].local.userExams.sphereExam %>/10 </h5>
+                                                                    <% } %>
                     </li>
                     <% } %>
             </ul>
@@ -260,7 +262,9 @@
                     </div>
                 </div>
                 <div class="infoBoxBottomRow">
-                    <textarea class="bio" maxlength="250" readonly><%= user.local.profileBio %></textarea>
+                    <textarea class="bio" maxlength="250" readonly>
+                        <%= user.local.profileBio %>
+                    </textarea>
                     <div class="colorAndSave">
                         <button onclick="toggleModal('myModal')">
                             Edit Profile
@@ -273,12 +277,11 @@
                     <% if (user.local.userMedals.medal1 === false) { %>
                         <%= user.local.userMedals.medal1 = true %>
                             <% user.save(); %>
-                                <script>
-                                    alert("You got the 'Make Account' Medal");
-                                </script>
-                                <%}%>
-                                    <img class="medal unlocked" src="../../images/Logo1.png" />
-                                    <div class="medalName">Make Account</div>
+                                <% window.location.replace("/profile");%>
+
+                                    <%}%>
+                                        <img class="medal unlocked" src="../../images/Logo1.png" />
+                                        <div class="medalName">Make Account</div>
                 </div>
                 <div class="medalAndName">
                     <% if (user.local.userMedals.medal2 === true) {%>
@@ -348,31 +351,27 @@
         <%if (user.local.userExams.rectExam > 6 || user.local.userExams.circExam > 6 || user.local.userExams.prismExam > 6 || user.local.userExams.sphereExam > 6  ){%>
             <%= user.local.userMedals.medal4 = true %>
                 <% user.save(); %>
-                    <script>
-                        alert("Congrats on your first passing grade! You got the passing medal! Next time you refresh, you wil see the medal.");
-                    </script>
-                    <%}%>
+                    <% window.location.replace("/profile");%>
+
                         <%}%>
+                            <%}%>
 
-                            <% if (user.local.userMedals.medal6 === false) { %>
-                                <%if (user.local.userExams.rectExam === 10 || user.local.userExams.circExam === 10 || user.local.userExams.prismExam === 10 || user.local.userExams.sphereExam === 10  ){%>
-                                    <%= user.local.userMedals.medal6 = true %>
-                                        <% user.save(); %>
-                                            <script>
-                                                alert("Congrats on your first Perfect grade! You got the perfect medal! Next time you refresh, you wil see the medal.");
-                                            </script>
-                                            <%}%>
-                                                <%}%>
+                                <% if (user.local.userMedals.medal6 === false) { %>
+                                    <%if (user.local.userExams.rectExam === 10 || user.local.userExams.circExam === 10 || user.local.userExams.prismExam === 10 || user.local.userExams.sphereExam === 10  ){%>
+                                        <%= user.local.userMedals.medal6 = true %>
+                                            <% user.save(); %>
+                                                <% window.location.replace("/profile");%>
 
-                                                    <% if (user.local.userMedals.medal8 === false) { %>
-                                                        <%if (user.local.userExams.rectExam > 9 && user.local.userExams.circExam > 9 || user.local.userExams.prismExam > 9 || user.local.userExams.sphereExam > 9  ){%>
-                                                            <%= user.local.userMedals.medal8 = true %>
-                                                                <% user.save(); %>
-                                                                    <script>
-                                                                        alert("Congrats on All A's! You got the Straight A's medal! Next time you refresh, you wil see the medal.");
-                                                                    </script>
-                                                                    <%}%>
-    <%}%>
+                                                    <%}%>
+                                                        <%}%>
+
+                                                            <% if (user.local.userMedals.medal8 === false) { %>
+                                                                <%if (user.local.userExams.rectExam > 9 && user.local.userExams.circExam > 9 || user.local.userExams.prismExam > 9 || user.local.userExams.sphereExam > 9  ){%>
+                                                                    <%= user.local.userMedals.medal8 = true %>
+                                                                        <% user.save(); %>
+                                                                            <% window.location.replace("/profile");%>
+                                                                                <%}%>
+                                                                                    <%}%>
 
 </body>
 <footer>Site made and owned by Christian F. Coreil</footer>

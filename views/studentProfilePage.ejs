@@ -241,9 +241,7 @@
                     <% if (user.local.userMedals.medal1 === false) { %>
                         <%= user.local.userMedals.medal1 = true %>
                             <% user.save(); %>
-                                <script>
-                                    alert("You got the 'Make Account' Medal");
-                                </script>
+                                
                                 <%}%>
                                     <img class="medal unlocked" src="../../images/Logo1.png" />
 
@@ -318,9 +316,7 @@
         <%if (user.local.userExams.rectExam > 6 || user.local.userExams.circExam > 6 || user.local.userExams.prismExam > 6 || user.local.userExams.sphereExam > 6  ){%>
             <%= user.local.userMedals.medal4 = true %>
                 <% user.save(); %>
-                    <script>
-                        alert("Congrats on your first passing grade! You got the passing medal! Next time you refresh, you wil see the medal.");
-                    </script>
+                   
                     <%}%>
                         <%}%>
 
@@ -328,9 +324,7 @@
                                 <%if (user.local.userExams.rectExam === 10 || user.local.userExams.circExam === 10 || user.local.userExams.prismExam === 10 || user.local.userExams.sphereExam === 10  ){%>
                                     <%= user.local.userMedals.medal6 = true %>
                                         <% user.save(); %>
-                                            <script>
-                                                alert("Congrats on your first Perfect grade! You got the perfect medal! Next time you refresh, you wil see the medal.");
-                                            </script>
+                                           
                                             <%}%>
                                                 <%}%>
 
@@ -338,9 +332,7 @@
                                                         <%if (user.local.userExams.rectExam > 9 && user.local.userExams.circExam > 9 || user.local.userExams.prismExam > 9 || user.local.userExams.sphereExam > 9  ){%>
                                                             <%= user.local.userMedals.medal8 = true %>
                                                                 <% user.save(); %>
-                                                                    <script>
-                                                                        alert("Congrats on All A's! You got the Straight A's medal! Next time you refresh, you wil see the medal.");
-                                                                    </script>
+                                                                    
                                                                     <%}%>
                                                                         <%}%>
 

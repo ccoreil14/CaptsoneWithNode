@@ -36,7 +36,7 @@ String.prototype.replaceAll = function (str1, str2, ignore) {
     return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof (str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2);
 }
 
-function minMax(theId ,studentEmail, username) {
+function minMax(theId, studentEmail, username) {
     var id = theId.replaceAll(' ', '_');
     try {
         console.log("toggle: " + id);
@@ -45,7 +45,12 @@ function minMax(theId ,studentEmail, username) {
     } catch (err) {
         var emailId = studentEmail.replace('@', '');
         emailId = emailId.replace('.', '');
-        $("#chatBoxArea").append("<div id='" + id + "' class='chatBox ui-widget-content '><h4>"+theId+"</h4> <ul id='messages" + emailId + "'></ul> <form action='' class='clientText' onsubmit='return false;'><div class='input-group'> <input id='textWindow" + emailId + "' class='form-control' autocomplete='off' /> <div class='input-group-btn'><button id='btnSub' type='button' onclick=\"sendRoomMessage('" + studentEmail + "' , ' " + id + " ', '" + username + "' )\" class='btn btn-default'>Send</button> </div> </div> </form> </div>");
+        var newChatBox = $("<div id='" + id + "' class='chatBox ui-widget-content '><button onclick=\"(minMax('" + id + "','"+studentEmail+"','"+username+"'))\">X</button><h4>" + theId + "</h4> <ul id='messages" + emailId + "'></ul> <form action='' class='clientText' onsubmit='return false;'><div class='input-group'> <input id='textWindow" + emailId + "' class='form-control' autocomplete='off' /> <div class='input-group-btn'><button id='btnSub' type='button' onclick=\"sendRoomMessage('" + studentEmail + "' , ' " + id + " ', '" + username + "' )\" class='btn btn-default'>Send</button> </div> </div> </form> </div>");
+        newChatBox.css({
+            top: 150,
+            left: 200
+        });
+        $("#chatBoxArea").append(newChatBox);
         $("#" + id).draggable();
     }
 }
