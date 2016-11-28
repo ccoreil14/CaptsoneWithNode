@@ -1,16 +1,33 @@
 var shapeOffsetX = 363;
 var shapeOffsetY = 380;
+var menuOpen = false;
+var chatOpen = false;
 
 function toggleMenu(boxInsidesId) {
-    var dropdown = document.getElementById(boxInsidesId);
-    if (dropdown.style.visibility === 'collapse') {
-        console.log("visible " + boxInsidesId);
-        dropdown.style.visibility = 'visible';
-    } else {
-        dropdown.style.visibility = 'collapse';
+    //    var dropdown = document.getElementById(boxInsidesId);
+    //    if (dropdown.style.visibility === 'collapse') {
+    //        dropdown.style.visibility = 'visible';
+    //    } else {
+    //        dropdown.style.visibility = 'collapse';
+    //    }
+
+    $('#' + boxInsidesId).toggleClass('boxInsidesOut');
+    var insides = document.getElementById(boxInsidesId).getElementsByClassName('insidesItem');
+    $(insides[0]).fadeToggle();
+    $(insides[1]).fadeToggle();
+    $(insides[2]).fadeToggle();
+
+    var arrows = document.getElementsByClassName('arrow');
+    
+    if(boxInsidesId === "menuInsides"){
+    $("#menuHead .arrow").toggleClass('arrowRotated');
+    }else{
+        $("#chatBoxHead .arrow").toggleClass('arrowRotated');
     }
 
+    
 }
+
 
 
 
@@ -72,7 +89,7 @@ function scrollDown(id) {
 
 
 
-function hideModal(){
+function hideModal() {
     $('#studentModal').hide();
 }
 

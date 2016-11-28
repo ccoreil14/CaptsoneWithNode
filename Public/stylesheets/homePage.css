@@ -32,11 +32,17 @@
     right: 55%;
 }
 
+#listBox img{
+    width: 140px;
+}
+
 #findClassBox {
     left: 55%;
 }
 
 body{
     overflow-y: hidden;
+    background-color: #778899; //D3D3D3 
+    color: white;
 }
 
