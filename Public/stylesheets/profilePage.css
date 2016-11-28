@@ -33,16 +33,19 @@
     /*    overflow-y: scroll;*/
     height: 100%;
     margin-top: 0px;
+    
 }
 
 .examItem {
     list-style-type: none;
     width: 87%;
-    height: 130px;
+    height: 150px;
     background-color: white;
     color: black;
     margin-top: 7%;
     margin-left: 20px;
+    background-color: lightgrey;
+    border-radius: 10px;
 }
 
 .examItem h4 {
@@ -159,10 +162,11 @@
     width: 300px;
 }
 
-.modal h4{
+.modal h4 {
     margin: auto;
     margin-top: 10px;
 }
+
 
 /*Info Box Top Row*/
 
@@ -220,7 +224,7 @@
 
 .medalListBox {
     margin-left: auto;
-    height: 40%;
+    height: 45%;
     width: 99.9%;
     overflow-y: scroll;
     top: 14px;

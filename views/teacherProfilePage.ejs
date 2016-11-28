@@ -89,9 +89,7 @@
                         <br/> New Profile Pic Link:
                         <input type="text" id="newPic" name="newPic" value='<%= user.local.profilePic  %>' />
                         <br/> New Bio:
-                        <textarea name="newBio" maxlength="250">
-                            <%= user.local.profileBio  %>
-                        </textarea>
+                        <textarea name="newBio" maxlength="250"><%= user.local.profileBio  %></textarea>
                         <br/>
                         <input type="submit" value="Save Changes" />
                     </form>

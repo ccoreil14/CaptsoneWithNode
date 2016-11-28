@@ -13,22 +13,26 @@
 }
 
 .studentsItemList {
-    height: 90%;
+    height: 655px;
     margin-top: 15px;
     overflow-y: scroll;
     overflow-x: hidden;
 /*    border: 2px solid black;*/
-    padding: 0px;
+/*        background-color: #ffffff;*/
+    padding: 6px;
 }
 
 .studentsItem {
     list-style-type: none;
 /*    width: 93%;*/
     padding-left: 10px;
-    background-color: white;
+    background-color: lightgrey;
     color: black;
     margin-bottom: 5px;
     margin-top: 0px;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 
 }
 
