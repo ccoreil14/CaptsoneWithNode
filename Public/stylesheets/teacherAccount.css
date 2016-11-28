@@ -13,18 +13,22 @@
 }
 
 .studentsItemList {
-    padding-left: 0px;
-    height: 99.5%;
-    margin-top: 0px;
+    height: 90%;
+    margin-top: 15px;
     overflow-y: scroll;
-    border: 2px solid gray;
+    overflow-x: hidden;
+/*    border: 2px solid black;*/
+    padding: 0px;
 }
 
 .studentsItem {
     list-style-type: none;
-    width: 93%;
+/*    width: 93%;*/
     padding-left: 10px;
-    border-bottom: 2px solid gray;
+    background-color: white;
+    color: black;
+    margin-bottom: 5px;
+    margin-top: 0px;
 
 }
 
@@ -32,4 +36,17 @@
     margin-top: 10px;
     margin-left: 20px;
     font-size: 20px;
+}
+
+
+
+.medalListBox{
+    height: 50% !important;
+    display: block;
+}
+
+.gradeDiv {
+    height: 30%;
+    width: 50px;
+    padding-top: 5px;
 }

@@ -36,7 +36,7 @@ String.prototype.replaceAll = function (str1, str2, ignore) {
     return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof (str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2);
 }
 
-function minMax(theId, studentEmail, username) {
+function minMax(theId ,studentEmail, username) {
     var id = theId.replaceAll(' ', '_');
     try {
         console.log("toggle: " + id);
@@ -45,7 +45,7 @@ function minMax(theId, studentEmail, username) {
     } catch (err) {
         var emailId = studentEmail.replace('@', '');
         emailId = emailId.replace('.', '');
-        $("#chatBoxArea").append("<div id='" + id + "' class='chatBox ui-widget-content '> <ul id='messages" + emailId + "'></ul> <form action='' class='clientText' onsubmit='return false;'><div class='input-group'> <input id='textWindow" + emailId + "' class='form-control' autocomplete='off' /> <div class='input-group-btn'><button id='btnSub' type='button' onclick=\"sendRoomMessage('" + studentEmail + "' , ' " + id + " ', '" + username + "' )\" class='btn btn-default'>Send</button> </div> </div> </form> </div>");
+        $("#chatBoxArea").append("<div id='" + id + "' class='chatBox ui-widget-content '><h4>"+theId+"</h4> <ul id='messages" + emailId + "'></ul> <form action='' class='clientText' onsubmit='return false;'><div class='input-group'> <input id='textWindow" + emailId + "' class='form-control' autocomplete='off' /> <div class='input-group-btn'><button id='btnSub' type='button' onclick=\"sendRoomMessage('" + studentEmail + "' , ' " + id + " ', '" + username + "' )\" class='btn btn-default'>Send</button> </div> </div> </form> </div>");
         $("#" + id).draggable();
     }
 }
@@ -91,7 +91,7 @@ function sharePage(studentEmail, mockPageType) {
 
     }
 
-//    joinRoom(studentEmail);
+    //    joinRoom(studentEmail);
     socket.emit('sendHtml', {
         email: studentEmail,
         dataArray: dataArray
@@ -122,10 +122,10 @@ socket.on("fillPage", function (data) {
     }
 
     $('#studentModal').show();
-//    socket.emit("changeData", {
-//        email: data.email,
-//        dataArray: data.dataArray
-//    });
+    //    socket.emit("changeData", {
+    //        email: data.email,
+    //        dataArray: data.dataArray
+    //    });
 });
 
 //socket.on("changeData", function (data) {
@@ -153,35 +153,35 @@ socket.on("fillPage", function (data) {
 
 
 
-  function isDrawing() {
-      socket.emit("draw", canvasInfo);
-  };
+function isDrawing() {
+    socket.emit("draw", canvasInfo);
+};
 
-  socket.on("draw", function (params) {
-//      console.log(params);
-      ctx.fillRect(params[2], params[4], 4, 4);
-      if (params[6] === 'down') {
-          if (params[5]) {
-              ctx.beginPath();
-              ctx.fillStyle = 'black';
-              ctx.fillRect(params[2], params[4], 4, 4);
-              ctx.closePath();
-              dot_flag = false;
-          }
-      }
-      if (params[6] === 'up' || params[6] === "out") {
-          flag = false;
-      }
-      if (params[6] === 'move') {
-          if (params[0]) {
-              prevX = canvasInfo[1];
-              prevY = canvasInfo[3];
-              currY = canvasInfo[4];
-              currX = canvasInfo[2];
-              draw();
-          }
-      }
-  });
+socket.on("draw", function (params) {
+    //      console.log(params);
+    ctx.fillRect(params[2], params[4], 4, 4);
+    if (params[6] === 'down') {
+        if (params[5]) {
+            ctx.beginPath();
+            ctx.fillStyle = 'black';
+            ctx.fillRect(params[2], params[4], 4, 4);
+            ctx.closePath();
+            dot_flag = false;
+        }
+    }
+    if (params[6] === 'up' || params[6] === "out") {
+        flag = false;
+    }
+    if (params[6] === 'move') {
+        if (params[0]) {
+            prevX = canvasInfo[1];
+            prevY = canvasInfo[3];
+            currY = canvasInfo[4];
+            currX = canvasInfo[2];
+            draw();
+        }
+    }
+});
 
 
 

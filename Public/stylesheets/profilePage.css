@@ -7,20 +7,9 @@
     margin-top: 100px;
 }
 
-#teacherList {
-    background: white;
-    border: 1px solid black;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 30px;
-    height: 300px;
-    overflow-y: scroll;
-}
-
 .profileBody {
     background-color: #283C92;
-    background-color: #283C92;
+    border: 2px solid black;
     height: 75%;
     margin-top: 20px;
     max-width: 1200px;
@@ -48,8 +37,12 @@
 
 .examItem {
     list-style-type: none;
-    width: 99%;
-    height: 170px;
+    width: 87%;
+    height: 130px;
+    background-color: white;
+    color: black;
+    margin-top: 7%;
+    margin-left: 20px;
 }
 
 .examItem h4 {
@@ -60,15 +53,35 @@
     float: left;
     margin: 0;
     margin-top: 40px;
-    margin-left: 5px;
+    margin-left: 20px;
 }
 
 .gradeDiv {
     height: 50%;
     width: 50px;
     margin-top: 30px;
-    float: left;
+    float: right;
     margin-left: 5px;
+    margin-right: 40px;
+    color: white;
+    text-align: center;
+    padding-top: 9%;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+}
+
+#teacherList {
+    background: white;
+    border: 1px solid black;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    height: 300px;
+    overflow-y: scroll;
 }
 
 .green {
@@ -146,6 +159,10 @@
     width: 300px;
 }
 
+.modal h4{
+    margin: auto;
+    margin-top: 10px;
+}
 
 /*Info Box Top Row*/
 
@@ -203,9 +220,11 @@
 
 .medalListBox {
     margin-left: auto;
-    height: 54%;
+    height: 40%;
     width: 99.9%;
     overflow-y: scroll;
+    top: 14px;
+    position: relative;
 }
 
 .medalAndName {

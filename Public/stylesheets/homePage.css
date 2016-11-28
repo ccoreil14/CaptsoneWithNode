@@ -15,24 +15,30 @@
     height: 350px;
     max-width: 600px;
     width: 40%;
-/*    border: 1px solid black;*/
+    /*    border: 1px solid black;*/
     display: inline-block;
     position: absolute;
     bottom: 80px;
     background: #283C92;
     text-align: center;
-    font-size: 35px;
+    font-size: 27px;
 }
 
-.linkSquare:hover{
-    box-shadow: 3px 3px 5px rgba(0,0,0, 0.5);
+.linkSquare h1 {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.linkSquare:hover {
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    filter: brightness(120%);
 }
 
 #listBox {
     right: 55%;
 }
 
-#listBox img{
+#listBox img {
     width: 140px;
 }
 
@@ -40,9 +46,8 @@
     left: 55%;
 }
 
-body{
+body {
     overflow-y: hidden;
     background-color: #778899; //D3D3D3 
     color: white;
 }
-

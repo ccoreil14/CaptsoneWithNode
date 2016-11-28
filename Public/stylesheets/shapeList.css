@@ -6,6 +6,7 @@
     position: absolute;
     margin-top: 80px;
     background: #283C92;
+    overflow-y: scroll;
 }
 
 #twoD {
@@ -44,9 +45,16 @@ h1 {
 
 .shapeImg {
     width: 100px;
+    -webkit-transition: all 15s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.shapeImg:hover {
+    transform: rotate(360deg); 
 }
 
 .shapeName {
     text-align: center;
 }
-
